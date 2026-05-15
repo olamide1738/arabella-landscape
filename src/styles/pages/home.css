@@ -1,0 +1,323 @@
+/* ============================================================
+   Homepage Styles
+   ============================================================ */
+
+/* ── Hero ── */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.hero__bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.hero__bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 78, 48, 0.55) 0%,
+    rgba(0, 78, 48, 0.7) 50%,
+    rgba(0, 78, 48, 0.85) 100%
+  );
+}
+
+.hero__content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  max-width: 900px;
+  padding: 0 var(--gutter);
+}
+
+.hero__label {
+  color: var(--lime-energy);
+}
+
+.hero__title {
+  font-family: var(--font-display);
+  font-size: var(--display-xl-size);
+  font-weight: var(--display-xl-weight);
+  line-height: var(--display-xl-line-height);
+  letter-spacing: var(--display-xl-letter-spacing);
+  color: var(--pure-white);
+  margin-top: 1rem;
+}
+
+.hero__subtitle {
+  font-family: var(--font-body);
+  font-size: var(--body-lg-size);
+  color: rgba(255, 255, 255, 0.85);
+  max-width: 600px;
+  margin: 1.5rem auto 0;
+  line-height: 1.6;
+}
+
+.hero__actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 2.5rem;
+  flex-wrap: wrap;
+}
+
+.hero__scroll-indicator {
+  position: absolute;
+  bottom: 2.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.hero__scroll-indicator .mouse {
+  width: 24px;
+  height: 38px;
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  border-radius: 12px;
+  position: relative;
+}
+
+.hero__scroll-indicator .mouse::after {
+  content: '';
+  position: absolute;
+  top: 6px;
+  left: 50%;
+  width: 4px;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 2px;
+  transform: translateX(-50%);
+  animation: float 2s ease-in-out infinite;
+}
+
+/* ── About Snippet ── */
+.about-snippet {
+  background-color: var(--warm-cream);
+}
+
+.about-snippet__inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.about-snippet__image {
+  border-radius: var(--rounded-xl);
+  overflow: hidden;
+}
+
+.about-snippet__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  aspect-ratio: 4/3;
+}
+
+.about-snippet__content .headline-md {
+  margin-bottom: 1.25rem;
+}
+
+.about-snippet__content .body-lg {
+  color: var(--on-surface-variant);
+  margin-bottom: 2rem;
+}
+
+/* ── Services Overview ── */
+.services-overview__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+
+/* ── Featured Projects ── */
+.featured-projects {
+  background-color: var(--forest-depth);
+  color: var(--pure-white);
+}
+
+.featured-projects .section-label {
+  color: var(--lime-energy);
+}
+
+.featured-projects .headline-lg {
+  color: var(--pure-white);
+  margin-bottom: 3rem;
+}
+
+.featured-projects__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.featured-projects__grid .portfolio-item {
+  aspect-ratio: 4/3;
+}
+
+.featured-projects__cta {
+  text-align: center;
+  margin-top: 3rem;
+}
+
+/* ── Why Choose ── */
+.why-choose__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3rem;
+  margin-top: 3rem;
+}
+
+.why-choose__item {
+  text-align: center;
+  padding: 2rem;
+}
+
+.why-choose__icon {
+  width: 72px;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, rgba(0, 179, 73, 0.1), rgba(215, 223, 54, 0.1));
+  border-radius: var(--rounded-lg);
+  margin: 0 auto 1.5rem;
+}
+
+.why-choose__icon svg {
+  width: 32px;
+  height: 32px;
+  color: var(--vivid-growth);
+}
+
+.why-choose__title {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}
+
+.why-choose__text {
+  font-size: 15px;
+  color: var(--on-surface-variant);
+  line-height: 1.6;
+}
+
+/* ── Testimonials Section ── */
+.testimonials-section {
+  background-color: var(--warm-cream);
+}
+
+/* ── CTA Banner ── */
+.cta-banner {
+  background: linear-gradient(135deg, var(--forest-depth) 0%, #003d25 100%);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-banner::before {
+  content: '';
+  position: absolute;
+  top: -100px;
+  right: -100px;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(215, 223, 54, 0.08) 0%, transparent 70%);
+  border-radius: 50%;
+}
+
+.cta-banner::after {
+  content: '';
+  position: absolute;
+  bottom: -150px;
+  left: -100px;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(0, 179, 73, 0.06) 0%, transparent 70%);
+  border-radius: 50%;
+}
+
+.cta-banner__content {
+  position: relative;
+  z-index: 1;
+}
+
+.cta-banner .headline-lg {
+  color: var(--pure-white);
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.cta-banner .body-lg {
+  color: rgba(255, 255, 255, 0.75);
+  max-width: 500px;
+  margin: 1.25rem auto 0;
+}
+
+.cta-banner__actions {
+  margin-top: 2.5rem;
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* ── Responsive ── */
+@media (max-width: 1024px) {
+  .services-overview__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .hero__title {
+    font-size: var(--display-xl-mobile-size);
+    line-height: var(--display-xl-mobile-line-height);
+    letter-spacing: normal;
+  }
+
+  .hero__subtitle {
+    font-size: 18px;
+  }
+
+  .about-snippet__inner {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .services-overview__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .featured-projects__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .why-choose__grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}

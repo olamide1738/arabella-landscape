@@ -1,0 +1,139 @@
+/* ============================================================
+   Arabella Landscape Limited — Design Tokens
+   ============================================================ */
+
+:root {
+  /* ── Material Design 3 Color System ── */
+  --surface: #fcf9f3;
+  --surface-dim: #dcdad4;
+  --surface-bright: #fcf9f3;
+  --surface-container-lowest: #ffffff;
+  --surface-container-low: #f6f3ed;
+  --surface-container: #f0eee8;
+  --surface-container-high: #ebe8e2;
+  --surface-container-highest: #e5e2dc;
+  --on-surface: #1c1c18;
+  --on-surface-variant: #3d4a3c;
+  --inverse-surface: #31312d;
+  --inverse-on-surface: #f3f0ea;
+  --outline: #6d7b6b;
+  --outline-variant: #bccbb8;
+  --surface-tint: #006e2a;
+
+  --primary: #006e2a;
+  --on-primary: #ffffff;
+  --primary-container: #00b349;
+  --on-primary-container: #003c13;
+  --inverse-primary: #50e170;
+
+  --secondary: #5e6300;
+  --on-secondary: #ffffff;
+  --secondary-container: #e0e83f;
+  --on-secondary-container: #636700;
+
+  --tertiary: #286a49;
+  --on-tertiary: #ffffff;
+  --tertiary-container: #67a883;
+  --on-tertiary-container: #003b23;
+
+  --error: #ba1a1a;
+  --on-error: #ffffff;
+  --error-container: #ffdad6;
+  --on-error-container: #93000a;
+
+  --primary-fixed: #6ffe89;
+  --primary-fixed-dim: #50e170;
+  --on-primary-fixed: #002107;
+  --on-primary-fixed-variant: #00531d;
+
+  --secondary-fixed: #e3eb42;
+  --secondary-fixed-dim: #c7cf23;
+  --on-secondary-fixed: #1c1d00;
+  --on-secondary-fixed-variant: #474a00;
+
+  --tertiary-fixed: #adf2c8;
+  --tertiary-fixed-dim: #92d5ad;
+  --on-tertiary-fixed: #002112;
+  --on-tertiary-fixed-variant: #065133;
+
+  --background: #fcf9f3;
+  --on-background: #1c1c18;
+  --surface-variant: #e5e2dc;
+
+  /* ── Brand Colors ── */
+  --forest-depth: #004E30;
+  --vivid-growth: #00B349;
+  --lime-energy: #D7DF36;
+  --warm-cream: #F5F2EC;
+  --pure-white: #FFFFFF;
+
+  /* ── Typography ── */
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-body: 'Plus Jakarta Sans', system-ui, sans-serif;
+
+  /* Display XL */
+  --display-xl-size: 88px;
+  --display-xl-weight: 400;
+  --display-xl-line-height: 1.05;
+  --display-xl-letter-spacing: -0.01em;
+
+  /* Display XL Mobile */
+  --display-xl-mobile-size: 52px;
+  --display-xl-mobile-weight: 400;
+  --display-xl-mobile-line-height: 1.15;
+
+  /* Headline Large */
+  --headline-lg-size: 52px;
+  --headline-lg-weight: 500;
+  --headline-lg-line-height: 1.15;
+
+  /* Headline Medium */
+  --headline-md-size: 36px;
+  --headline-md-weight: 500;
+  --headline-md-line-height: 1.25;
+
+  /* Body Large */
+  --body-lg-size: 20px;
+  --body-lg-weight: 400;
+  --body-lg-line-height: 1.6;
+
+  /* Body Medium */
+  --body-md-size: 16px;
+  --body-md-weight: 400;
+  --body-md-line-height: 1.6;
+
+  /* Label Caps */
+  --label-caps-size: 14px;
+  --label-caps-weight: 700;
+  --label-caps-line-height: 1.0;
+  --label-caps-letter-spacing: 0.1em;
+
+  /* ── Border Radius ── */
+  --rounded-sm: 0.25rem;
+  --rounded: 0.5rem;
+  --rounded-md: 0.75rem;
+  --rounded-lg: 1rem;
+  --rounded-xl: 1.5rem;
+  --rounded-full: 9999px;
+
+  /* ── Spacing ── */
+  --container-max: 1280px;
+  --section-gap: 8rem;
+  --section-gap-mobile: 4rem;
+  --gutter: 24px;
+  --margin-mobile: 20px;
+  --stack-sm: 0.5rem;
+  --stack-md: 1.5rem;
+  --stack-lg: 3rem;
+
+  /* ── Shadows ── */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08), 0 2px 4px rgba(0, 0, 0, 0.04);
+  --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.1), 0 4px 8px rgba(0, 0, 0, 0.04);
+  --shadow-hover: 0 16px 40px rgba(0, 78, 48, 0.12), 0 6px 12px rgba(0, 0, 0, 0.06);
+
+  /* ── Transitions ── */
+  --transition-fast: 200ms ease;
+  --transition-base: 300ms ease;
+  --transition-slow: 500ms ease;
+}

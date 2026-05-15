@@ -1,0 +1,50 @@
+/* ============================================================
+   Portfolio Page Styles
+   ============================================================ */
+
+.portfolio__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 0;
+}
+
+.portfolio__grid .portfolio-item {
+  aspect-ratio: 4/3;
+}
+
+.portfolio__grid .portfolio-item:nth-child(1) {
+  grid-column: span 2;
+  grid-row: span 2;
+  aspect-ratio: auto;
+}
+
+.portfolio__empty {
+  text-align: center;
+  padding: 4rem 2rem;
+  color: var(--on-surface-variant);
+}
+
+/* ── Responsive ── */
+@media (max-width: 1024px) {
+  .portfolio__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .portfolio__grid .portfolio-item:nth-child(1) {
+    grid-column: span 2;
+    grid-row: span 1;
+    aspect-ratio: 16/9;
+  }
+}
+
+@media (max-width: 768px) {
+  .portfolio__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .portfolio__grid .portfolio-item:nth-child(1) {
+    grid-column: span 1;
+    aspect-ratio: 4/3;
+  }
+}

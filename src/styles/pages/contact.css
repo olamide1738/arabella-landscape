@@ -1,0 +1,135 @@
+/* ============================================================
+   Contact Page Styles
+   ============================================================ */
+
+.contact__inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+}
+
+.contact__info {
+  padding-top: 1rem;
+}
+
+.contact__info .headline-md {
+  margin-bottom: 1rem;
+}
+
+.contact__info .body-lg {
+  color: var(--on-surface-variant);
+  margin-bottom: 2.5rem;
+}
+
+.contact__details {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.contact__detail {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.contact__detail-icon {
+  width: 44px;
+  height: 44px;
+  min-width: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, rgba(0, 179, 73, 0.1), rgba(215, 223, 54, 0.08));
+  border-radius: var(--rounded);
+}
+
+.contact__detail-icon svg {
+  width: 20px;
+  height: 20px;
+  color: var(--vivid-growth);
+}
+
+.contact__detail-label {
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--on-surface-variant);
+  margin-bottom: 0.25rem;
+}
+
+.contact__detail-value {
+  font-size: 16px;
+  color: var(--on-surface);
+}
+
+.contact__detail-value a {
+  color: var(--vivid-growth);
+  text-decoration: none;
+}
+
+.contact__detail-value a:hover {
+  text-decoration: underline;
+}
+
+.contact__form-card {
+  background: var(--pure-white);
+  border-radius: var(--rounded-xl);
+  padding: 2.5rem;
+  box-shadow: var(--shadow-md);
+}
+
+.contact__form-title {
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 2rem;
+}
+
+.contact__form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+}
+
+/* ── Map Placeholder ── */
+.contact-map {
+  background-color: var(--surface-container);
+  border-radius: var(--rounded-xl);
+  overflow: hidden;
+  height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.contact-map__placeholder {
+  text-align: center;
+  color: var(--on-surface-variant);
+}
+
+.contact-map__placeholder svg {
+  width: 48px;
+  height: 48px;
+  color: var(--outline);
+  margin-bottom: 1rem;
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .contact__inner {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .contact__form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .contact__form-card {
+    padding: 1.5rem;
+  }
+}
