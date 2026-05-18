@@ -224,7 +224,7 @@ export const PLANTS = [
     growth: 'Moderate',
     height: '20–30 m',
     description:
-      'The iconic palm of Nigeria's coastline. Best for large coastal properties where its scale and informal habit are assets. Avoid planting near buildings due to falling fruit.',
+      "The iconic palm of Nigeria's coastline. Best for large coastal properties where its scale and informal habit are assets. Avoid planting near buildings due to falling fruit.",
     emoji: '🥥',
     native: false,
     tags: ['coastal', 'tropical', 'iconic'],
