@@ -277,7 +277,7 @@ export const PLANTS = [
     growth: 'Moderate',
     height: '5–20 cm',
     description:
-      'Nigeria's most widely used turf grass. Tolerates shade better than buffalo grass and recovers quickly from foot traffic. The reliable choice for residential lawns across all zones.',
+      "Nigeria's most widely used turf grass. Tolerates shade better than buffalo grass and recovers quickly from foot traffic. The reliable choice for residential lawns across all zones.",
     emoji: '🌿',
     native: false,
     tags: ['lawn', 'shade-tolerant', 'standard'],
