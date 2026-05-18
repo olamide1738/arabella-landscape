@@ -271,7 +271,7 @@ export default function About() {
           <h2 className="headline-lg animate-on-scroll" style={{ color: 'var(--on-surface)', marginBottom: '2.5rem' }}>
             Awards &amp; Accreditations
           </h2>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '1.5rem' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(280px, 100%), 1fr))', gap: '1.5rem' }}>
             {[
               { year: '2024', award: 'Best Landscape Firm — Nigerian Construction Awards' },
               { year: '2023', award: 'Green City Design Award — Urban Futures Summit' },

@@ -1354,9 +1354,10 @@
     padding-top: 2rem;
   }
 
-  .pd-approach-grid {
+  .pd-approach-grid,
+  .pd-body-grid {
     grid-template-columns: 1fr;
-    gap: 3rem;
+    gap: 2.5rem;
   }
 
   .pd-services-box {
@@ -1577,5 +1578,88 @@
 
   .projects-hero-stat:last-child {
     border-right: none;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Hero */
+  .hero__title {
+    font-size: 36px;
+    line-height: 1.2;
+  }
+
+  .hero__subtitle {
+    font-size: 16px;
+  }
+
+  /* Page Hero (inner pages) */
+  .page-hero {
+    padding: 6rem 0 3rem;
+  }
+
+  .page-hero h1 {
+    font-size: 28px;
+  }
+
+  /* Stats */
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  /* About badge */
+  .about-badge {
+    bottom: 0.5rem;
+    right: 0.5rem;
+    padding: 0.875rem 1.25rem;
+  }
+
+  .about-badge__number {
+    font-size: 30px;
+  }
+
+  /* Team grid — single column on phones */
+  .team-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* CTA section */
+  .cta-section {
+    padding: 3rem 0;
+  }
+
+  .cta-section h2 {
+    font-size: 26px;
+  }
+
+  .cta-section p {
+    font-size: 16px;
+  }
+
+  /* Contact */
+  .contact-grid {
+    gap: 2rem;
+  }
+
+  .contact-form-card {
+    padding: 1.5rem;
+  }
+
+  .map-wrapper {
+    height: 260px;
+  }
+
+  /* Projects hero stats */
+  .projects-hero-stat {
+    padding: 0.875rem 1.25rem;
+  }
+
+  /* Project detail meta */
+  .pd-meta-item {
+    padding: 1.25rem 1rem;
+  }
+
+  .pd-meta-item__value {
+    font-size: 14px;
   }
 }

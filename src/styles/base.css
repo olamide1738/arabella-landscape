@@ -175,3 +175,27 @@ select {
     padding-right: var(--margin-mobile);
   }
 }
+
+@media (max-width: 480px) {
+  .display-xl {
+    font-size: 36px;
+    line-height: 1.2;
+  }
+
+  .headline-lg {
+    font-size: 28px;
+  }
+
+  .headline-md {
+    font-size: 22px;
+  }
+
+  .body-lg {
+    font-size: 16px;
+  }
+
+  .section {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+}
