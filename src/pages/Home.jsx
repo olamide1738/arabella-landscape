@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from 'react'
 import { Helmet } from 'react-helmet-async'
 import heroImg from '../assets/hero.png'
 import { useScrollAnimation, useCountUp } from '../hooks/useScrollAnimation'
+import { MARKETS } from '../data/markets'
 
 const SERVICES = [
   {
@@ -240,6 +241,43 @@ export default function Home() {
                   </svg>
                 </Link>
               </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── Who We Serve ── */}
+      <section className="wws-section">
+        <div className="container">
+          <div className="wws-header">
+            <div>
+              <p className="section-label section-label--light animate-on-scroll">Who We Serve</p>
+              <h2 className="headline-lg animate-on-scroll" style={{ color: 'var(--pure-white)' }}>
+                Expertise Tailored<br /><em>to Your Sector</em>
+              </h2>
+            </div>
+            <Link to="/markets" className="btn btn-secondary btn-sm animate-on-scroll">
+              All Markets
+            </Link>
+          </div>
+          <div className="wws-grid">
+            {MARKETS.map(market => (
+              <Link
+                key={market.slug}
+                to={`/markets/${market.slug}`}
+                className="wws-card"
+              >
+                <p className="wws-card__label">{market.label}</p>
+                <p className="wws-card__name">{market.name}</p>
+                <p className="wws-card__tagline">{market.tagline}</p>
+                <div className="wws-card__arrow">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"
+                    strokeLinecap="round" strokeLinejoin="round">
+                    <line x1="5" y1="12" x2="19" y2="12" />
+                    <polyline points="12 5 19 12 12 19" />
+                  </svg>
+                </div>
+              </Link>
             ))}
           </div>
         </div>

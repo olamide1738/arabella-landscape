@@ -70,6 +70,15 @@ export default function Footer() {
           </div>
 
           <div>
+            <p className="footer__heading">Markets</p>
+            <Link to="/markets/residential"           className="footer__link">Residential</Link>
+            <Link to="/markets/corporate-commercial"  className="footer__link">Corporate & Commercial</Link>
+            <Link to="/markets/hospitality-retail"    className="footer__link">Hospitality & Retail</Link>
+            <Link to="/markets/public-government"     className="footer__link">Public & Government</Link>
+            <Link to="/markets/real-estate-developers"className="footer__link">Developers</Link>
+          </div>
+
+          <div>
             <p className="footer__heading">Company</p>
             {COMPANY.map(({ to, label }) => (
               <Link key={to} to={to} className="footer__link">{label}</Link>

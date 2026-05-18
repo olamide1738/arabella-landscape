@@ -3,6 +3,41 @@ import { Helmet } from 'react-helmet-async'
 import { useScrollAnimation } from '../hooks/useScrollAnimation'
 import { SERVICES } from '../data/services'
 
+const PILLARS = [
+  {
+    num: '01',
+    name: 'Design',
+    sub: 'Landscape Architecture & Planning',
+    desc: 'Visionary design from initial concept and masterplanning through to detailed construction drawings and 3D visualisations.',
+    image: '/images/abuja-gate-r1.jpg',
+    slug: 'landscape-architecture',
+  },
+  {
+    num: '02',
+    name: 'Build',
+    sub: 'Design-Build & Site Development',
+    desc: 'End-to-end construction and civil works — from earthworks and drainage through to full landscape installation and handover.',
+    image: '/images/abuja-gate-2.png',
+    slug: 'design-build',
+  },
+  {
+    num: '03',
+    name: 'Maintain',
+    sub: 'Exterior Landscaping & Ongoing Care',
+    desc: 'Premium maintenance, seasonal planting, and enhancement programmes that keep your landscape investment thriving year-round.',
+    image: '/images/abuja-gate-3.png',
+    slug: 'exterior-landscaping',
+  },
+  {
+    num: '04',
+    name: 'Interior',
+    sub: 'Biophilic & Indoor Landscaping',
+    desc: 'Living walls, planted installations, and indoor planting programmes that bring nature into the built environment.',
+    image: '/images/abuja-gate-r3.jpg',
+    slug: 'interior-landscaping',
+  },
+]
+
 function ArrowIcon() {
   return (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
@@ -46,6 +81,46 @@ export default function Services() {
           <p>
             Six specialist disciplines — one integrated team. From your first idea through to a thriving, maintained landscape.
           </p>
+        </div>
+      </section>
+
+      {/* ── Pillar Overview ── */}
+      <section className="svc-pillars">
+        <div className="container">
+          <div style={{ textAlign: 'center', marginBottom: '2.5rem' }}>
+            <p className="section-label" style={{ justifyContent: 'center' }}>Four Disciplines</p>
+            <h2 className="headline-lg animate-on-scroll" style={{ color: 'var(--on-surface)' }}>
+              One Integrated Practice
+            </h2>
+          </div>
+          <div className="svc-pillars__grid stagger-children">
+            {PILLARS.map(pillar => (
+              <Link
+                key={pillar.slug}
+                to={`/services/${pillar.slug}`}
+                className="svc-pillar-card animate-on-scroll"
+              >
+                <div
+                  className="svc-pillar-card__bg"
+                  style={{ backgroundImage: `url(${pillar.image})` }}
+                />
+                <div className="svc-pillar-card__overlay" />
+                <div className="svc-pillar-card__content">
+                  <p className="svc-pillar-card__num">{pillar.num}</p>
+                  <h3 className="svc-pillar-card__name">{pillar.name}</h3>
+                  <p className="svc-pillar-card__sub">{pillar.sub}</p>
+                  <p className="svc-pillar-card__cta">
+                    Explore
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"
+                      strokeLinecap="round" strokeLinejoin="round">
+                      <line x1="5" y1="12" x2="19" y2="12" />
+                      <polyline points="12 5 19 12 12 19" />
+                    </svg>
+                  </p>
+                </div>
+              </Link>
+            ))}
+          </div>
         </div>
       </section>
 
