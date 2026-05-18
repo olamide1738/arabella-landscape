@@ -78,7 +78,7 @@ export default function Footer() {
             <a href="tel:+2348001234567" className="footer__link">+234 800 123 4567</a>
             <a href="mailto:hello@arabellalandscape.com" className="footer__link">hello@arabellalandscape.com</a>
             <p className="footer__link" style={{ cursor: 'default' }}>
-              Lagos, Abuja &amp; Port Harcourt, Nigeria
+              55, Moleye Street, Off Herbert Macaulay Way, Yaba, Lagos
             </p>
             <Link to="/contact" className="btn btn-primary btn-sm" style={{ marginTop: '1.25rem' }}>
               Get a Quote

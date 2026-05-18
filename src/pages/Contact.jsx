@@ -74,7 +74,7 @@ export default function Contact() {
     <main ref={sectionRef}>
       <Helmet>
         <title>Contact Us — Arabella Landscape Limited</title>
-        <meta name="description" content="Get in touch with Arabella Landscape. Free 30-minute consultation with a senior landscape architect. Offices in Lagos, Abuja, and Port Harcourt." />
+        <meta name="description" content="Get in touch with Arabella Landscape. Free 30-minute consultation with a senior landscape architect. Visit us at 55, Moleye Street, Off Herbert Macaulay Way, Yaba, Lagos." />
         <meta property="og:title" content="Contact Arabella Landscape Limited" />
         <meta property="og:description" content="Tell us about your project — we'll respond within one business day and offer a free initial consultation." />
         <meta name="twitter:card" content="summary" />
@@ -130,8 +130,8 @@ export default function Contact() {
                   </svg>
                 </div>
                 <div>
-                  <p className="contact-detail__label">Offices</p>
-                  <p className="contact-detail__value">Lagos · Abuja · Port Harcourt</p>
+                  <p className="contact-detail__label">Address</p>
+                  <p className="contact-detail__value">55, Moleye Street, Off Herbert Macaulay Way,<br />Yaba, Lagos, Nigeria</p>
                 </div>
               </div>
 
@@ -297,12 +297,12 @@ export default function Contact() {
           {/* ── Office Map ── */}
           <div className="map-wrapper">
             <iframe
-              title="Arabella Landscape — Lagos Office"
-              src="https://www.google.com/maps?q=Victoria+Island,+Lagos,+Nigeria&output=embed"
+              title="Arabella Landscape — Yaba, Lagos Office"
+              src="https://www.google.com/maps?q=55+Moleye+Street,+Yaba,+Lagos,+Nigeria&output=embed"
               allowFullScreen
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
-              aria-label="Map showing Arabella Landscape office location in Victoria Island, Lagos"
+              aria-label="Map showing Arabella Landscape office at 55 Moleye Street, Yaba, Lagos"
             />
           </div>
         </div>

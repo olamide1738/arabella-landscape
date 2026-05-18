@@ -195,7 +195,7 @@ export default function About() {
                 What began as a boutique residential practice has grown into a multidisciplinary firm of over 50 specialists — landscape architects, horticulturalists, civil engineers, and master craftspeople — delivering some of Nigeria's most celebrated outdoor environments.
               </p>
               <p style={{ color: 'var(--on-surface-variant)', lineHeight: '1.75' }}>
-                Today, Arabella operates from studios in Lagos, Abuja, and Port Harcourt, with projects spanning residential estates, commercial developments, hospitality properties, public parks, and urban regeneration schemes.
+                Today, Arabella operates from its studio at 55, Moleye Street, Off Herbert Macaulay Way, Yaba, Lagos, with projects spanning residential estates, commercial developments, hospitality properties, public parks, and urban regeneration schemes.
               </p>
             </div>
           </div>
