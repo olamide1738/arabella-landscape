@@ -1,5 +1,7 @@
 import { useState } from 'react'
 import { useParams, Link, Navigate } from 'react-router-dom'
+import { Helmet } from 'react-helmet-async'
+import { ReactCompareSlider, ReactCompareSliderImage } from 'react-compare-slider'
 import { useScrollAnimation } from '../hooks/useScrollAnimation'
 import { PROJECTS, getRelated } from '../data/projects'
 
@@ -111,6 +113,15 @@ export default function ProjectDetail() {
 
   return (
     <main ref={sectionRef}>
+      <Helmet>
+        <title>{project.name} — Arabella Landscape Limited</title>
+        <meta name="description" content={project.description} />
+        <meta property="og:title" content={`${project.name} — Arabella Landscape`} />
+        <meta property="og:description" content={project.description} />
+        <meta property="og:image" content={project.image} />
+        <meta property="og:type" content="article" />
+        <meta name="twitter:card" content="summary_large_image" />
+      </Helmet>
 
       {/* ── Hero ── */}
       <section className="pd-hero">
@@ -244,6 +255,49 @@ export default function ProjectDetail() {
           </div>
         </div>
       </section>
+
+      {/* ── Before / After Slider ── */}
+      {project.beforeAfter && (
+        <section className="section pd-before-after">
+          <div className="container">
+            <div className="pd-before-after__header animate-on-scroll">
+              <p className="section-label">Design vs Reality</p>
+              <h2>Before &amp; After</h2>
+              <p className="pd-before-after__hint">Drag the handle to compare the design render with the completed build.</p>
+            </div>
+
+            <div className="pd-before-after__slider animate-on-scroll">
+              <ReactCompareSlider
+                itemOne={
+                  <ReactCompareSliderImage
+                    src={project.beforeAfter.before}
+                    alt={project.beforeAfter.beforeLabel ?? 'Design Render'}
+                    style={{ objectFit: 'cover' }}
+                  />
+                }
+                itemTwo={
+                  <ReactCompareSliderImage
+                    src={project.beforeAfter.after}
+                    alt={project.beforeAfter.afterLabel ?? 'Completed'}
+                    style={{ objectFit: 'cover' }}
+                  />
+                }
+                style={{ borderRadius: 'var(--rounded-lg)', overflow: 'hidden', aspectRatio: '16/9' }}
+              />
+
+              {/* Labels */}
+              <div className="pd-before-after__labels" aria-hidden="true">
+                <span className="pd-ba-label pd-ba-label--before">
+                  {project.beforeAfter.beforeLabel ?? 'Design Render'}
+                </span>
+                <span className="pd-ba-label pd-ba-label--after">
+                  {project.beforeAfter.afterLabel ?? 'Completed'}
+                </span>
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* ── Gallery ── */}
       {galleryImages && (

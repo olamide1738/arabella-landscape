@@ -1,44 +1,7 @@
 /* ============================================================
    About Page Styles
+   (.page-hero and .stats-section are owned by sections.css)
    ============================================================ */
-
-/* ── Page Hero ── */
-.page-hero {
-  position: relative;
-  padding: 10rem 0 6rem;
-  background-color: var(--forest-depth);
-  color: var(--pure-white);
-  overflow: hidden;
-}
-
-.page-hero::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  right: -200px;
-  width: 600px;
-  height: 600px;
-  background: radial-gradient(circle, rgba(0, 179, 73, 0.12) 0%, transparent 70%);
-  border-radius: 50%;
-}
-
-.page-hero__label {
-  color: var(--lime-energy);
-}
-
-.page-hero__title {
-  font-size: 56px;
-  max-width: 700px;
-  margin-top: 0.75rem;
-}
-
-.page-hero__subtitle {
-  color: rgba(255, 255, 255, 0.75);
-  max-width: 550px;
-  margin-top: 1rem;
-  font-size: 18px;
-  line-height: 1.6;
-}
 
 /* ── Brand Story ── */
 .brand-story__inner {
@@ -164,36 +127,15 @@
   margin-top: 3rem;
 }
 
-/* ── Stats ── */
-.stats-section {
-  background-color: var(--forest-depth);
-  color: var(--pure-white);
-}
-
-.stats__grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 2rem;
-}
-
 /* ── Responsive ── */
 @media (max-width: 1024px) {
   .expertise__grid,
-  .team__grid,
-  .stats__grid {
+  .team__grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (max-width: 768px) {
-  .page-hero {
-    padding: 8rem 0 4rem;
-  }
-
-  .page-hero__title {
-    font-size: 36px;
-  }
-
   .brand-story__inner {
     grid-template-columns: 1fr;
     gap: 2rem;
@@ -207,9 +149,5 @@
   .expertise__grid,
   .team__grid {
     grid-template-columns: 1fr;
-  }
-
-  .stats__grid {
-    grid-template-columns: repeat(2, 1fr);
   }
 }

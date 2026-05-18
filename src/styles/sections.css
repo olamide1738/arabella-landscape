@@ -709,18 +709,29 @@
 }
 
 /* ── Map placeholder ── */
-.map-placeholder {
-  width: 100%;
-  height: 400px;
-  background: var(--surface-container);
-  border-radius: var(--rounded-lg);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.form-error-msg {
+  font-size: 14px;
+  color: var(--error);
+  background: var(--error-container);
+  border-radius: var(--rounded);
+  padding: 0.75rem 1rem;
+  margin-bottom: 1rem;
+  line-height: 1.5;
+}
+
+.map-wrapper {
   margin-top: 4rem;
-  font-size: 40px;
-  color: var(--outline);
+  border-radius: var(--rounded-lg);
+  overflow: hidden;
   border: 1px solid var(--outline-variant);
+  height: 400px;
+}
+
+.map-wrapper iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: none;
 }
 
 /* ── Project Detail Page ── */
@@ -863,6 +874,77 @@
 }
 
 /* Gallery */
+/* ── Before / After Slider ── */
+.pd-before-after {
+  background: var(--surface);
+}
+
+.pd-before-after__header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.pd-before-after__hint {
+  font-size: 14px;
+  color: var(--on-surface-variant);
+  margin-top: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.pd-before-after__hint::before {
+  content: '';
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%236d7b6b' stroke-width='2'%3E%3Cpath d='M18 8L22 12L18 16M6 8L2 12L6 16M14 4L10 20'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+  opacity: 0.7;
+}
+
+.pd-before-after__slider {
+  position: relative;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+/* Corner labels */
+.pd-before-after__labels {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding: 1rem 1.25rem;
+  border-radius: var(--rounded-lg);
+}
+
+.pd-ba-label {
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0.35rem 0.75rem;
+  border-radius: var(--rounded-full);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.pd-ba-label--before {
+  background: rgba(0, 0, 0, 0.5);
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.pd-ba-label--after {
+  background: rgba(215, 223, 54, 0.85);
+  color: var(--forest-depth);
+}
+
 .pd-gallery-section {
   background: var(--surface-container-low);
 }

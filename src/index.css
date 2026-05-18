@@ -3,3 +3,8 @@
 @import './styles/animations.css';
 @import './styles/components.css';
 @import './styles/sections.css';
+@import './styles/pages/home.css';
+@import './styles/pages/about.css';
+@import './styles/pages/services.css';
+@import './styles/pages/portfolio.css';
+@import './styles/pages/contact.css';

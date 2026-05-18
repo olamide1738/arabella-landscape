@@ -2,12 +2,12 @@ import { Link } from 'react-router-dom'
 import logoFull from '../assets/logo-full.png'
 
 const SERVICES = [
-  'Exterior Landscaping',
-  'Interior Landscaping',
-  'Landscape Architecture',
-  'Recreational Planning',
-  'Design-Build Services',
-  'Site Development',
+  { label: 'Exterior Landscaping',   slug: 'exterior-landscaping'   },
+  { label: 'Interior Landscaping',   slug: 'interior-landscaping'   },
+  { label: 'Landscape Architecture', slug: 'landscape-architecture' },
+  { label: 'Recreational Planning',  slug: 'recreational-planning'  },
+  { label: 'Design-Build Services',  slug: 'design-build'           },
+  { label: 'Site Development',       slug: 'site-development'       },
 ]
 
 const COMPANY = [
@@ -61,8 +61,8 @@ export default function Footer() {
 
           <div>
             <p className="footer__heading">Services</p>
-            {SERVICES.map(s => (
-              <Link key={s} to="/services" className="footer__link">{s}</Link>
+            {SERVICES.map(({ label, slug }) => (
+              <Link key={slug} to={`/services/${slug}`} className="footer__link">{label}</Link>
             ))}
           </div>
 

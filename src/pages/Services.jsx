@@ -1,79 +1,26 @@
 import { Link } from 'react-router-dom'
+import { Helmet } from 'react-helmet-async'
 import { useScrollAnimation } from '../hooks/useScrollAnimation'
+import { SERVICES } from '../data/services'
 
-const SERVICES = [
-  {
-    id: 'exterior',
-    label: 'Residential & Commercial',
-    title: 'Exterior Landscaping',
-    color: 'linear-gradient(135deg, #002d1a 0%, #004E30 60%, #006038 100%)',
-    image: '/images/abuja-gate-r1.jpg',
-    description: `Our exterior landscaping service encompasses the full spectrum of outdoor design and installation. From sweeping lawns and sculptural planting schemes to water features, boundary treatments, and bespoke lighting, we craft exterior environments that perform beautifully across all seasons.`,
-    extra: `Whether you're looking to transform a domestic garden, the grounds of a hotel or corporate headquarters, or a multi-acre estate, our horticultural experts and landscape architects collaborate to deliver a cohesive vision that reflects your identity and enhances the value of your property.`,
-    features: ['Garden design & planting', 'Lawn establishment & turf', 'Water features & ponds', 'Boundary walls & fencing', 'Outdoor lighting', 'Irrigation systems'],
-  },
-  {
-    id: 'interior',
-    label: 'Biophilic Design',
-    title: 'Interior Landscaping',
-    color: 'linear-gradient(135deg, #1a4a2e 0%, #006038 100%)',
-    image: '/images/abuja-gate-r3.jpg',
-    description: `Bring the energy and calm of nature into your interior spaces. Our interior landscaping specialists design and install living walls, moss panels, curated indoor plant displays, and bespoke planting arrangements that transform lobbies, offices, retail environments, and homes.`,
-    extra: `Beyond aesthetics, our biophilic installations actively improve air quality, reduce stress, and enhance the wellbeing of everyone who inhabits the space. We also offer comprehensive maintenance contracts to keep your interiors looking pristine year-round.`,
-    features: ['Living walls & green panels', 'Indoor plant curation', 'Moss art installations', 'Potted tree placement', 'Maintenance contracts', 'Air-purifying plant selection'],
-  },
-  {
-    id: 'architecture',
-    label: 'Master Planning',
-    title: 'Landscape Architecture',
-    color: 'linear-gradient(135deg, #0f3d1f 0%, #005535 100%)',
-    image: '/images/abuja-gate-r5.jpg',
-    description: `Our landscape architecture practice combines environmental science, spatial planning, and creative design to produce masterplans and detailed design packages for complex sites. We work closely with architects, engineers, and planners to ensure landscapes integrate seamlessly with built form.`,
-    extra: `From large-scale urban regeneration schemes to sensitive ecological sites requiring careful restoration, our registered landscape architects bring both rigour and imagination to every commission.`,
-    features: ['Master planning & site analysis', '3D visualisation & rendering', 'Planting design', 'Environmental impact assessment', 'Coordination with architects', 'Planning submission support'],
-  },
-  {
-    id: 'recreational',
-    label: 'Community & Leisure',
-    title: 'Recreational Planning',
-    color: 'linear-gradient(135deg, #1e6b3a 0%, #00904d 100%)',
-    image: '/images/abuja-gate-3.png',
-    description: `Great communities are built around great shared spaces. Our recreational planning team designs parks, playgrounds, sports facilities, and leisure zones that bring people together, encourage physical activity, and strengthen community bonds.`,
-    extra: `We specialise in inclusive design — creating spaces that are accessible and welcoming to everyone, from young children to older adults. Each project is informed by consultation with stakeholders and future users.`,
-    features: ["Children's playgrounds", 'Sports courts & pitches', 'Jogging & cycling trails', 'Park furniture & shelters', 'Outdoor fitness equipment', 'Community seating areas'],
-  },
-  {
-    id: 'design-build',
-    label: 'Turnkey Delivery',
-    title: 'Design-Build Services',
-    color: 'linear-gradient(135deg, #003520 0%, #005030 100%)',
-    image: '/images/abuja-gate-1.png',
-    description: `Our design-build model streamlines project delivery by placing design and construction under a single contract. This integrated approach reduces risk, compresses programme, and ensures perfect alignment between design intent and built outcome.`,
-    extra: `You benefit from a single point of accountability throughout the entire project lifecycle — from initial concept sketches all the way through to handover of the completed landscape.`,
-    features: ['Concept through construction', 'Single contract & accountability', 'Value engineering', 'Programme management', 'Quality control', 'Defects liability period'],
-  },
-  {
-    id: 'site-development',
-    label: 'Civil Works',
-    title: 'Site Development',
-    color: 'linear-gradient(135deg, #2d5016 0%, #487a26 100%)',
-    image: '/images/abuja-gate-r4.jpg',
-    description: `Successful landscapes begin with a well-prepared site. Our civil and site development team handles all the groundwork — earthworks and grading, drainage engineering, retaining structures, hardscape construction, and utility connections.`,
-    extra: `We work on new-build sites, brownfield regeneration, and the redevelopment of existing landscapes. Our teams operate across Lagos, Abuja, Port Harcourt, and increasingly across West Africa.`,
-    features: ['Earthworks & grading', 'Drainage & stormwater', 'Retaining walls', 'Paving & hardscape', 'Utility coordination', 'Site clearance'],
-  },
-]
-
-/* Real image component */
-function ServiceImage({ image, title }) {
+function ArrowIcon() {
   return (
-    <div className="service-detail__image-placeholder" style={{ position: 'relative', overflow: 'hidden' }}>
-      <img
-        src={image}
-        alt={title}
-        style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: 'var(--rounded-lg)' }}
-      />
-    </div>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
+      strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"
+      style={{ width: 16, height: 16, flexShrink: 0 }}>
+      <line x1="5" y1="12" x2="19" y2="12" />
+      <polyline points="12 5 19 12 12 19" />
+    </svg>
+  )
+}
+
+function CheckIcon() {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
+      strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"
+      style={{ width: 13, height: 13, flexShrink: 0 }}>
+      <polyline points="20 6 9 17 4 12" />
+    </svg>
   )
 }
 
@@ -82,40 +29,101 @@ export default function Services() {
 
   return (
     <main ref={sectionRef}>
+      <Helmet>
+        <title>Services — Arabella Landscape Limited</title>
+        <meta name="description" content="End-to-end landscape solutions — exterior and interior landscaping, landscape architecture, recreational planning, design-build, and site development across Nigeria." />
+        <meta property="og:title" content="Landscape Services — Arabella Landscape Limited" />
+        <meta property="og:description" content="From concept through construction and ongoing care — Arabella delivers premium landscapes for residential, commercial, and public clients." />
+        <meta property="og:image" content="/assets/images/service-exterior.png" />
+        <meta name="twitter:card" content="summary_large_image" />
+      </Helmet>
+
+      {/* ── Page Hero ── */}
       <section className="page-hero">
         <div className="container">
           <p className="section-label" style={{ justifyContent: 'center' }}>What We Offer</p>
           <h1>Our Services</h1>
-          <p>End-to-end landscape solutions — from visionary design through meticulous construction and ongoing care.</p>
+          <p>
+            Six specialist disciplines — one integrated team. From your first idea through to a thriving, maintained landscape.
+          </p>
         </div>
       </section>
 
-      {SERVICES.map(({ id, label, title, color, image, description, extra, features }, i) => (
-        <section key={id} className="section"
-          style={{ background: i % 2 === 0 ? 'var(--surface)' : 'var(--surface-container-low)' }}>
-          <div className="container">
-            <div className={`services-detail-grid${i % 2 !== 0 ? ' reverse' : ''}`}>
-              <div className="animate-on-scroll animate-left">
-                <p className="service-detail__label">{label}</p>
-                <h2>{title}</h2>
-                <p>{description}</p>
-                <p>{extra}</p>
-                <ul>
-                  {features.map(f => <li key={f}>{f}</li>)}
-                </ul>
-                <Link to="/contact" className="btn btn-primary" style={{ marginTop: '1rem' }}>
-                  Request a Quote
-                </Link>
-              </div>
+      {/* ── Service Cards ── */}
+      <section className="section" style={{ background: 'var(--surface-container-low)' }}>
+        <div className="container">
+          <div className="svc-index__grid stagger-children">
+            {SERVICES.map((service, i) => (
+              <div key={service.slug} className="svc-index__card animate-on-scroll">
+                {/* Image */}
+                <div className="svc-index__card-image">
+                  <img src={service.image} alt={service.title} />
+                  <div className="svc-index__card-image-overlay" aria-hidden="true" />
+                  <span className="svc-index__card-num">{String(i + 1).padStart(2, '0')}</span>
+                </div>
 
-              <div className="animate-on-scroll animate-right">
-                <ServiceImage image={image} title={title} />
+                {/* Body */}
+                <div className="svc-index__card-body">
+                  <p className="svc-index__card-label">{service.label}</p>
+                  <h2 className="svc-index__card-title">{service.title}</h2>
+                  <p className="svc-index__card-tagline">{service.tagline}</p>
+
+                  {/* Key inclusions — first 4 */}
+                  <ul className="svc-index__card-features">
+                    {service.features.slice(0, 4).map(f => (
+                      <li key={f.label} className="svc-index__card-feature">
+                        <span className="svc-index__card-feature-check"><CheckIcon /></span>
+                        {f.label}
+                      </li>
+                    ))}
+                  </ul>
+
+                  {/* Actions */}
+                  <div className="svc-index__card-actions">
+                    <Link to={`/services/${service.slug}`} className="btn btn-primary">
+                      Explore Service <ArrowIcon />
+                    </Link>
+                    <Link to="/contact" className="btn btn-secondary">
+                      Get a Quote
+                    </Link>
+                  </div>
+                </div>
               </div>
-            </div>
+            ))}
           </div>
-        </section>
-      ))}
+        </div>
+      </section>
 
+      {/* ── Why Arabella strip ── */}
+      <section className="section" style={{ background: 'var(--surface)' }}>
+        <div className="container">
+          <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
+            <p className="section-label" style={{ justifyContent: 'center' }}>Why Choose Us</p>
+            <h2 className="headline-lg animate-on-scroll" style={{ color: 'var(--on-surface)' }}>
+              One Firm. Every Discipline.
+            </h2>
+            <p className="animate-on-scroll" style={{ color: 'var(--on-surface-variant)', maxWidth: '580px', margin: '0.75rem auto 0', fontSize: '16px', lineHeight: 1.75 }}>
+              Arabella is Nigeria's only landscape practice that covers the full spectrum — from ecological masterplanning and 3D design to civil groundworks and ongoing maintenance — in-house.
+            </p>
+          </div>
+          <div className="svc-why__grid stagger-children">
+            {[
+              { n: '200+', label: 'Projects Completed',   text: 'A deep portfolio spanning residential, commercial, public realm, and recreational typologies.' },
+              { n: '15+',  label: 'Years of Practice',    text: 'Founded in 2010, Arabella has been shaping Nigeria\'s landscape industry for over a decade and a half.' },
+              { n: '50+',  label: 'In-House Specialists', text: 'Landscape architects, horticulturalists, civil engineers, and skilled craftspeople — all under one roof.' },
+              { n: '98%',  label: 'Client Satisfaction',  text: 'Our repeat client rate and referral track record reflect a consistent commitment to quality and service.' },
+            ].map(({ n, label, text }) => (
+              <div key={label} className="svc-why__card animate-on-scroll">
+                <div className="svc-why__card-num">{n}</div>
+                <p className="svc-why__card-label">{label}</p>
+                <p className="svc-why__card-text">{text}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── CTA ── */}
       <section className="cta-section">
         <div className="container">
           <p className="section-label section-label--light" style={{ justifyContent: 'center' }}>Ready to Begin?</p>

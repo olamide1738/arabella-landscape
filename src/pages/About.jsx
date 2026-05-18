@@ -1,14 +1,15 @@
 import { useState, useRef } from 'react'
 import { Link } from 'react-router-dom'
+import { Helmet } from 'react-helmet-async'
 import { useScrollAnimation, useCountUp } from '../hooks/useScrollAnimation'
 
 const TEAM = [
-  { name: 'Adaeze Nwosu',      role: 'Founder & CEO',                    color: '#003d22', bio: 'Registered landscape architect with over 20 years of practice. Founded Arabella in Lagos in 2010 with a belief that great green spaces transform lives.' },
-  { name: 'Chukwuemeka Obi',   role: 'Head of Landscape Architecture',   color: '#005535', bio: "Leads Arabella's masterplanning and design team. Specialises in large-scale public realm and urban regeneration across West Africa." },
-  { name: 'Ngozi Adeyemi',     role: 'Lead Horticulturalist',            color: '#1a5c2e', bio: 'Expert in Nigerian native flora and tropical planting design. Oversees all planting specifications and horticultural quality on every project.' },
-  { name: 'Babajide Salawu',   role: 'Director of Construction',         color: '#2d5016', bio: 'Civil engineer turned landscape construction director. Ensures every project is built to last, on programme, and to exacting quality standards.' },
-  { name: 'Folake Adesanya',   role: 'Senior Landscape Designer',        color: '#004830', bio: 'Award-winning designer with a focus on residential and hospitality landscapes. Known for her tactile material palettes and water feature detailing.' },
-  { name: 'Tunde Okafor',      role: 'Head of Site Development',         color: '#1e6b3a', bio: "Civil and geotechnical specialist overseeing earthworks, drainage, and infrastructure across Arabella's commercial and public projects." },
+  { name: 'Adaeze Nwosu',      role: 'Founder & CEO',                    color: '#003d22', photo: '/assets/images/team-1.png', bio: 'Registered landscape architect with over 20 years of practice. Founded Arabella in Lagos in 2010 with a belief that great green spaces transform lives.' },
+  { name: 'Chukwuemeka Obi',   role: 'Head of Landscape Architecture',   color: '#005535', photo: '/assets/images/team-2.png', bio: "Leads Arabella's masterplanning and design team. Specialises in large-scale public realm and urban regeneration across West Africa." },
+  { name: 'Ngozi Adeyemi',     role: 'Lead Horticulturalist',            color: '#1a5c2e', photo: '/assets/images/team-3.png', bio: 'Expert in Nigerian native flora and tropical planting design. Oversees all planting specifications and horticultural quality on every project.' },
+  { name: 'Babajide Salawu',   role: 'Director of Construction',         color: '#2d5016', photo: '/assets/images/team-4.png', bio: 'Civil engineer turned landscape construction director. Ensures every project is built to last, on programme, and to exacting quality standards.' },
+  { name: 'Folake Adesanya',   role: 'Senior Landscape Designer',        color: '#004830', photo: null, bio: 'Award-winning designer with a focus on residential and hospitality landscapes. Known for her tactile material palettes and water feature detailing.' },
+  { name: 'Tunde Okafor',      role: 'Head of Site Development',         color: '#1e6b3a', photo: null, bio: "Civil and geotechnical specialist overseeing earthworks, drainage, and infrastructure across Arabella's commercial and public projects." },
 ]
 
 const VALUES = [
@@ -53,13 +54,21 @@ function GreenPlaceholder({ style }) {
   )
 }
 
-/* Team monogram card */
-function TeamCard({ name, role, color, bio }) {
+/* Team card — photo if available, monogram initials as fallback */
+function TeamCard({ name, role, color, bio, photo }) {
   const initials = name.split(' ').map(n => n[0]).join('')
   return (
     <div className="team-card">
-      <div className="team-card__avatar" style={{ background: color }}>
-        <span className="team-card__initials">{initials}</span>
+      <div className="team-card__avatar" style={{ background: photo ? 'transparent' : color }}>
+        {photo ? (
+          <img
+            src={photo}
+            alt={name}
+            className="team-card__photo"
+          />
+        ) : (
+          <span className="team-card__initials">{initials}</span>
+        )}
       </div>
       <div className="team-card__body">
         <p className="team-card__name">{name}</p>
@@ -146,6 +155,15 @@ export default function About() {
 
   return (
     <main ref={sectionRef}>
+      <Helmet>
+        <title>About Us — Arabella Landscape Limited</title>
+        <meta name="description" content="Meet the team behind Nigeria's leading landscape architecture firm. Over 15 years, 200+ projects, and a passion for transforming spaces across Lagos, Abuja, and Port Harcourt." />
+        <meta property="og:title" content="About Arabella Landscape Limited" />
+        <meta property="og:description" content="Landscape architects, horticulturalists, and construction specialists united by a love of great outdoor spaces." />
+        <meta property="og:image" content="/assets/images/about-hero.png" />
+        <meta name="twitter:card" content="summary_large_image" />
+      </Helmet>
+
       <section className="page-hero">
         <div className="container">
           <p className="section-label" style={{ justifyContent: 'center' }}>Who We Are</p>

@@ -40,6 +40,12 @@ export const PROJECTS = [
     highlights: ['Interactive choreographed fountain', 'Palm avenue & native planting', 'LED feature illumination'],
     description: 'A landmark public space transformation at the ceremonial entrance to Nigeria\'s capital — integrating formal gardens, a choreographed fountain, sculptural planting, and illuminated pathways around the iconic Abuja City Gate monument.',
     detail: 'Commissioned by the FCTA, this project repositioned the Abuja City Gate roundabout as a world-class civic landscape worthy of a national monument. Arabella\'s masterplan introduced a structured system of concentric promenades, fountain courts, and richly planted slopes — drawing on Nigeria\'s native flora while meeting the highest standards of urban design. The scheme includes a central interactive water fountain, massed seasonal colour planting, palm avenues, feature lighting, accessible pathways, and a perimeter living retaining wall system. The project was completed on programme and has since become one of Abuja\'s most photographed landmarks.',
+    beforeAfter: {
+      before: G.r4,   // design rendering — aerial side angle
+      after:  G.day3, // completed drone photo — aerial day wide
+      beforeLabel: 'Design Render',
+      afterLabel:  'Completed 2024',
+    },
   },
   {
     slug: 'meridian-corporate-campus',

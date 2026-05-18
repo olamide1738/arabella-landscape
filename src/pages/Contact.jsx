@@ -1,5 +1,12 @@
 import { useState } from 'react'
+import { Helmet } from 'react-helmet-async'
 import { useScrollAnimation } from '../hooks/useScrollAnimation'
+
+// ─────────────────────────────────────────────────────────────────
+// Sign up free at https://formspree.io and replace the ID below.
+// Your form submissions will arrive directly in your inbox.
+// ─────────────────────────────────────────────────────────────────
+const FORMSPREE_ID = 'YOUR_FORM_ID'
 
 const SERVICES = [
   'Exterior Landscaping',
@@ -19,26 +26,60 @@ const BUDGETS = [
   'Prefer not to say',
 ]
 
+const EMPTY_FORM = {
+  firstName: '', lastName: '', email: '', phone: '', company: '',
+  service: '', budget: '', message: '', timeline: '',
+}
+
+// status: 'idle' | 'loading' | 'success' | 'error'
 export default function Contact() {
   const sectionRef = useScrollAnimation()
-  const [submitted, setSubmitted] = useState(false)
-  const [form, setForm] = useState({
-    firstName: '', lastName: '', email: '', phone: '', company: '',
-    service: '', budget: '', message: '', timeline: '',
-  })
+  const [status, setStatus] = useState('idle')
+  const [errorMsg, setErrorMsg] = useState('')
+  const [form, setForm] = useState(EMPTY_FORM)
 
   const handleChange = e => {
     const { name, value } = e.target
     setForm(f => ({ ...f, [name]: value }))
   }
 
-  const handleSubmit = e => {
+  const handleSubmit = async e => {
     e.preventDefault()
-    setSubmitted(true)
+    setStatus('loading')
+    setErrorMsg('')
+    try {
+      const res = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+          name: `${form.firstName} ${form.lastName}`.trim(),
+          ...form,
+        }),
+      })
+      if (res.ok) {
+        setStatus('success')
+        setForm(EMPTY_FORM)
+      } else {
+        const data = await res.json().catch(() => ({}))
+        setErrorMsg(data?.errors?.[0]?.message || 'Something went wrong. Please try again.')
+        setStatus('error')
+      }
+    } catch {
+      setErrorMsg('Network error — please check your connection and try again.')
+      setStatus('error')
+    }
   }
 
   return (
     <main ref={sectionRef}>
+      <Helmet>
+        <title>Contact Us — Arabella Landscape Limited</title>
+        <meta name="description" content="Get in touch with Arabella Landscape. Free 30-minute consultation with a senior landscape architect. Offices in Lagos, Abuja, and Port Harcourt." />
+        <meta property="og:title" content="Contact Arabella Landscape Limited" />
+        <meta property="og:description" content="Tell us about your project — we'll respond within one business day and offer a free initial consultation." />
+        <meta name="twitter:card" content="summary" />
+      </Helmet>
+
       <section className="page-hero">
         <div className="container">
           <p className="section-label" style={{ justifyContent: 'center' }}>Get in Touch</p>
@@ -116,7 +157,7 @@ export default function Contact() {
 
             {/* Form side */}
             <div className="contact-form-card animate-on-scroll animate-right">
-              {submitted ? (
+              {status === 'success' ? (
                 <div className="form-success">
                   <div className="form-success__icon">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
@@ -127,7 +168,7 @@ export default function Contact() {
                   <p>
                     Thank you for reaching out. One of our team members will be in touch within one business day.
                   </p>
-                  <button className="btn btn-primary" onClick={() => setSubmitted(false)}>
+                  <button className="btn btn-primary" onClick={() => setStatus('idle')}>
                     Send Another Message
                   </button>
                 </div>
@@ -228,12 +269,23 @@ export default function Contact() {
                       />
                     </div>
 
+                    {status === 'error' && (
+                      <p className="form-error-msg">{errorMsg}</p>
+                    )}
+
                     <div className="form-submit-row">
-                      <button type="submit" className="btn btn-primary btn-lg">
-                        Send Message
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ width: 18, height: 18 }}>
-                          <line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" />
-                        </svg>
+                      <button
+                        type="submit"
+                        className="btn btn-primary btn-lg"
+                        disabled={status === 'loading'}
+                        style={{ opacity: status === 'loading' ? 0.7 : 1 }}
+                      >
+                        {status === 'loading' ? 'Sending…' : 'Send Message'}
+                        {status !== 'loading' && (
+                          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ width: 18, height: 18 }}>
+                            <line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" />
+                          </svg>
+                        )}
                       </button>
                     </div>
                   </form>
@@ -242,8 +294,16 @@ export default function Contact() {
             </div>
           </div>
 
-          <div className="map-placeholder" aria-label="Office location map">
-            🗺️
+          {/* ── Office Map ── */}
+          <div className="map-wrapper">
+            <iframe
+              title="Arabella Landscape — Lagos Office"
+              src="https://www.google.com/maps?q=Victoria+Island,+Lagos,+Nigeria&output=embed"
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              aria-label="Map showing Arabella Landscape office location in Victoria Island, Lagos"
+            />
           </div>
         </div>
       </section>

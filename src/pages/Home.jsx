@@ -1,10 +1,12 @@
 import { Link } from 'react-router-dom'
 import { useEffect, useRef, useState } from 'react'
+import { Helmet } from 'react-helmet-async'
 import heroImg from '../assets/hero.png'
 import { useScrollAnimation, useCountUp } from '../hooks/useScrollAnimation'
 
 const SERVICES = [
   {
+    slug: 'exterior-landscaping',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z" /><polyline points="9 22 9 12 15 12 15 22" />
@@ -14,6 +16,7 @@ const SERVICES = [
     text: 'Breathtaking outdoor environments crafted with precision — from residential gardens to large-scale commercial estates.',
   },
   {
+    slug: 'interior-landscaping',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
@@ -23,6 +26,7 @@ const SERVICES = [
     text: 'Living walls, indoor planters, and biophilic installations that bring nature indoors and elevate your space.',
   },
   {
+    slug: 'landscape-architecture',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <line x1="18" y1="20" x2="18" y2="10" /><line x1="12" y1="20" x2="12" y2="4" /><line x1="6" y1="20" x2="6" y2="14" />
@@ -32,6 +36,7 @@ const SERVICES = [
     text: 'Holistic design solutions that harmonise aesthetic beauty with ecological responsibility and long-term sustainability.',
   },
   {
+    slug: 'recreational-planning',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <circle cx="12" cy="12" r="10" /><path d="M12 8v4l3 3" />
@@ -41,6 +46,7 @@ const SERVICES = [
     text: 'Parks, playgrounds, sports courts, and leisure facilities designed for communities to thrive and connect.',
   },
   {
+    slug: 'design-build',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
@@ -50,6 +56,7 @@ const SERVICES = [
     text: 'End-to-end project delivery from concept and planning through full construction and installation.',
   },
   {
+    slug: 'site-development',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" /><circle cx="12" cy="10" r="3" />
@@ -149,6 +156,16 @@ export default function Home() {
 
   return (
     <main ref={sectionRef}>
+      <Helmet>
+        <title>Arabella Landscape Limited — Shaping Spaces. Transforming Lives.</title>
+        <meta name="description" content="Nigeria's leading landscape architecture and site development firm. Over 200 completed projects across Lagos, Abuja, and Port Harcourt." />
+        <meta property="og:title" content="Arabella Landscape Limited" />
+        <meta property="og:description" content="Premium landscape architecture and site development across Nigeria. Exterior, interior, recreational, and public realm projects." />
+        <meta property="og:image" content="/assets/images/hero.png" />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary_large_image" />
+      </Helmet>
+
       {/* ── Hero ── */}
       <section className="hero-section">
         <div className="hero-section__bg" style={{ backgroundImage: `url(${heroImg})` }} aria-hidden="true" />
@@ -194,14 +211,14 @@ export default function Home() {
           </div>
 
           <div className="services-grid stagger-children">
-            {SERVICES.map(({ icon, title, text }, i) => (
+            {SERVICES.map(({ slug, icon, title, text }, i) => (
               <div key={title} className="service-card animate-on-scroll"
                 data-num={String(i + 1).padStart(2, '0')}>
                 <div className="service-card__icon">{icon}</div>
                 <h3 className="service-card__title">{title}</h3>
                 <p className="service-card__text">{text}</p>
                 <div className="service-card__divider" aria-hidden="true" />
-                <Link to="/services" className="service-card__link">
+                <Link to={`/services/${slug}`} className="service-card__link">
                   Learn more
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                     <line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" />

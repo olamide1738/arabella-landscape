@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { Helmet } from 'react-helmet-async'
 import { useScrollAnimation } from '../hooks/useScrollAnimation'
 import { PROJECTS, FILTERS } from '../data/projects'
 
@@ -31,6 +32,14 @@ export default function Projects() {
 
   return (
     <main ref={sectionRef}>
+      <Helmet>
+        <title>Projects — Arabella Landscape Limited</title>
+        <meta name="description" content="Browse 200+ completed landscape projects across Nigeria — residential gardens, corporate campuses, public parks, and landmark public spaces." />
+        <meta property="og:title" content="Our Projects — Arabella Landscape Limited" />
+        <meta property="og:description" content="From the Abuja City Gate to Lekki Coastal Park — explore Arabella's portfolio of landmark landscapes." />
+        <meta property="og:image" content="/images/abuja-gate-4.png" />
+        <meta name="twitter:card" content="summary_large_image" />
+      </Helmet>
 
       {/* ── Page Hero ── */}
       <section className="page-hero">
