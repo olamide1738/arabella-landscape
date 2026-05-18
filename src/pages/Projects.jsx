@@ -18,15 +18,27 @@ function PinIcon() {
 
 export default function Projects() {
   const [active, setActive]   = useState('All')
+  const [search, setSearch]   = useState('')
   const [visible, setVisible] = useState(PAGE_SIZE)
   const sectionRef = useScrollAnimation()
 
-  const filtered = active === 'All' ? PROJECTS : PROJECTS.filter(p => p.category === active)
+  const filtered = PROJECTS
+    .filter(p => active === 'All' || p.category === active)
+    .filter(p => {
+      if (!search.trim()) return true
+      const q = search.toLowerCase()
+      return p.name.toLowerCase().includes(q) || p.location.toLowerCase().includes(q)
+    })
   const shown    = filtered.slice(0, visible)
   const hasMore  = visible < filtered.length
 
   const handleFilter = (f) => {
     setActive(f)
+    setVisible(PAGE_SIZE)
+  }
+
+  const handleSearch = (e) => {
+    setSearch(e.target.value)
     setVisible(PAGE_SIZE)
   }
 
@@ -68,6 +80,32 @@ export default function Projects() {
       <section className="section" style={{ background: 'var(--surface-container-low)' }}>
         <div className="container">
 
+          {/* Search bar */}
+          <div className="projects-search-bar">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
+              strokeLinecap="round" strokeLinejoin="round" className="projects-search-bar__icon"
+              aria-hidden="true">
+              <circle cx="11" cy="11" r="8" /><line x1="21" y1="21" x2="16.65" y2="16.65" />
+            </svg>
+            <input
+              type="search"
+              value={search}
+              onChange={handleSearch}
+              placeholder="Search by name or location…"
+              className="projects-search-bar__input"
+              aria-label="Search projects"
+            />
+            {search && (
+              <button
+                className="projects-search-bar__clear"
+                onClick={() => { setSearch(''); setVisible(PAGE_SIZE) }}
+                aria-label="Clear search"
+              >
+                ×
+              </button>
+            )}
+          </div>
+
           {/* Filter tabs */}
           <div className="filter-tabs">
             {FILTERS.map(f => {
@@ -91,6 +129,7 @@ export default function Projects() {
           <p className="projects-count">
             Showing <strong>{shown.length}</strong> of <strong>{filtered.length}</strong> project{filtered.length !== 1 ? 's' : ''}
             {active !== 'All' && <> in <strong>{active}</strong></>}
+            {search && <> matching <strong>"{search}"</strong></>}
           </p>
 
           {/* Grid */}

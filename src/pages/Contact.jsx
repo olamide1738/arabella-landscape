@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { useScrollAnimation } from '../hooks/useScrollAnimation'
+import BrochureModal from '../components/BrochureModal'
 
 // ─────────────────────────────────────────────────────────────────
 // Sign up free at https://formspree.io and replace the ID below.
@@ -37,6 +38,7 @@ export default function Contact() {
   const [status, setStatus] = useState('idle')
   const [errorMsg, setErrorMsg] = useState('')
   const [form, setForm] = useState(EMPTY_FORM)
+  const [brochureOpen, setBrochureOpen] = useState(false)
 
   const handleChange = e => {
     const { name, value } = e.target
@@ -72,6 +74,7 @@ export default function Contact() {
 
   return (
     <main ref={sectionRef}>
+      <BrochureModal isOpen={brochureOpen} onClose={() => setBrochureOpen(false)} />
       <Helmet>
         <title>Contact Us — Arabella Landscape Limited</title>
         <meta name="description" content="Get in touch with Arabella Landscape. Free 30-minute consultation with a senior landscape architect. Visit us at 55, Moleye Street, Off Herbert Macaulay Way, Yaba, Lagos." />
@@ -85,6 +88,21 @@ export default function Contact() {
           <p className="section-label" style={{ justifyContent: 'center' }}>Get in Touch</p>
           <h1>Contact Us</h1>
           <p>Tell us about your project and we'll get back to you within one business day.</p>
+          <div style={{ display: 'flex', justifyContent: 'center', marginTop: '1.75rem' }}>
+            <button
+              className="btn btn-secondary"
+              onClick={() => setBrochureOpen(true)}
+              style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem' }}
+            >
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
+                strokeLinecap="round" strokeLinejoin="round" style={{ width: 16, height: 16 }}>
+                <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4" />
+                <polyline points="7 10 12 15 17 10" />
+                <line x1="12" y1="15" x2="12" y2="3" />
+              </svg>
+              Download Our Brochure
+            </button>
+          </div>
         </div>
       </section>
 

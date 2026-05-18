@@ -167,8 +167,23 @@ export default function Home() {
       </Helmet>
 
       {/* ── Hero ── */}
+      {/* To use a video hero: place your mp4 at /videos/arabella-hero.mp4
+          and set HERO_VIDEO to '/videos/arabella-hero.mp4' below. */}
+      {(() => { const HERO_VIDEO = ''; return null })()}
       <section className="hero-section">
-        <div className="hero-section__bg" style={{ backgroundImage: `url(${heroImg})` }} aria-hidden="true" />
+        {/* Video hero — swap '' for your mp4 path to activate */}
+        {'' ? (
+          <video
+            className="hero-section__bg hero-section__bg--video"
+            autoPlay muted loop playsInline
+            poster={heroImg}
+            aria-hidden="true"
+          >
+            <source src="" type="video/mp4" />
+          </video>
+        ) : (
+          <div className="hero-section__bg" style={{ backgroundImage: `url(${heroImg})` }} aria-hidden="true" />
+        )}
         <div className="hero-section__overlay" aria-hidden="true" />
         <div className="hero__deco" aria-hidden="true" />
 

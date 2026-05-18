@@ -1,0 +1,116 @@
+// ─────────────────────────────────────────────────────────────────
+// Arabella Landscape Limited — Blog / Insights Articles
+// ─────────────────────────────────────────────────────────────────
+
+export const ARTICLES = [
+  {
+    slug: 'best-plants-lagos-gardens',
+    title: 'The 10 Best Plants for Lagos Gardens',
+    excerpt:
+      "Lagos's humid tropical climate is one of the world's most plant-friendly environments — if you choose the right species. Here are the plants our horticulturalists reach for most.",
+    date: '2025-03-15',
+    category: 'Horticulture',
+    readTime: '5 min',
+    image: '/images/abuja-gate-3.png',
+    featured: true,
+    body: [
+      { type: 'p', text: "Lagos sits at 6°N latitude with year-round warmth and 1,600 mm of annual rainfall. That's paradise for tropical plants — if you choose the right ones. After 15 years of designing gardens across Lekki, Victoria Island, Ikoyi, and Ajah, our horticultural team has refined a shortlist of species that thrive beautifully while remaining manageable for homeowners." },
+      { type: 'h2', text: '1. Bougainvillea (Bougainvillea spectabilis)' },
+      { type: 'p', text: "Few plants offer more colour per square metre than bougainvillea. The vivid bracts — in magenta, orange, red, or white — are modified leaves, not flowers, making them extraordinarily long-lasting in Lagos's sunny dry season. Train them over pergolas, boundary walls, or let them cascade from raised planters." },
+      { type: 'h2', text: '2. Ixora (Ixora coccinea)' },
+      { type: 'p', text: "Ixora is the backbone of Lagos hedging. Its tight, glossy foliage clips cleanly into formal shapes, and clusters of tiny red, orange, or yellow flowers bloom almost continuously in the heat. It tolerates coastal salt air well — ideal for Lekki and Victoria Island gardens." },
+      { type: 'h2', text: '3. Flamboyant Tree (Delonix regia)' },
+      { type: 'p', text: "No other canopy tree matches the impact of a mature flamboyant in full bloom. Its wide spreading crown provides excellent shade, and the scarlet flowers in March–May are breathtaking. Give it space — it can spread 12–15 m — and it will reward you for decades." },
+      { type: 'h2', text: '4. Royal Palm (Roystonea regia)' },
+      { type: 'p', text: "The silver-grey trunk and emerald crown of the royal palm bring instant architectural drama to any property. They perform brilliantly as avenue trees along long driveways, or as sentinel pairs flanking entrance gates. Fast-growing and low-maintenance once established." },
+      { type: 'h2', text: "5. Traveller's Palm (Ravenala madagascariensis)" },
+      { type: 'p', text: "The traveller's palm creates a striking architectural fan of paddle-shaped leaves up to 4 m high. Plant it in a well-draining bed with morning sun and it will grow vigorously. An ideal specimen plant for contemporary garden designs." },
+      { type: 'h2', text: '6. Heliconia (Heliconia psittacorum)' },
+      { type: 'p', text: "Heliconia's vivid orange-and-yellow lobster-claw flowers are a bold tropical statement. In Lagos's humid conditions they multiply rapidly into impressive clumps. They work beautifully massed in front of boundary walls or used as screening." },
+      { type: 'h2', text: '7. Frangipani (Plumeria rubra)' },
+      { type: 'p', text: "The frangipani's waxy, intensely fragrant flowers are at their best in the dry season when the tree is nearly leafless — a magical quality. Available in white, yellow, pink, and deep red. Works as a small specimen tree or in large containers on terraces." },
+      { type: 'h2', text: '8. Croton (Codiaeum variegatum)' },
+      { type: 'p', text: "Few plants rival croton for year-round foliage colour — each leaf a mosaic of green, yellow, orange, red, and purple. In Lagos's full sun it intensifies beautifully. Use it for borders, hedges, or as a bold ground-storey contrast beneath palm trees." },
+      { type: 'h2', text: '9. Bird of Paradise (Strelitzia reginae)' },
+      { type: 'p', text: "The orange-and-blue crane-like flowers of strelitzia are instantly recognisable. In Lagos it blooms repeatedly through the year and tolerates both coastal conditions and the dry season remarkably well. Excellent for contemporary planting schemes." },
+      { type: 'h2', text: '10. Snake Plant (Sansevieria trifasciata)' },
+      { type: 'p', text: "For low-maintenance beds in partial shade — under canopy trees or beside walls — the snake plant is unbeatable. Its upright sword-like leaves in dark and pale green give structure to the garden floor without competing with showier plants above. Nearly indestructible." },
+    ],
+  },
+  {
+    slug: 'water-efficient-landscape-abuja',
+    title: 'Designing a Water-Efficient Landscape in Abuja',
+    excerpt:
+      "Abuja's savanna climate means a long dry season from November to March. These design strategies keep your landscape green without wasteful irrigation.",
+    date: '2025-01-22',
+    category: 'Design',
+    readTime: '6 min',
+    image: '/images/abuja-gate-2.png',
+    featured: false,
+    body: [
+      { type: 'p', text: "Abuja receives roughly 1,200 mm of rain per year — but it arrives almost entirely between April and October. From November through March, virtually nothing falls. Without smart design, an Abuja garden can look parched for five months, or require expensive daily irrigation to survive." },
+      { type: 'h2', text: 'Zone Your Planting by Water Need' },
+      { type: 'p', text: "The single most effective water-saving strategy is hydro-zoning: grouping plants with similar water requirements together. High-water plants (heliconia, ferns, tropical gingers) go nearest the house where they can benefit from grey-water run-off and hand-watering. Drought-tolerant species — native acacias, aloe, agave, and savanna grasses — colonise outer zones where rainfall is the only input." },
+      { type: 'h2', text: 'Deep-Drip Irrigation vs. Surface Sprinklers' },
+      { type: 'p', text: "Surface sprinklers lose up to 40% of their water to evaporation in Abuja's dry-season heat. Deep-drip emitters deliver water directly to the root zone, reducing evaporative loss to near zero. For lawns, pop-up rotary heads on a smart timer controlled by a soil-moisture sensor can reduce water use by 30–50% compared to timer-only systems." },
+      { type: 'h2', text: 'Mulch Everything' },
+      { type: 'p', text: "A 75–100 mm layer of organic mulch (palm-kernel shells, wood chips, or composted grass clippings) over planting beds dramatically reduces soil-moisture loss. It also suppresses weeds, moderates soil temperature, and feeds soil biology as it breaks down. It is, by some margin, the cheapest and most effective investment you can make in a new garden." },
+      { type: 'h2', text: 'Choose Native and Near-Native Species' },
+      { type: 'p', text: "Guinea savanna natives — Vitex doniana (black plum), Parkia biglobosa (locust bean tree), and Daniellia oliveri (African copaiba) — have evolved specifically for Abuja's climate. They green up rapidly when the rains arrive and go gracefully semi-dormant in the dry season without dying. They also support local birds and insects, creating a living ecosystem with minimal inputs." },
+      { type: 'h2', text: 'Rain-Water Harvesting' },
+      { type: 'p', text: "A 5,000–10,000 litre underground rainwater tank, fed by roof downpipes and connected to a drip-irrigation pump, can supply a medium-sized garden through much of the dry season from water collected during the rains. Arabella routinely specifies these systems on new-build projects in Abuja; the payback period against borehole running costs is typically 3–5 years." },
+    ],
+  },
+  {
+    slug: 'process-first-sketch-to-handover',
+    title: 'Our Process: From First Sketch to Handover',
+    excerpt:
+      "What actually happens between your first call with Arabella and the day we hand over your completed landscape? We walk you through every stage.",
+    date: '2024-11-08',
+    category: 'Behind the Scenes',
+    readTime: '7 min',
+    image: '/images/abuja-gate-r1.jpg',
+    featured: false,
+    body: [
+      { type: 'p', text: "One of the most common questions we hear from new clients is: 'How does this actually work?' The landscape architecture process can feel opaque from the outside — a blend of creative design, engineering, horticulture, and construction management. Here's exactly what happens, from your first conversation with us to the day you take ownership of your completed landscape." },
+      { type: 'h2', text: 'Stage 1 — Discovery (Weeks 1–2)' },
+      { type: 'p', text: "Every project begins with a free 30-minute consultation — by phone, video, or in person at our Yaba studio. We ask about your vision, your lifestyle, how you use outdoor space, your timeline, and your budget range. No sketches, no commitments. We're just listening. After this call, we issue a brief proposal outlining scope and fees." },
+      { type: 'h2', text: 'Stage 2 — Site Survey & Analysis (Weeks 2–3)' },
+      { type: 'p', text: "Once engaged, we conduct a detailed site survey: measuring and drawing the existing space, assessing soil type and drainage, mapping sun and shade patterns at different times of day, and noting existing trees, structures, and services. For larger projects we also commission a drone survey to generate accurate topographic data." },
+      { type: 'h2', text: 'Stage 3 — Concept Design (Weeks 3–6)' },
+      { type: 'p', text: "From the survey data and your brief, our design team develops two or three concept directions — hand sketches and digital renders showing spatial organisation, planting philosophy, and materials palette. We present these in a face-to-face review, listen to your feedback, and refine the selected concept into a full Concept Design Package: floor plans, sections, 3D visualisations, and an indicative plant list." },
+      { type: 'h2', text: 'Stage 4 — Technical Design & Costing (Weeks 6–10)' },
+      { type: 'p', text: "The approved concept is developed into construction drawings: grading and drainage plans, planting plans with species, spacing, and quantities, paving and structure details, and irrigation schematics. Our quantity surveyor prepares a detailed Bill of Quantities, and we obtain competitive tenders from our trusted contractor network. You receive a clear fixed-price contract before any ground is broken." },
+      { type: 'h2', text: 'Stage 5 — Construction & Site Management' },
+      { type: 'p', text: "Construction is managed by Arabella's own site team. We run weekly progress reports, photographic updates, and quality inspections at every key stage — earthworks, drainage, hard landscaping, planting, and systems installation. Most residential projects take 8–16 weeks to construct." },
+      { type: 'h2', text: 'Stage 6 — Handover & Aftercare' },
+      { type: 'p', text: "At handover we walk you through every element of your new landscape: how to operate the irrigation controller, which plants need seasonal pruning, what to look for in the establishment period. We provide a full Landscape Aftercare Guide and offer optional ongoing maintenance contracts." },
+    ],
+  },
+  {
+    slug: 'biophilic-design-nigerian-offices',
+    title: 'Biophilic Design in Nigerian Office Spaces',
+    excerpt:
+      "Research shows that plants and natural elements in the workplace increase productivity by up to 15%. Here's how to bring biophilic design into Nigerian corporate environments.",
+    date: '2024-09-30',
+    category: 'Interior',
+    readTime: '5 min',
+    image: '/images/abuja-gate-r2.jpg',
+    featured: false,
+    body: [
+      { type: 'p', text: "Two decades of research — from the University of Exeter to the World Green Building Council — has confirmed what landscape architects have always known: exposure to plants and natural elements makes people feel better, think more clearly, and produce better work. One landmark study found that introducing plants to a previously bare office increased productivity by 15% and reduced sick days by 10%." },
+      { type: 'h2', text: 'The Living Wall' },
+      { type: 'p', text: "A vertical garden — or 'living wall' — is the highest-impact biophilic intervention for a corporate reception or boardroom. A well-designed living wall of 10–15 m² transforms the feel of an entire floor, serves as a natural sound absorber, and significantly improves air quality by filtering the VOCs common in air-conditioned Nigerian offices. Ideal species include Epipremnum aureum (golden pothos), Philodendron scandens, Ficus pumila, and tropical ferns." },
+      { type: 'h2', text: 'Desk Plants That Survive Air Conditioning' },
+      { type: 'p', text: "Most plant fatalities in Nigerian offices have a single cause: dry, cold air conditioning running 8 hours a day. The key is choosing plants adapted to low humidity and indirect light. The hardiest performers we consistently recommend are: ZZ plant, snake plant, Chinese evergreen, and cast iron plant. All will thrive in typical Lagos and Abuja office conditions." },
+      { type: 'h2', text: 'Atrium Gardens' },
+      { type: 'p', text: "For buildings designed around a central atrium or courtyard — common in Abuja's newer commercial developments — there is a genuine opportunity to create a garden at the heart of the workspace. Natural light from above allows for a far wider plant palette, including small trees, palms, and flowering shrubs. Every atrium garden Arabella has designed has become the most-photographed and most-valued space in the building." },
+      { type: 'h2', text: 'Biophilic Paths & Courtyards' },
+      { type: 'p', text: "Even without interior space to work with, a well-planted exterior courtyard visible from breakout areas or meeting rooms provides significant biophilic benefit. Research shows that even a 'green view' through a window reduces stress and increases focus. Strategic planting around the perimeter of an office block, combined with a shaded outdoor seating area, is one of the most cost-effective workplace wellness investments available." },
+    ],
+  },
+]
+
+export const getArticle = (slug) => ARTICLES.find(a => a.slug === slug)
+
+export const ARTICLE_CATEGORIES = ['All', ...new Set(ARTICLES.map(a => a.category))]

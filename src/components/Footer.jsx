@@ -14,6 +14,9 @@ const COMPANY = [
   { to: '/about', label: 'About Us' },
   { to: '/projects', label: 'Projects' },
   { to: '/services', label: 'Services' },
+  { to: '/blog', label: 'Insights' },
+  { to: '/plants', label: 'Plant Palette' },
+  { to: '/faq', label: 'FAQ' },
   { to: '/contact', label: 'Contact' },
 ]
 
