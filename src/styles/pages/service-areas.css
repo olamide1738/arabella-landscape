@@ -1,0 +1,230 @@
+/* ═══════════════════════════════════════════════════════════════
+   Service Areas page
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ── City cards grid ── */
+.sa-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+
+.sa-card {
+  background: var(--surface);
+  border: 1px solid var(--outline-variant);
+  border-radius: var(--rounded-xl);
+  overflow: hidden;
+  transition: box-shadow 0.25s, transform 0.25s;
+}
+
+.sa-card:hover {
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  transform: translateY(-3px);
+}
+
+.sa-card__image {
+  position: relative;
+  aspect-ratio: 16/9;
+  overflow: hidden;
+}
+
+.sa-card__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.sa-card:hover .sa-card__image img {
+  transform: scale(1.05);
+}
+
+.sa-card__badge {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: var(--forest-depth);
+  color: var(--lime-energy);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 0.3rem 0.75rem;
+  border-radius: var(--rounded-full);
+}
+
+.sa-card__body {
+  padding: 1.75rem 2rem 2rem;
+}
+
+.sa-card__state {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--vivid-growth);
+  margin-bottom: 0.35rem;
+}
+
+.sa-card__city {
+  font-family: var(--font-display);
+  font-size: 26px;
+  font-weight: 500;
+  color: var(--on-surface);
+  margin-bottom: 0.4rem;
+  line-height: 1.1;
+}
+
+.sa-card__tagline {
+  font-size: 14px;
+  color: var(--on-surface-variant);
+  line-height: 1.6;
+  margin-bottom: 1.25rem;
+}
+
+.sa-card__districts {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  margin-bottom: 1.5rem;
+}
+
+.sa-card__district {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 13px;
+  color: var(--on-surface-variant);
+}
+
+.sa-card__district::before {
+  content: '';
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--vivid-growth);
+  flex-shrink: 0;
+}
+
+.sa-card__footer {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--outline-variant);
+  flex-wrap: wrap;
+}
+
+.sa-card__stat {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+  flex: 1;
+  min-width: 80px;
+}
+
+.sa-card__stat-val {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--forest-depth);
+  line-height: 1;
+}
+
+.sa-card__stat-key {
+  font-size: 10px;
+  color: var(--on-surface-variant);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+/* ── Why Nigeria section ── */
+.sa-why-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.sa-why-card {
+  background: var(--surface-container-low);
+  border: 1px solid var(--outline-variant);
+  border-radius: var(--rounded-xl);
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.sa-why-card__icon {
+  width: 44px;
+  height: 44px;
+  background: var(--forest-depth);
+  border-radius: var(--rounded-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sa-why-card__icon svg {
+  width: 20px;
+  height: 20px;
+  color: var(--lime-energy);
+}
+
+.sa-why-card__title {
+  font-family: var(--font-display);
+  font-size: 17px;
+  font-weight: 500;
+  color: var(--on-surface);
+}
+
+.sa-why-card__body {
+  font-size: 13.5px;
+  line-height: 1.7;
+  color: var(--on-surface-variant);
+}
+
+/* ── Contact strip ── */
+.sa-contact-strip {
+  background: var(--forest-depth);
+  border-radius: var(--rounded-xl);
+  padding: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.sa-contact-strip__text h3 {
+  font-family: var(--font-display);
+  font-size: 26px;
+  font-weight: 500;
+  color: var(--pure-white);
+  margin-bottom: 0.5rem;
+}
+
+.sa-contact-strip__text p {
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.sa-contact-strip__actions {
+  display: flex;
+  gap: 1rem;
+  flex-shrink: 0;
+}
+
+/* ── Responsive ── */
+@media (max-width: 1024px) {
+  .sa-why-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 900px) {
+  .sa-grid { grid-template-columns: 1fr; }
+  .sa-contact-strip { flex-direction: column; align-items: flex-start; }
+  .sa-contact-strip__actions { flex-wrap: wrap; }
+}
+
+@media (max-width: 600px) {
+  .sa-why-grid { grid-template-columns: 1fr; }
+  .sa-card__body { padding: 1.25rem 1.25rem 1.5rem; }
+}

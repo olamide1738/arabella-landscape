@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom'
 import { Helmet } from 'react-helmet-async'
 import { useScrollAnimation } from '../hooks/useScrollAnimation'
 import { ARTICLES, ARTICLE_CATEGORIES } from '../data/articles'
+import ResourceModal from '../components/ResourceModal'
+import { FREE_GUIDES } from '../data/resources'
 
 function CalendarIcon() {
   return (
@@ -55,6 +57,7 @@ function ArticleCard({ article, featured = false }) {
 export default function Blog() {
   const sectionRef = useScrollAnimation()
   const [activeCategory, setActiveCategory] = useState('All')
+  const [activeGuide, setActiveGuide] = useState(null)
 
   const filtered = activeCategory === 'All'
     ? ARTICLES
@@ -65,6 +68,7 @@ export default function Blog() {
 
   return (
     <main ref={sectionRef}>
+      <ResourceModal guide={activeGuide} onClose={() => setActiveGuide(null)} />
       <Helmet>
         <title>Insights — Arabella Landscape Limited</title>
         <meta name="description" content="Design ideas, plant guides, and behind-the-scenes stories from Nigeria's leading landscape architecture firm." />
@@ -91,6 +95,44 @@ export default function Blog() {
           </div>
         </section>
       )}
+
+      {/* ── Free Guides ── */}
+      <section className="section" style={{ background: 'var(--forest-depth)', paddingTop: '3rem', paddingBottom: '3rem' }}>
+        <div className="container">
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', flexWrap: 'wrap', gap: '1rem', marginBottom: '2rem' }}>
+            <div>
+              <p className="section-label section-label--light animate-on-scroll">Free Downloads</p>
+              <h2 className="headline-lg animate-on-scroll" style={{ color: 'var(--pure-white)' }}>
+                Expert Guides,<br /><em>Yours Free</em>
+              </h2>
+            </div>
+          </div>
+          <div className="guides-grid stagger-children">
+            {FREE_GUIDES.map(guide => (
+              <button
+                key={guide.id}
+                className="guide-card animate-on-scroll"
+                onClick={() => setActiveGuide(guide)}
+                style={{ background: guide.color }}
+              >
+                <p className="guide-card__category">{guide.category}</p>
+                <h3 className="guide-card__title">{guide.title}</h3>
+                <p className="guide-card__subtitle">{guide.subtitle}</p>
+                <p className="guide-card__desc">{guide.desc}</p>
+                <span className="guide-card__cta">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
+                    strokeLinecap="round" strokeLinejoin="round" style={{ width: 16, height: 16 }}>
+                    <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4" />
+                    <polyline points="7 10 12 15 17 10" />
+                    <line x1="12" y1="15" x2="12" y2="3" />
+                  </svg>
+                  Download Free
+                </span>
+              </button>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* All Articles */}
       <section className="section" style={{ background: 'var(--surface)', paddingTop: activeCategory === 'All' ? '2rem' : undefined }}>

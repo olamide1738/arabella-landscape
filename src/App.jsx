@@ -18,6 +18,11 @@ import ArticleDetail from './pages/ArticleDetail'
 import Plants from './pages/Plants'
 import Markets from './pages/Markets'
 import MarketDetail from './pages/MarketDetail'
+import CaseStudies from './pages/CaseStudies'
+import CaseStudyDetail from './pages/CaseStudyDetail'
+import BeforeAfter from './pages/BeforeAfter'
+import Sustainability from './pages/Sustainability'
+import ServiceAreas from './pages/ServiceAreas'
 
 function ScrollToTop() {
   const { pathname } = useLocation()
@@ -45,6 +50,11 @@ export default function App() {
           <Route path="/plants" element={<Plants />} />
           <Route path="/markets" element={<Markets />} />
           <Route path="/markets/:slug" element={<MarketDetail />} />
+          <Route path="/case-studies" element={<CaseStudies />} />
+          <Route path="/case-studies/:slug" element={<CaseStudyDetail />} />
+          <Route path="/before-after" element={<BeforeAfter />} />
+          <Route path="/sustainability" element={<Sustainability />} />
+          <Route path="/service-areas" element={<ServiceAreas />} />
         </Routes>
         <Footer />
         <BackToTop />

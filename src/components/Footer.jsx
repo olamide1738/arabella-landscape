@@ -13,7 +13,10 @@ const SERVICES = [
 const COMPANY = [
   { to: '/about', label: 'About Us' },
   { to: '/projects', label: 'Projects' },
-  { to: '/services', label: 'Services' },
+  { to: '/case-studies', label: 'Case Studies' },
+  { to: '/before-after', label: 'Before & After' },
+  { to: '/sustainability', label: 'Sustainability' },
+  { to: '/service-areas', label: 'Service Areas' },
   { to: '/blog', label: 'Insights' },
   { to: '/plants', label: 'Plant Palette' },
   { to: '/faq', label: 'FAQ' },

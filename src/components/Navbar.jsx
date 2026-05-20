@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { NavLink, Link, useLocation } from 'react-router-dom'
 import logoFull from '../assets/logo-full.png'
+import SiteSearch from './SiteSearch'
 
 const NAV_LINKS = [
   { to: '/', label: 'Home' },
@@ -56,6 +57,8 @@ export default function Navbar() {
             ))}
           </ul>
 
+          <SiteSearch />
+
           <Link to="/contact" className="btn btn-primary btn-sm navbar__cta" onClick={closeMenu}>
             Get a Quote
           </Link>
@@ -85,6 +88,7 @@ export default function Navbar() {
             {label}
           </NavLink>
         ))}
+        <SiteSearch />
         <Link to="/contact" className="btn btn-primary" onClick={closeMenu}>
           Get a Quote
         </Link>
