@@ -57,11 +57,11 @@ export default function Navbar() {
             ))}
           </ul>
 
-          <SiteSearch />
-
           <Link to="/contact" className="btn btn-primary btn-sm navbar__cta" onClick={closeMenu}>
             Get a Quote
           </Link>
+
+          <SiteSearch />
 
           <button
             className={`navbar__hamburger${menuOpen ? ' open' : ''}`}
