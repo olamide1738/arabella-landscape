@@ -1207,6 +1207,7 @@
 .projects-search-bar {
   position: relative;
   max-width: 480px;
+  margin-inline: auto;
   margin-bottom: 1.5rem;
 }
 
