@@ -19,7 +19,6 @@ export default function Navbar() {
   const { pathname } = useLocation()
 
   const isHome = pathname === '/'
-  // On inner pages the hero is cream, so always show the scrolled (cream) style
   const showScrolled = !isHome || scrolled
 
   useEffect(() => {
@@ -37,6 +36,7 @@ export default function Navbar() {
 
   return (
     <>
+      {/* ── Desktop / top bar ── */}
       <nav className={`navbar${showScrolled ? ' scrolled' : ''}`} aria-label="Main navigation">
         <div className="navbar__inner">
           <Link to="/" className="navbar__logo" onClick={closeMenu}>
@@ -57,12 +57,13 @@ export default function Navbar() {
             ))}
           </ul>
 
+          {/* Desktop-only: CTA + search */}
           <Link to="/contact" className="btn btn-primary btn-sm navbar__cta" onClick={closeMenu}>
             Get a Quote
           </Link>
-
           <SiteSearch />
 
+          {/* Hamburger — mobile only */}
           <button
             className={`navbar__hamburger${menuOpen ? ' open' : ''}`}
             onClick={() => setMenuOpen(o => !o)}
@@ -76,22 +77,59 @@ export default function Navbar() {
         </div>
       </nav>
 
-      <div className={`mobile-nav${menuOpen ? ' open' : ''}`} aria-hidden={!menuOpen}>
-        {NAV_LINKS.map(({ to, label }) => (
-          <NavLink
-            key={to}
-            to={to}
-            end={to === '/'}
-            className="mobile-nav__link"
+      {/* ── Mobile full-screen overlay ── */}
+      <div
+        className={`mobile-nav${menuOpen ? ' open' : ''}`}
+        aria-hidden={!menuOpen}
+        aria-label="Mobile navigation"
+      >
+        {/* Top row: logo + close */}
+        <div className="mobile-nav__header">
+          <img src={logoFull} alt="Arabella" className="mobile-nav__logo" />
+          <button
+            className="mobile-nav__close"
             onClick={closeMenu}
+            aria-label="Close menu"
           >
-            {label}
-          </NavLink>
-        ))}
-        <SiteSearch />
-        <Link to="/contact" className="btn btn-primary" onClick={closeMenu}>
-          Get a Quote
-        </Link>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"
+              strokeLinecap="round" strokeLinejoin="round">
+              <line x1="18" y1="6" x2="6" y2="18" />
+              <line x1="6" y1="6" x2="18" y2="18" />
+            </svg>
+          </button>
+        </div>
+
+        {/* Nav links */}
+        <nav className="mobile-nav__links" aria-label="Mobile links">
+          {NAV_LINKS.map(({ to, label }, i) => (
+            <NavLink
+              key={to}
+              to={to}
+              end={to === '/'}
+              className={({ isActive }) =>
+                `mobile-nav__link${isActive ? ' mobile-nav__link--active' : ''}`
+              }
+              onClick={closeMenu}
+              style={{ '--i': i }}
+            >
+              {label}
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
+                strokeLinecap="round" strokeLinejoin="round" className="mobile-nav__arrow">
+                <line x1="5" y1="12" x2="19" y2="12" />
+                <polyline points="12 5 19 12 12 19" />
+              </svg>
+            </NavLink>
+          ))}
+        </nav>
+
+        {/* Bottom actions */}
+        <div className="mobile-nav__footer">
+          <Link to="/contact" className="btn btn-primary" onClick={closeMenu}
+            style={{ width: '100%', justifyContent: 'center' }}>
+            Get a Free Quote
+          </Link>
+          <p className="mobile-nav__tagline">Shaping Spaces. Transforming Lives.</p>
+        </div>
       </div>
     </>
   )
