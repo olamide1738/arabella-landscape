@@ -123,7 +123,7 @@ export default function Contact() {
                     <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.72A2 2 0 012 .18h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14h-.08z" />
                   </svg>
                 </div>
-                <div>
+                <div className="contact-detail__text">
                   <p className="contact-detail__label">Phone</p>
                   <a href="tel:+2348001234567" className="contact-detail__value">+234 800 123 4567</a>
                 </div>
@@ -135,7 +135,7 @@ export default function Contact() {
                     <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" /><polyline points="22,6 12,13 2,6" />
                   </svg>
                 </div>
-                <div>
+                <div className="contact-detail__text">
                   <p className="contact-detail__label">Email</p>
                   <a href="mailto:hello@arabellalandscape.com" className="contact-detail__value">hello@arabellalandscape.com</a>
                 </div>
@@ -147,7 +147,7 @@ export default function Contact() {
                     <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" /><circle cx="12" cy="10" r="3" />
                   </svg>
                 </div>
-                <div>
+                <div className="contact-detail__text">
                   <p className="contact-detail__label">Address</p>
                   <p className="contact-detail__value">55, Moleye Street, Off Herbert Macaulay Way,<br />Yaba, Lagos, Nigeria</p>
                 </div>
@@ -159,7 +159,7 @@ export default function Contact() {
                     <circle cx="12" cy="12" r="10" /><polyline points="12 6 12 12 16 14" />
                   </svg>
                 </div>
-                <div>
+                <div className="contact-detail__text">
                   <p className="contact-detail__label">Working Hours</p>
                   <p className="contact-detail__value">Mon – Fri, 8am – 6pm WAT</p>
                 </div>

@@ -1,8 +1,10 @@
-import { useState } from 'react'
+import { useState, lazy, Suspense } from 'react'
 import { Link } from 'react-router-dom'
 import { Helmet } from 'react-helmet-async'
 import { useScrollAnimation } from '../hooks/useScrollAnimation'
 import { PROJECTS, FILTERS } from '../data/projects'
+
+const ProjectsMap = lazy(() => import('../components/ProjectsMap'))
 
 const PAGE_SIZE = 9
 
@@ -20,6 +22,7 @@ export default function Projects() {
   const [active, setActive]   = useState('All')
   const [search, setSearch]   = useState('')
   const [visible, setVisible] = useState(PAGE_SIZE)
+  const [viewMode, setViewMode] = useState('grid')
   const sectionRef = useScrollAnimation()
 
   const filtered = PROJECTS
@@ -58,14 +61,14 @@ export default function Projects() {
         <div className="container">
           <p className="section-label" style={{ justifyContent: 'center' }}>Our Work</p>
           <h1>Our Projects</h1>
-          <p>Over 200 completed projects across Nigeria — from intimate residential gardens to landmark public spaces.</p>
+          <p>Over 200 completed projects since 1990 — private homes, corporate offices, hotels, retail centres, parks, and public spaces across Nigeria.</p>
 
           <div className="projects-hero-stats">
             {[
               { number: '200+', label: 'Projects Completed' },
-              { number: '15+',  label: 'Years of Practice'  },
-              { number: '4',    label: 'Nigerian Cities'    },
-              { number: '98%',  label: 'Client Satisfaction'},
+              { number: '35+',  label: 'Years in Practice'  },
+              { number: '7',    label: 'Sectors Covered'    },
+              { number: 'BALI', label: 'Registered Member'  },
             ].map(({ number, label }) => (
               <div key={label} className="projects-hero-stat">
                 <span className="projects-hero-stat__number">{number}</span>
@@ -80,30 +83,58 @@ export default function Projects() {
       <section className="section" style={{ background: 'var(--surface-container-low)' }}>
         <div className="container">
 
-          {/* Search bar */}
-          <div className="projects-search-bar">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
-              strokeLinecap="round" strokeLinejoin="round" className="projects-search-bar__icon"
-              aria-hidden="true">
-              <circle cx="11" cy="11" r="8" /><line x1="21" y1="21" x2="16.65" y2="16.65" />
-            </svg>
-            <input
-              type="search"
-              value={search}
-              onChange={handleSearch}
-              placeholder="Search by name or location…"
-              className="projects-search-bar__input"
-              aria-label="Search projects"
-            />
-            {search && (
+          {/* Search bar + view toggle */}
+          <div className="projects-search-row">
+            <div className="projects-search-bar">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
+                strokeLinecap="round" strokeLinejoin="round" className="projects-search-bar__icon"
+                aria-hidden="true">
+                <circle cx="11" cy="11" r="8" /><line x1="21" y1="21" x2="16.65" y2="16.65" />
+              </svg>
+              <input
+                type="search"
+                value={search}
+                onChange={handleSearch}
+                placeholder="Search by name or location…"
+                className="projects-search-bar__input"
+                aria-label="Search projects"
+              />
+              {search && (
+                <button
+                  className="projects-search-bar__clear"
+                  onClick={() => { setSearch(''); setVisible(PAGE_SIZE) }}
+                  aria-label="Clear search"
+                >
+                  ×
+                </button>
+              )}
+            </div>
+
+            <div className="projects-view-toggle" role="group" aria-label="View mode">
               <button
-                className="projects-search-bar__clear"
-                onClick={() => { setSearch(''); setVisible(PAGE_SIZE) }}
-                aria-label="Clear search"
+                className={`projects-view-toggle__btn${viewMode === 'grid' ? ' active' : ''}`}
+                onClick={() => setViewMode('grid')}
+                aria-label="Grid view"
+                title="Grid view"
               >
-                ×
+                <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18" aria-hidden="true">
+                  <rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/>
+                  <rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/>
+                </svg>
               </button>
-            )}
+              <button
+                className={`projects-view-toggle__btn${viewMode === 'map' ? ' active' : ''}`}
+                onClick={() => setViewMode('map')}
+                aria-label="Map view"
+                title="Map view"
+              >
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
+                  strokeLinecap="round" strokeLinejoin="round" width="18" height="18" aria-hidden="true">
+                  <polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/>
+                  <line x1="8" y1="2" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="22"/>
+                </svg>
+              </button>
+            </div>
           </div>
 
           {/* Filter tabs */}
@@ -125,15 +156,24 @@ export default function Projects() {
             })}
           </div>
 
+          {/* Map view */}
+          {viewMode === 'map' && (
+            <Suspense fallback={<div className="projects-map-loading">Loading map…</div>}>
+              <ProjectsMap projects={filtered} />
+            </Suspense>
+          )}
+
           {/* Count line */}
-          <p className="projects-count">
-            Showing <strong>{shown.length}</strong> of <strong>{filtered.length}</strong> project{filtered.length !== 1 ? 's' : ''}
-            {active !== 'All' && <> in <strong>{active}</strong></>}
-            {search && <> matching <strong>"{search}"</strong></>}
-          </p>
+          {viewMode === 'grid' && (
+            <p className="projects-count">
+              Showing <strong>{shown.length}</strong> of <strong>{filtered.length}</strong> project{filtered.length !== 1 ? 's' : ''}
+              {active !== 'All' && <> in <strong>{active}</strong></>}
+              {search && <> matching <strong>"{search}"</strong></>}
+            </p>
+          )}
 
           {/* Grid */}
-          {shown.length > 0 ? (
+          {viewMode === 'grid' && shown.length > 0 ? (
             <div className="projects-grid stagger-children">
               {shown.map((project) => (
                 <Link
@@ -168,14 +208,14 @@ export default function Projects() {
                 </Link>
               ))}
             </div>
-          ) : (
+          ) : viewMode === 'grid' ? (
             <p style={{ textAlign: 'center', color: 'var(--on-surface-variant)', padding: '4rem 0' }}>
               No projects in this category yet.
             </p>
-          )}
+          ) : null}
 
           {/* Load More */}
-          {hasMore && (
+          {viewMode === 'grid' && hasMore && (
             <div className="load-more-wrap">
               <button
                 className="btn btn-secondary"

@@ -8,33 +8,33 @@ const PILLARS = [
     num: '01',
     name: 'Design',
     sub: 'Landscape Architecture & Planning',
-    desc: 'Visionary design from initial concept and masterplanning through to detailed construction drawings and 3D visualisations.',
+    desc: 'From first concept and masterplanning through to full construction drawings, planting schedules, and 3D visualisations.',
     image: '/images/abuja-gate-r1.jpg',
-    slug: 'landscape-architecture',
+    slug: 'design',
   },
   {
     num: '02',
-    name: 'Build',
-    sub: 'Design-Build & Site Development',
-    desc: 'End-to-end construction and civil works — from earthworks and drainage through to full landscape installation and handover.',
-    image: '/images/abuja-gate-2.png',
-    slug: 'design-build',
+    name: 'Construction',
+    sub: 'Site Works & Landscape Installation',
+    desc: 'Earthworks, drainage, hard landscaping, planting, irrigation, and structures — built to drawing, on programme, without shortcuts.',
+    image: '/images/abuja-gate-1.png',
+    slug: 'construction',
   },
   {
     num: '03',
-    name: 'Maintain',
-    sub: 'Exterior Landscaping & Ongoing Care',
-    desc: 'Premium maintenance, seasonal planting, and enhancement programmes that keep your landscape investment thriving year-round.',
+    name: 'Maintenance',
+    sub: 'Grounds Management & Ongoing Care',
+    desc: 'Bespoke maintenance programmes — lawn care, pruning, irrigation servicing, seasonal planting, and tree inspections — tailored to your site.',
     image: '/images/abuja-gate-3.png',
-    slug: 'exterior-landscaping',
+    slug: 'maintenance',
   },
   {
     num: '04',
-    name: 'Interior',
-    sub: 'Biophilic & Indoor Landscaping',
-    desc: 'Living walls, planted installations, and indoor planting programmes that bring nature into the built environment.',
+    name: 'Farm',
+    sub: 'Plant Nursery & Growing',
+    desc: 'We grow our own. Native and tropical species propagated to project specification — quality and provenance the open market cannot guarantee.',
     image: '/images/abuja-gate-r3.jpg',
-    slug: 'interior-landscaping',
+    slug: 'farm',
   },
 ]
 
@@ -66,7 +66,7 @@ export default function Services() {
     <main ref={sectionRef}>
       <Helmet>
         <title>Services — Arabella Landscape Limited</title>
-        <meta name="description" content="End-to-end landscape solutions — exterior and interior landscaping, landscape architecture, recreational planning, design-build, and site development across Nigeria." />
+        <meta name="description" content="Design, Construction, Maintenance, and Farm — Arabella's four integrated services covering every stage of your landscape, from first sketch to ongoing care." />
         <meta property="og:title" content="Landscape Services — Arabella Landscape Limited" />
         <meta property="og:description" content="From concept through construction and ongoing care — Arabella delivers premium landscapes for residential, commercial, and public clients." />
         <meta property="og:image" content="/assets/images/service-exterior.png" />
@@ -79,7 +79,7 @@ export default function Services() {
           <p className="section-label" style={{ justifyContent: 'center' }}>What We Offer</p>
           <h1>Our Services</h1>
           <p>
-            Six specialist disciplines — one integrated team. From your first idea through to a thriving, maintained landscape.
+            Design, Construction, Maintenance, and our own growing Farm — one integrated team, from first idea through to a thriving, cared-for landscape.
           </p>
         </div>
       </section>
@@ -88,7 +88,7 @@ export default function Services() {
       <section className="svc-pillars">
         <div className="container">
           <div style={{ textAlign: 'center', marginBottom: '2.5rem' }}>
-            <p className="section-label" style={{ justifyContent: 'center' }}>Four Disciplines</p>
+            <p className="section-label" style={{ justifyContent: 'center' }}>Four Services</p>
             <h2 className="headline-lg animate-on-scroll" style={{ color: 'var(--on-surface)' }}>
               One Integrated Practice
             </h2>
@@ -178,13 +178,13 @@ export default function Services() {
               One Firm. Every Discipline.
             </h2>
             <p className="animate-on-scroll" style={{ color: 'var(--on-surface-variant)', maxWidth: '580px', margin: '0.75rem auto 0', fontSize: '16px', lineHeight: 1.75 }}>
-              Arabella is Nigeria's only landscape practice that covers the full spectrum — from ecological masterplanning and 3D design to civil groundworks and ongoing maintenance — in-house.
+              Arabella is one of Nigeria's few landscape practices that covers the full cycle — design, construction, maintenance, and growing our own plants — entirely in-house.
             </p>
           </div>
           <div className="svc-why__grid stagger-children">
             {[
               { n: '200+', label: 'Projects Completed',   text: 'A deep portfolio spanning residential, commercial, public realm, and recreational typologies.' },
-              { n: '15+',  label: 'Years of Practice',    text: 'Founded in 2010, Arabella has been shaping Nigeria\'s landscape industry for over a decade and a half.' },
+              { n: '35+',  label: 'Years of Practice',    text: 'Established in 1990, Arabella has spent over 35 years shaping Nigeria\'s landscape industry.' },
               { n: '50+',  label: 'In-House Specialists', text: 'Landscape architects, horticulturalists, civil engineers, and skilled craftspeople — all under one roof.' },
               { n: '98%',  label: 'Client Satisfaction',  text: 'Our repeat client rate and referral track record reflect a consistent commitment to quality and service.' },
             ].map(({ n, label, text }) => (

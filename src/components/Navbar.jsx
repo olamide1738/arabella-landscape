@@ -83,20 +83,9 @@ export default function Navbar() {
         aria-hidden={!menuOpen}
         aria-label="Mobile navigation"
       >
-        {/* Top row: logo + close */}
+        {/* Top row: logo only — hamburger in navbar handles close */}
         <div className="mobile-nav__header">
           <img src={logoFull} alt="Arabella" className="mobile-nav__logo" />
-          <button
-            className="mobile-nav__close"
-            onClick={closeMenu}
-            aria-label="Close menu"
-          >
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"
-              strokeLinecap="round" strokeLinejoin="round">
-              <line x1="18" y1="6" x2="6" y2="18" />
-              <line x1="6" y1="6" x2="18" y2="18" />
-            </svg>
-          </button>
         </div>
 
         {/* Nav links */}

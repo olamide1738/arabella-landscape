@@ -18,7 +18,7 @@ export const MARKETS = [
       { name: 'Luxury Estates & Compounds', text: 'Full-scale landscape masterplanning for large residential properties — integrating gardens, pools, tennis courts, and outdoor entertaining pavilions into a coherent, beautiful whole.' },
       { name: 'Gated Community Landscapes', text: 'Common areas, entrances, streetscapes, and amenity gardens for residential estates that attract and retain residents and command premium valuations.' },
     ],
-    services: ['exterior-landscaping', 'landscape-architecture', 'design-build', 'recreational-planning'],
+    services: ['construction', 'design', 'construction', 'construction'],
     stats: [
       { n: '120+', label: 'Residential Projects' },
       { n: '15+',  label: 'Years Experience'      },
@@ -48,7 +48,7 @@ export const MARKETS = [
       { name: 'Commercial Offices & Business Parks', text: 'Professional forecourts, entrance landscapes, and shared amenity areas that create the right first impression for clients, partners, and staff.' },
       { name: 'Industrial & Logistics Facilities', text: 'Perimeter softening, staff amenity areas, and managed green corridors that improve the workplace environment and meet planning requirements.' },
     ],
-    services: ['exterior-landscaping', 'landscape-architecture', 'design-build', 'site-development', 'interior-landscaping'],
+    services: ['construction', 'design', 'construction', 'construction', 'maintenance'],
     stats: [
       { n: '60+', label: 'Commercial Projects' },
       { n: '10+', label: 'Corporate Clients'   },
@@ -78,7 +78,7 @@ export const MARKETS = [
       { name: 'Shopping Centres & Retail Parks', text: 'Landscaped car parks, entrance plazas, internal atrium planting, and seasonal displays that improve footfall and the overall shopping experience.' },
       { name: 'Restaurants & Entertainment Venues', text: 'Terrace planting, outdoor dining environments, living walls, and planted feature walls that create intimate, memorable atmospheres.' },
     ],
-    services: ['exterior-landscaping', 'interior-landscaping', 'landscape-architecture', 'design-build'],
+    services: ['construction', 'maintenance', 'design', 'construction'],
     stats: [
       { n: '35+',    label: 'Hospitality Projects' },
       { n: '5-star', label: 'Hotel Partners'        },
@@ -108,7 +108,7 @@ export const MARKETS = [
       { name: 'Road Corridors & Urban Streetscapes', text: "Avenue planting, median landscaping, roundabout treatments, and boulevard schemes that transform the character of a city's public realm." },
       { name: 'Government & Institutional Facilities', text: 'Grounds maintenance, masterplanning, and landscape upgrade programmes for state and federal facilities — ministries, hospitals, universities, and cultural institutions.' },
     ],
-    services: ['landscape-architecture', 'site-development', 'design-build', 'recreational-planning', 'exterior-landscaping'],
+    services: ['design', 'construction', 'construction', 'construction', 'construction'],
     stats: [
       { n: '25+',  label: 'Public Projects'        },
       { n: '6',    label: 'State Government Partners'},
@@ -138,7 +138,7 @@ export const MARKETS = [
       { name: 'Mixed-Use & Commercial Developments', text: 'Public-realm strategies, podium gardens, ground-floor activation planting, and roof terraces that make mixed-use schemes more liveable and leasable.' },
       { name: 'Masterplanning & Infrastructure', text: 'Landscape infrastructure planning from day one — integrating drainage, planting corridors, active frontages, and green infrastructure into the development framework.' },
     ],
-    services: ['landscape-architecture', 'site-development', 'design-build', 'exterior-landscaping', 'recreational-planning'],
+    services: ['design', 'construction', 'construction', 'construction', 'construction'],
     stats: [
       { n: '30+', label: 'Developer Projects'       },
       { n: '₦2B+',label: 'Project Value Delivered'   },

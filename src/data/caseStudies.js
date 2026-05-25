@@ -13,7 +13,7 @@ export const CASE_STUDIES = [
     year: '2024',
     heroImage: '/images/abuja-gate-3.png',
     thumbImage: '/images/abuja-gate-day5.png',
-    services: ['landscape-architecture', 'design-build', 'exterior-landscaping'],
+    services: ['design', 'construction', 'construction'],
     stats: [
       { value: '14,000 m²', label: 'Total Area' },
       { value: '320+',      label: 'Trees Planted' },
@@ -45,7 +45,7 @@ export const CASE_STUDIES = [
     year: '2023',
     heroImage: '/images/abuja-gate-r1.jpg',
     thumbImage: '/images/abuja-gate-r2.jpg',
-    services: ['landscape-architecture', 'design-build', 'interior-landscaping'],
+    services: ['design', 'construction', 'maintenance'],
     stats: [
       { value: '6,200 m²',  label: 'Campus Area' },
       { value: '40%',       label: 'Green Cover Increase' },
@@ -75,7 +75,7 @@ export const CASE_STUDIES = [
     year: '2023',
     heroImage: '/images/abuja-gate-4.png',
     thumbImage: '/images/abuja-gate-2.png',
-    services: ['landscape-architecture', 'design-build', 'exterior-landscaping'],
+    services: ['design', 'construction', 'construction'],
     stats: [
       { value: '3.2 ha',     label: 'Park Area' },
       { value: '180+',       label: 'Native Species' },
@@ -105,7 +105,7 @@ export const CASE_STUDIES = [
     year: '2022',
     heroImage: '/images/abuja-gate-r3.jpg',
     thumbImage: '/images/abuja-gate-r5.jpg',
-    services: ['landscape-architecture', 'design-build', 'exterior-landscaping'],
+    services: ['design', 'construction', 'construction'],
     stats: [
       { value: '2,800 m²',  label: 'Garden Area' },
       { value: '85',        label: 'Specimen Plants' },

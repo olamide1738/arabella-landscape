@@ -1,89 +1,96 @@
 import { Link } from 'react-router-dom'
 import { useEffect, useRef, useState } from 'react'
 import { Helmet } from 'react-helmet-async'
-import heroImg from '../assets/hero.png'
+import heroImg from '../assets/hero-plant.jpg'
+import aboutImg from '../assets/about-story.jpg'
 import { useScrollAnimation, useCountUp } from '../hooks/useScrollAnimation'
 import { MARKETS } from '../data/markets'
 
 const SERVICES = [
   {
-    slug: 'exterior-landscaping',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z" /><polyline points="9 22 9 12 15 12 15 22" />
-      </svg>
-    ),
-    title: 'Exterior Landscaping',
-    text: 'Breathtaking outdoor environments crafted with precision — from residential gardens to large-scale commercial estates.',
-  },
-  {
-    slug: 'interior-landscaping',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-      </svg>
-    ),
-    title: 'Interior Landscaping',
-    text: 'Living walls, indoor planters, and biophilic installations that bring nature indoors and elevate your space.',
-  },
-  {
-    slug: 'landscape-architecture',
+    slug: 'design',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <line x1="18" y1="20" x2="18" y2="10" /><line x1="12" y1="20" x2="12" y2="4" /><line x1="6" y1="20" x2="6" y2="14" />
       </svg>
     ),
-    title: 'Landscape Architecture',
-    text: 'Holistic design solutions that harmonise aesthetic beauty with ecological responsibility and long-term sustainability.',
+    title: 'Design',
+    text: 'Every project begins with proper site analysis and listening. We produce concept drawings, planting schedules, 3D visuals, and full construction packages — the kind of documentation that lets a contractor build exactly what was designed, not interpret it.',
   },
   {
-    slug: 'recreational-planning',
+    slug: 'construction',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <circle cx="12" cy="12" r="10" /><path d="M12 8v4l3 3" />
+        <rect x="2" y="3" width="20" height="14" rx="2" /><path d="M8 21h8M12 17v4" />
       </svg>
     ),
-    title: 'Recreational Planning',
-    text: 'Parks, playgrounds, sports courts, and leisure facilities designed for communities to thrive and connect.',
+    title: 'Construction',
+    text: 'We build what we design — and we build it to last. Earthworks, drainage, hard landscaping, planting, irrigation, lighting, and structures, executed on programme and without shortcuts. One team from first cut to final handover.',
   },
   {
-    slug: 'design-build',
+    slug: 'maintenance',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
+        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
       </svg>
     ),
-    title: 'Design-Build Services',
-    text: 'End-to-end project delivery from concept and planning through full construction and installation.',
+    title: 'Maintenance',
+    text: 'A landscape is only as good as the care it receives after handover. Our grounds management teams handle everything from weekly lawn care and pruning to irrigation servicing, seasonal planting, and annual tree inspections — on a programme that suits your site.',
   },
   {
-    slug: 'site-development',
+    slug: 'farm',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" /><circle cx="12" cy="10" r="3" />
+        <path d="M12 22V12m0 0C12 7 7 2 2 2c0 5 5 10 10 10zm0 0c0-5 5-10 10-10-5 0-10 5-10 10" />
       </svg>
     ),
-    title: 'Site Development',
-    text: 'Comprehensive earthworks, drainage, civil preparation, and infrastructure for new or existing sites.',
+    title: 'Farm',
+    text: 'We grow what we plant. Our nursery propagates Nigerian native and tropical species to the exact sizes and specifications our projects require — ensuring quality, availability, and provenance that the open market cannot reliably provide. Surplus stock is available for direct purchase.',
   },
 ]
 
 const TESTIMONIALS = [
   {
-    quote: "Arabella transformed our corporate campus into a living, breathing retreat. Every employee comments on how much the green spaces have lifted morale and productivity.",
-    author: "Adaeze Okonkwo",
-    role: "CEO, Meridian Holdings — Abuja",
+    quote: "Arabella understood the brief immediately. They came back with a design that was better than what we had imagined, and they built it exactly as drawn. That doesn't happen often.",
+    author: "Facilities Director",
+    role: "Stanbic IBTC Head Office",
+    project: "Stanbic IBTC, Victoria Island",
+    city: "Lagos",
   },
   {
-    quote: "The team's attention to detail is extraordinary. They didn't just design a garden — they created an experience that feels completely at one with our home.",
-    author: "Emeka & Chidinma Eze",
-    role: "Residential Clients — Lagos",
+    quote: "What stood out was how practical they were. Every planting choice, every paving material — they could explain why it would work in our specific context. That gave us a lot of confidence.",
+    author: "Property Manager",
+    role: "Commercial Client",
+    project: "GTBank HNI Branch",
+    city: "Ikoyi, Lagos",
   },
   {
-
-    quote: "From concept to completion, Arabella delivered beyond our expectations. Our new public park has become the centrepiece of the entire neighbourhood.",
-    author: "Arc. Babatunde Fashola",
-    role: "Director of Urban Planning — Rivers State",
+    quote: "The park has become something people actually use. It's not just decorative — it's well thought-out, well planted, and it holds up. Arabella clearly know their plants and their sites.",
+    author: "Estate Director",
+    role: "Urban Development Client",
+    project: "Muri Okunola Park",
+    city: "Victoria Island",
+  },
+  {
+    quote: "They were honest about what would and wouldn't work — which is exactly what you want from a consultant. The end result speaks for itself. Guests mention the grounds constantly.",
+    author: "General Manager",
+    role: "Hospitality Client",
+    project: "Southern Sun Hotel",
+    city: "Ikoyi, Lagos",
+  },
+  {
+    quote: "Arabella have been our landscape partner for years. They know how to work on occupied sites without disrupting operations, and the quality is consistent every time.",
+    author: "Head of Facilities",
+    role: "Corporate Client",
+    project: "The George Hotel",
+    city: "Ikoyi, Lagos",
+  },
+  {
+    quote: "The mall landscaping had to work commercially — low maintenance, durable, attractive to foot traffic. Arabella delivered exactly that. We've had zero issues since handover.",
+    author: "Development Manager",
+    role: "Retail Client",
+    project: "Owerri Mall",
+    city: "Owerri",
   },
 ]
 
@@ -123,7 +130,7 @@ function GreenPlaceholder({ style }) {
         letterSpacing: '0.12em', color: 'rgba(215,223,54,0.5)',
         textTransform: 'uppercase',
       }}>
-        Est. 2010
+        Est. 1990
       </div>
     </div>
   )
@@ -145,15 +152,44 @@ function StatNumber({ value, suffix = '' }) {
 
 export default function Home() {
   const sectionRef = useScrollAnimation()
-  const [slide, setSlide] = useState(0)
   const heroRef = useRef(null)
+  const [slide, setSlide] = useState(0)
 
   useEffect(() => {
     if (heroRef.current) heroRef.current.classList.add('hero-animate')
   }, [])
 
-  const prevSlide = () => setSlide(s => (s - 1 + TESTIMONIALS.length) % TESTIMONIALS.length)
-  const nextSlide = () => setSlide(s => (s + 1) % TESTIMONIALS.length)
+  // Responsive visible count
+  const getVisible = () => {
+    if (window.innerWidth < 640) return 1
+    if (window.innerWidth < 1024) return 2
+    return 3
+  }
+  const [visibleCount, setVisibleCount] = useState(getVisible)
+  useEffect(() => {
+    const onResize = () => setVisibleCount(getVisible())
+    window.addEventListener('resize', onResize)
+    return () => window.removeEventListener('resize', onResize)
+  }, [])
+
+  // Chunk testimonials into pages
+  const pages = []
+  for (let i = 0; i < TESTIMONIALS.length; i += visibleCount) {
+    pages.push(TESTIMONIALS.slice(i, i + visibleCount))
+  }
+  const pageCount = pages.length
+
+  // Reset to first page when visible count changes
+  useEffect(() => { setSlide(0) }, [visibleCount])
+
+  // Auto-advance every 5 s
+  useEffect(() => {
+    const id = setInterval(() => setSlide(s => (s + 1) % pageCount), 5000)
+    return () => clearInterval(id)
+  }, [pageCount])
+
+  const prev = () => setSlide(s => (s - 1 + pageCount) % pageCount)
+  const next = () => setSlide(s => (s + 1) % pageCount)
 
   return (
     <main ref={sectionRef}>
@@ -196,7 +232,7 @@ export default function Home() {
               <span>Transforming Lives.</span>
             </h1>
             <p className="hero__subtitle">
-              Arabella Landscape Limited crafts extraordinary outdoor and indoor environments that inspire, connect, and endure — across Nigeria and beyond.
+              For over 35 years, Arabella has shaped some of Nigeria's most distinctive outdoor spaces — combining creative design with exacting on-site execution to produce landscapes that genuinely last.
             </p>
             <div className="hero__actions">
               <Link to="/projects" className="btn btn-primary btn-lg">
@@ -289,9 +325,9 @@ export default function Home() {
           <div className="about-grid">
             <div className="about-image-wrap animate-on-scroll animate-left">
               <img
-                src="/assets/images/about-story.png"
-                alt="Lush residential garden designed by Arabella Landscape"
-                style={{ width: '100%', aspectRatio: '4/5', borderRadius: 'var(--rounded-lg)', objectFit: 'cover' }}
+                src={aboutImg}
+                alt="Garden trellis with tropical planting — Arabella Landscape project"
+                style={{ width: '100%', aspectRatio: '4/5', borderRadius: 'var(--rounded-lg)', objectFit: 'cover', objectPosition: 'center' }}
               />
               <div className="about-badge">
                 <div className="about-badge__number">15+</div>
@@ -305,18 +341,18 @@ export default function Home() {
                 Where Design<br /><em>Meets Nature</em>
               </h2>
               <p className="body-lg" style={{ color: 'var(--on-surface-variant)', marginBottom: '1rem' }}>
-                Founded in Lagos over a decade ago, Arabella Landscape Limited has grown into Nigeria's leading landscape architecture and site development firm. We believe great spaces shape great lives.
+                Established in Lagos in 1990, Arabella Landscape Limited has spent over 35 years building some of Nigeria's most recognised gardens, parks, and commercial landscapes — from private Ikoyi villas to urban public spaces.
               </p>
               <p style={{ color: 'var(--on-surface-variant)', lineHeight: '1.7', marginBottom: '1.5rem' }}>
-                From intimate residential gardens to landmark public parks, our multidisciplinary team brings together horticultural science, environmental design, and construction expertise to deliver spaces that endure.
+                We combine a highly creative design process with rigorous on-site execution. Every project gets the same attention: careful listening at the start, considered design in the middle, and real accountability on site. We think about maintenance from day one — species selection, long-term durability, practical upkeep — because a landscape that can't be sustained isn't really a solution.
               </p>
 
               <div className="about-features">
                 {[
-                  { title: 'Expert Team', text: '50+ landscape architects, designers, and engineers' },
-                  { title: 'Sustainable Design', text: 'Eco-conscious materials and native plant palettes' },
-                  { title: 'Award-Winning', text: 'Recognised by the NIALA and Green City Awards' },
-                  { title: 'Full-Service', text: 'From concept through construction and maintenance' },
+                  { title: 'Est. 1990', text: 'Over 35 years in the Nigerian landscape industry' },
+                  { title: 'BALI Registered', text: 'Members of the British Association of Landscape Industries' },
+                  { title: 'Design to Handover', text: 'We carry the project from first sketch through to final planting' },
+                  { title: 'Maintenance-Minded', text: 'Every design considers long-term upkeep from the outset' },
                 ].map(({ title, text }) => (
                   <div key={title} className="about-feature">
                     <div className="about-feature__icon"><CheckIcon /></div>
@@ -342,9 +378,9 @@ export default function Home() {
           <div className="stats-grid">
             {[
               { value: 200, suffix: '+', label: 'Projects Completed' },
-              { value: 15, suffix: '+', label: 'Years of Experience' },
+              { value: 35, suffix: '+', label: 'Years in Practice' },
               { value: 50, suffix: '+', label: 'Expert Team Members' },
-              { value: 98, suffix: '%', label: 'Client Satisfaction' },
+              { value: 7,  suffix: '',  label: 'Sectors Served' },
             ].map(({ value, suffix, label }) => (
               <div key={label} className="stat animate-on-scroll">
                 <div className="stat__number"><StatNumber value={value} />{suffix}</div>
@@ -403,10 +439,10 @@ export default function Home() {
           </div>
           <div className="process-steps stagger-children">
             {[
-              { n: '01', title: 'Discover', text: 'We listen deeply to understand your vision, site conditions, and project goals.' },
-              { n: '02', title: 'Design', text: 'Our architects craft detailed concept plans, 3D renderings, and material specifications.' },
-              { n: '03', title: 'Build', text: 'Our skilled construction teams execute with precision, quality, and care.' },
-              { n: '04', title: 'Nurture', text: 'Ongoing maintenance programmes keep your landscape thriving season after season.' },
+              { n: '01', title: 'Listen', text: 'We start with a proper brief — site visit, client conversation, an honest assessment of what the space can do. No assumptions.' },
+              { n: '02', title: 'Design', text: 'Concept plans, planting schedules, material specifications, and construction documentation that can actually be built from.' },
+              { n: '03', title: 'Build', text: 'Our own teams execute on site. We do not subcontract the work and disappear — we are there through to completion.' },
+              { n: '04', title: 'Maintain', text: 'Landscape maintenance services and nursery support to keep the space performing long after handover.' },
             ].map(({ n, title, text }) => (
               <div key={n} className="process-step animate-on-scroll">
                 <div className="process-step__number">{n}</div>
@@ -421,36 +457,78 @@ export default function Home() {
       {/* ── Testimonials ── */}
       <section className="testimonials-section section">
         <div className="container">
-          <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
-            <p className="section-label" style={{ justifyContent: 'center' }}>Client Stories</p>
-            <h2 className="headline-lg animate-on-scroll" style={{ color: 'var(--on-surface)' }}>
-              What Our Clients Say
-            </h2>
+          <div className="testimonials-header">
+            <div>
+              <p className="section-label animate-on-scroll">Client Stories</p>
+              <h2 className="headline-lg animate-on-scroll" style={{ color: 'var(--on-surface)' }}>
+                What Our Clients Say
+              </h2>
+            </div>
+            <p className="testimonials-header__sub animate-on-scroll">
+              Over 200 projects. Hundreds of satisfied clients. A few of their stories.
+            </p>
           </div>
 
-          <div className="testimonial-carousel">
-            <div className="testimonial-carousel__track" style={{ transform: `translateX(-${slide * 100}%)` }}>
-              {TESTIMONIALS.map(({ quote, author, role }) => (
-                <div key={author} className="testimonial-carousel__slide">
-                  <div className="testimonial">
-                    <p className="testimonial__quote">{quote}</p>
-                    <p className="testimonial__author">{author}</p>
-                    <p className="testimonial__role">{role}</p>
+          <div className="tcarousel">
+            {/* Cards track — one slide per page */}
+            <div className="tcarousel__track" style={{ transform: `translateX(-${slide * 100}%)` }}>
+              {pages.map((page, pageIdx) => (
+                <div key={pageIdx} className="tcarousel__slide">
+                  <div className="tcarousel__page" style={{ gridTemplateColumns: `repeat(${page.length}, 1fr)` }}>
+                    {page.map(({ quote, author, role, project, city }) => {
+                      const initials = author.split(' ').filter(w => /^[A-Z]/.test(w)).slice(0, 2).map(w => w[0]).join('')
+                      return (
+                        <div key={author} className="tcard">
+                          <div className="tcard__stars" aria-label="5 stars">
+                            {[...Array(5)].map((_, i) => (
+                              <svg key={i} viewBox="0 0 20 20" fill="currentColor" width="18" height="18" aria-hidden="true">
+                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                              </svg>
+                            ))}
+                          </div>
+                          <blockquote className="tcard__quote">"{quote}"</blockquote>
+                          <div className="tcard__footer">
+                            <div className="tcard__avatar" aria-hidden="true">{initials}</div>
+                            <div>
+                              <p className="tcard__author">{author}</p>
+                              <p className="tcard__role">{role} — {city}</p>
+                            </div>
+                          </div>
+                          <div className="tcard__project">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
+                              strokeLinecap="round" strokeLinejoin="round" width="12" height="12" aria-hidden="true">
+                              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/>
+                            </svg>
+                            {project}
+                          </div>
+                        </div>
+                      )
+                    })}
                   </div>
                 </div>
               ))}
             </div>
 
-            <div className="testimonial-carousel__dots">
-              {TESTIMONIALS.map((_, i) => (
-                <button key={i} className={`testimonial-carousel__dot${i === slide ? ' active' : ''}`}
-                  onClick={() => setSlide(i)} aria-label={`Testimonial ${i + 1}`} />
-              ))}
-            </div>
+            {/* Arrows */}
+            <button className="tcarousel__arrow tcarousel__arrow--prev" onClick={prev} aria-label="Previous">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"
+                strokeLinecap="round" strokeLinejoin="round" width="20" height="20">
+                <polyline points="15 18 9 12 15 6"/>
+              </svg>
+            </button>
+            <button className="tcarousel__arrow tcarousel__arrow--next" onClick={next} aria-label="Next">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"
+                strokeLinecap="round" strokeLinejoin="round" width="20" height="20">
+                <polyline points="9 6 15 12 9 18"/>
+              </svg>
+            </button>
 
-            <div style={{ display: 'flex', justifyContent: 'center', gap: '0.75rem', marginTop: '1.5rem' }}>
-              <button className="btn btn-secondary btn-sm" onClick={prevSlide} aria-label="Previous">←</button>
-              <button className="btn btn-secondary btn-sm" onClick={nextSlide} aria-label="Next">→</button>
+            {/* Dots — one per page */}
+            <div className="tcarousel__dots">
+              {pages.map((_, i) => (
+                <button key={i} className={`tcarousel__dot${i === slide ? ' active' : ''}`}
+                  onClick={() => setSlide(i)} aria-label={`Page ${i + 1}`} />
+              ))}
             </div>
           </div>
         </div>
@@ -459,9 +537,9 @@ export default function Home() {
       {/* ── CTA ── */}
       <section className="cta-section">
         <div className="container">
-          <p className="section-label section-label--light" style={{ justifyContent: 'center' }}>Ready to Begin?</p>
-          <h2>Let's Create Something<br /><em>Beautiful</em></h2>
-          <p>Tell us about your project and we'll put together a tailored proposal — completely free of charge.</p>
+          <p className="section-label section-label--light" style={{ justifyContent: 'center' }}>Start a Conversation</p>
+          <h2>Tell Us About<br /><em>Your Project</em></h2>
+          <p>We work across residential, commercial, hospitality, retail, institutional, and public realm projects. Send us a brief — or just a rough idea — and we'll take it from there.</p>
           <div className="btn-actions">
             <Link to="/contact" className="btn btn-primary btn-lg">
               Start Your Project

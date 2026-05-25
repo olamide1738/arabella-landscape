@@ -207,7 +207,7 @@ export default function Plants() {
           <p>Our horticulturalists will specify the ideal species for your soil type, climate zone, and design vision.</p>
           <div className="btn-actions">
             <Link to="/contact" className="btn btn-white btn-lg">Get a Free Consultation</Link>
-            <Link to="/services/exterior-landscaping" className="btn btn-secondary btn-lg">Explore Exterior Landscaping</Link>
+            <Link to="/services/construction" className="btn btn-secondary btn-lg">Explore Exterior Landscaping</Link>
           </div>
         </div>
       </section>

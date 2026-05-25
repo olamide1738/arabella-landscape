@@ -1,10 +1,11 @@
 import { useState, useRef } from 'react'
+import aboutMonsteraImg from '../assets/about-monstera.jpg'
 import { Link } from 'react-router-dom'
 import { Helmet } from 'react-helmet-async'
 import { useScrollAnimation, useCountUp } from '../hooks/useScrollAnimation'
 
 const TEAM = [
-  { name: 'Adaeze Nwosu',      role: 'Founder & CEO',                    color: '#003d22', photo: '/assets/images/team-1.png', bio: 'Registered landscape architect with over 20 years of practice. Founded Arabella in Lagos in 2010 with a belief that great green spaces transform lives.' },
+  { name: 'Adaeze Nwosu',      role: 'Founder & CEO',                    color: '#003d22', photo: '/assets/images/team-1.png', bio: 'Registered landscape architect with over 35 years in the profession. Established Arabella in Lagos in 1990 with a conviction that well-designed green spaces have the power to change how people live.' },
   { name: 'Chukwuemeka Obi',   role: 'Head of Landscape Architecture',   color: '#005535', photo: '/assets/images/team-2.png', bio: "Leads Arabella's masterplanning and design team. Specialises in large-scale public realm and urban regeneration across West Africa." },
   { name: 'Ngozi Adeyemi',     role: 'Lead Horticulturalist',            color: '#1a5c2e', photo: '/assets/images/team-3.png', bio: 'Expert in Nigerian native flora and tropical planting design. Oversees all planting specifications and horticultural quality on every project.' },
   { name: 'Babajide Salawu',   role: 'Director of Construction',         color: '#2d5016', photo: '/assets/images/team-4.png', bio: 'Civil engineer turned landscape construction director. Ensures every project is built to last, on programme, and to exacting quality standards.' },
@@ -48,7 +49,7 @@ function GreenPlaceholder({ style }) {
         letterSpacing: '0.12em', color: 'rgba(215,223,54,0.5)',
         textTransform: 'uppercase',
       }}>
-        Est. 2010
+        Est. 1990
       </div>
     </div>
   )
@@ -157,7 +158,7 @@ export default function About() {
     <main ref={sectionRef}>
       <Helmet>
         <title>About Us — Arabella Landscape Limited</title>
-        <meta name="description" content="Meet the team behind Nigeria's leading landscape architecture firm. Over 15 years, 200+ projects, and a passion for transforming spaces across Lagos, Abuja, and Port Harcourt." />
+        <meta name="description" content="Meet the team behind Nigeria's leading landscape architecture firm. Over 35 years, 200+ projects, and a passion for transforming spaces across Lagos, Abuja, and Port Harcourt." />
         <meta property="og:title" content="About Arabella Landscape Limited" />
         <meta property="og:description" content="Landscape architects, horticulturalists, and construction specialists united by a love of great outdoor spaces." />
         <meta property="og:image" content="/assets/images/about-hero.png" />
@@ -168,7 +169,7 @@ export default function About() {
         <div className="container">
           <p className="section-label" style={{ justifyContent: 'center' }}>Who We Are</p>
           <h1>About Arabella</h1>
-          <p>Nigeria's leading landscape architecture and site development firm, with over 15 years of transforming spaces across the country.</p>
+          <p>Nigeria's leading landscape architecture and site development firm, with over 35 years of transforming spaces across the country since 1990.</p>
         </div>
       </section>
 
@@ -178,9 +179,9 @@ export default function About() {
           <div className="about-grid">
             <div className="animate-on-scroll animate-left">
               <img
-                src="/assets/images/about-story.png"
-                alt="Beautiful garden designed by Arabella Landscape"
-                style={{ width: '100%', aspectRatio: '4/5', borderRadius: 'var(--rounded-lg)', objectFit: 'cover' }}
+                src={aboutMonsteraImg}
+                alt="Monstera deliciosa — tropical planting by Arabella Landscape"
+                style={{ width: '100%', aspectRatio: '4/5', borderRadius: 'var(--rounded-lg)', objectFit: 'cover', objectPosition: 'center top' }}
               />
             </div>
             <div className="animate-on-scroll animate-right">
@@ -189,13 +190,13 @@ export default function About() {
                 Rooted in a<br /><em>Love of Nature</em>
               </h2>
               <p style={{ color: 'var(--on-surface-variant)', lineHeight: '1.75', marginBottom: '1.25rem' }}>
-                Arabella Landscape Limited was founded in Lagos in 2010 by landscape architect Adaeze Nwosu, with a single belief: that well-designed green spaces have the power to transform how people live, work, and relate to each other.
+                Arabella Landscape Limited was established in Lagos in 1990 with a straightforward conviction: that well-designed green spaces have the power to change how people live, work, and relate to each other. More than 35 years later, that conviction still drives every project we take on.
               </p>
               <p style={{ color: 'var(--on-surface-variant)', lineHeight: '1.75', marginBottom: '1.25rem' }}>
-                What began as a boutique residential practice has grown into a multidisciplinary firm of over 50 specialists — landscape architects, horticulturalists, civil engineers, and master craftspeople — delivering some of Nigeria's most celebrated outdoor environments.
+                What began as a focused residential practice has grown into a multidisciplinary team of over 50 specialists — landscape architects, horticulturalists, civil engineers, and master craftspeople — delivering some of Nigeria's most recognised outdoor environments. We are registered members of the British Association of Landscape Industries (BALI) and hold full professional accreditation in Nigeria.
               </p>
               <p style={{ color: 'var(--on-surface-variant)', lineHeight: '1.75' }}>
-                Today, Arabella operates from its studio at 55, Moleye Street, Off Herbert Macaulay Way, Yaba, Lagos, with projects spanning residential estates, commercial developments, hospitality properties, public parks, and urban regeneration schemes.
+                Today, Arabella operates from its studio at 55, Moleye Street, Off Herbert Macaulay Way, Yaba, Lagos, with active projects spanning residential estates, corporate headquarters, hospitality properties, public parks, and large-scale site development schemes across Nigeria.
               </p>
             </div>
           </div>
@@ -208,9 +209,9 @@ export default function About() {
           <div className="stats-grid">
             {[
               { value: 200, suffix: '+', label: 'Projects Delivered' },
-              { value: 15, suffix: '+', label: 'Years in Business' },
+              { value: 35, suffix: '+', label: 'Years in Practice' },
               { value: 50, suffix: '+', label: 'Team Members' },
-              { value: 12, suffix: '', label: 'Industry Awards' },
+              { value: 7,  suffix: '',  label: 'Sectors Served' },
             ].map(({ value, suffix, label }) => (
               <div key={label} className="stat animate-on-scroll">
                 <div className="stat__number"><StatNumber value={value} />{suffix}</div>
@@ -295,6 +296,22 @@ export default function About() {
           <div className="btn-actions">
             <Link to="/contact" className="btn btn-primary btn-lg">Start a Project</Link>
             <Link to="/projects" className="btn btn-white btn-lg">View Our Work</Link>
+            <a
+              href="/Arabella-Landscape-Brochure.pdf"
+              download="Arabella-Landscape-Brochure.pdf"
+              className="btn btn-white btn-lg"
+              style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem' }}
+            >
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
+                strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"
+                style={{ width: 18, height: 18, flexShrink: 0 }}>
+                <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" />
+                <polyline points="14 2 14 8 20 8" />
+                <line x1="12" y1="18" x2="12" y2="12" />
+                <polyline points="9 15 12 18 15 15" />
+              </svg>
+              Download Brochure
+            </a>
           </div>
         </div>
       </section>

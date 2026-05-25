@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react'
 
-const FORMSPREE_ID = 'YOUR_FORM_ID'   // replace with a real Formspree form ID
+const BROCHURE_URL = '/Arabella-Landscape-Brochure.pdf'
 
 function CloseIcon() {
   return (
@@ -25,8 +25,9 @@ function DownloadIcon() {
 
 export default function BrochureModal({ isOpen, onClose }) {
   const [email, setEmail] = useState('')
-  const [status, setStatus] = useState('idle')  // idle | loading | success | error
+  const [status, setStatus] = useState('idle')  // idle | loading | success
   const inputRef = useRef(null)
+  const downloadRef = useRef(null)
 
   // Lock body scroll and focus input when open
   useEffect(() => {
@@ -35,6 +36,8 @@ export default function BrochureModal({ isOpen, onClose }) {
       setTimeout(() => inputRef.current?.focus(), 100)
     } else {
       document.body.style.overflow = ''
+      setStatus('idle')
+      setEmail('')
     }
     return () => { document.body.style.overflow = '' }
   }, [isOpen])
@@ -48,24 +51,16 @@ export default function BrochureModal({ isOpen, onClose }) {
 
   if (!isOpen) return null
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault()
     if (!email.trim()) return
     setStatus('loading')
-    try {
-      const res = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-        body: JSON.stringify({ email, _subject: 'Brochure Download Request — Arabella Landscape' }),
-      })
-      if (res.ok) {
-        setStatus('success')
-      } else {
-        setStatus('error')
-      }
-    } catch {
-      setStatus('error')
-    }
+    // Brief delay for perceived responsiveness, then trigger download
+    setTimeout(() => {
+      setStatus('success')
+      // Trigger the download automatically
+      downloadRef.current?.click()
+    }, 600)
   }
 
   return (
@@ -76,6 +71,15 @@ export default function BrochureModal({ isOpen, onClose }) {
       aria-modal="true"
       aria-labelledby="brochure-modal-title"
     >
+      {/* Hidden anchor that fires the download */}
+      <a
+        ref={downloadRef}
+        href={BROCHURE_URL}
+        download="Arabella-Landscape-Brochure.pdf"
+        style={{ display: 'none' }}
+        aria-hidden="true"
+      />
+
       <div className="brochure-modal">
         <button className="brochure-modal__close" onClick={onClose} aria-label="Close">
           <CloseIcon />
@@ -89,14 +93,13 @@ export default function BrochureModal({ isOpen, onClose }) {
                 <polyline points="20 6 9 17 4 12" />
               </svg>
             </div>
-            <h2 className="brochure-modal__title">Download Ready</h2>
+            <h2 className="brochure-modal__title">Your Download Has Started</h2>
             <p className="brochure-modal__subtitle">
-              Thank you! Your brochure link has been sent to <strong>{email}</strong>.
-              Click below to download immediately.
+              The brochure should be downloading now. If it didn't start automatically, click the button below.
             </p>
             <a
-              href="/assets/arabella-landscape-brochure.pdf"
-              download
+              href={BROCHURE_URL}
+              download="Arabella-Landscape-Brochure.pdf"
               className="btn btn-primary btn-lg"
               style={{ marginTop: '1.5rem' }}
               onClick={onClose}
@@ -104,9 +107,6 @@ export default function BrochureModal({ isOpen, onClose }) {
               <DownloadIcon />
               Download Brochure (PDF)
             </a>
-            <p style={{ fontSize: '13px', color: 'var(--on-surface-variant)', marginTop: '1rem' }}>
-              Check your inbox too — we've emailed you a copy.
-            </p>
           </div>
         ) : (
           <>
@@ -122,7 +122,7 @@ export default function BrochureModal({ isOpen, onClose }) {
             </p>
 
             <ul className="brochure-modal__features">
-              <li>20+ completed projects in full detail</li>
+              <li>200+ completed projects in full detail</li>
               <li>Full service descriptions &amp; process guide</li>
               <li>Plant palette &amp; materials reference</li>
               <li>Team profiles &amp; company credentials</li>
@@ -139,16 +139,13 @@ export default function BrochureModal({ isOpen, onClose }) {
                 required
                 aria-label="Email address"
               />
-              {status === 'error' && (
-                <p className="form-error-msg">Something went wrong. Please try again.</p>
-              )}
               <button
                 type="submit"
                 className="btn btn-primary"
                 style={{ width: '100%', justifyContent: 'center', marginTop: '0.5rem' }}
                 disabled={status === 'loading'}
               >
-                {status === 'loading' ? 'Sending…' : (
+                {status === 'loading' ? 'Preparing download…' : (
                   <>
                     <DownloadIcon />
                     Get Free Brochure

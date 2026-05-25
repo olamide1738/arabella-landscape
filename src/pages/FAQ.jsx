@@ -17,7 +17,7 @@ const FAQ_DATA = [
       },
       {
         q: 'How many projects has Arabella completed?',
-        a: "Since our founding in 2010 we have completed over 200 projects, ranging from intimate residential courtyards to landmark public spaces like the Abuja City Gate. Our portfolio spans 15+ years and covers all major Nigerian cities.",
+        a: "Since 1990 we have completed over 200 projects, ranging from intimate residential courtyards to landmark public spaces like the Abuja City Gate. Our portfolio spans more than 35 years and covers all major Nigerian cities.",
       },
       {
         q: 'Is Arabella a registered firm?',
