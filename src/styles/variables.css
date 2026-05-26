@@ -4,14 +4,14 @@
 
 :root {
   /* ── Material Design 3 Color System ── */
-  --surface: #fcf9f3;
-  --surface-dim: #dcdad4;
-  --surface-bright: #fcf9f3;
+  --surface: #F7FAF7;
+  --surface-dim: #d4dbd4;
+  --surface-bright: #F7FAF7;
   --surface-container-lowest: #ffffff;
-  --surface-container-low: #f6f3ed;
-  --surface-container: #f0eee8;
-  --surface-container-high: #ebe8e2;
-  --surface-container-highest: #e5e2dc;
+  --surface-container-low: #EDF4ED;
+  --surface-container: #E5EEE5;
+  --surface-container-high: #D8E6D8;
+  --surface-container-highest: #CADECB;
   --on-surface: #1c1c18;
   --on-surface-variant: #3d4a3c;
   --inverse-surface: #31312d;
@@ -64,33 +64,33 @@
   --forest-depth: #004E30;
   --vivid-growth: #00B349;
   --lime-energy: #D7DF36;
-  --warm-cream: #F5F2EC;
+  --warm-cream: #EEF4EE;
   --pure-white: #FFFFFF;
 
   /* ── Typography ── */
-  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-display: 'Raleway', system-ui, sans-serif;
   --font-body: 'DM Sans', system-ui, sans-serif;
 
   /* Display XL */
   --display-xl-size: 88px;
-  --display-xl-weight: 400;
+  --display-xl-weight: 700;
   --display-xl-line-height: 1.05;
-  --display-xl-letter-spacing: -0.01em;
+  --display-xl-letter-spacing: -0.02em;
 
   /* Display XL Mobile */
   --display-xl-mobile-size: 52px;
-  --display-xl-mobile-weight: 400;
-  --display-xl-mobile-line-height: 1.15;
+  --display-xl-mobile-weight: 700;
+  --display-xl-mobile-line-height: 1.1;
 
   /* Headline Large */
   --headline-lg-size: 52px;
-  --headline-lg-weight: 500;
-  --headline-lg-line-height: 1.15;
+  --headline-lg-weight: 700;
+  --headline-lg-line-height: 1.1;
 
   /* Headline Medium */
   --headline-md-size: 36px;
-  --headline-md-weight: 500;
-  --headline-md-line-height: 1.25;
+  --headline-md-weight: 700;
+  --headline-md-line-height: 1.2;
 
   /* Body Large */
   --body-lg-size: 20px;

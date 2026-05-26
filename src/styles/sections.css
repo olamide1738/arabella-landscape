@@ -383,26 +383,45 @@
 
 /* ── Page Hero (inner pages) ── */
 .page-hero {
-  background: var(--surface-container-low);
-  color: var(--on-surface);
+  background: var(--forest-depth);
+  color: var(--pure-white);
   padding: 8rem 0 5rem;
   text-align: center;
-  border-bottom: 1px solid var(--outline-variant);
+  position: relative;
+  overflow: hidden;
+}
+
+.page-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 60% 50%, rgba(0, 179, 73, 0.12) 0%, transparent 70%);
+  pointer-events: none;
 }
 
 .page-hero h1 {
   font-family: var(--font-display);
   font-size: var(--headline-lg-size);
-  font-weight: 700;
-  color: var(--on-surface);
+  font-weight: 800;
+  color: var(--pure-white);
   margin-bottom: 1rem;
+  letter-spacing: -0.02em;
 }
 
 .page-hero p {
   font-size: var(--body-lg-size);
-  color: var(--on-surface-variant);
+  color: rgba(255, 255, 255, 0.75);
   max-width: 540px;
   margin: 0 auto;
+}
+
+.page-hero .section-label {
+  color: var(--lime-energy);
+  opacity: 1;
+}
+
+.page-hero .section-label::before {
+  background: var(--lime-energy);
 }
 
 /* ── Projects Page Hero Stats ── */
