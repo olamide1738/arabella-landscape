@@ -23,6 +23,7 @@ import CaseStudyDetail from './pages/CaseStudyDetail'
 import BeforeAfter from './pages/BeforeAfter'
 import Sustainability from './pages/Sustainability'
 import ServiceAreas from './pages/ServiceAreas'
+import AdminDashboard from './pages/AdminDashboard'
 
 function ScrollToTop() {
   const { pathname } = useLocation()
@@ -38,6 +39,7 @@ export default function App() {
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/admin" element={<AdminDashboard />} />
           <Route path="/services" element={<Services />} />
           <Route path="/services/:slug" element={<ServiceDetail />} />
           <Route path="/projects" element={<Projects />} />

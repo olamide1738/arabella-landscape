@@ -18,6 +18,14 @@
   transition: box-shadow var(--transition-base), transform var(--transition-base);
 }
 
+.svc-index__card:nth-child(odd) {
+  background: #EBE8E0;
+}
+
+.svc-index__card:nth-child(even) {
+  background: #D2DACF;
+}
+
 .svc-index__card:hover {
   transform: translateY(-4px);
   box-shadow: var(--shadow-hover);
@@ -145,6 +153,14 @@
   background: var(--surface-container-low);
   border-radius: var(--rounded-lg);
   border: 1px solid var(--outline-variant);
+}
+
+.svc-why__card:nth-child(odd) {
+  background: #EBE8E0;
+}
+
+.svc-why__card:nth-child(even) {
+  background: #D2DACF;
 }
 
 .svc-why__card-num {
@@ -424,11 +440,11 @@
   width: 4rem;
   height: 4rem;
   border-radius: 50%;
-  background: var(--lime-energy);
-  color: var(--forest-depth);
+  background: var(--frond-yellow, #DFDB00);
+  color: var(--arabella-green, #004016);
   font-family: var(--font-display);
-  font-size: 18px;
-  font-weight: 700;
+  font-size: 20px;
+  font-weight: 800;
   display: flex;
   align-items: center;
   justify-content: center;

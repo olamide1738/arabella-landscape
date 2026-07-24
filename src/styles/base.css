@@ -64,6 +64,9 @@ select {
   font-family: inherit;
   font-size: inherit;
   color: inherit;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
 }
 
 ::selection {

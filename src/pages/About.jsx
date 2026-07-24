@@ -1,16 +1,17 @@
 import { useState, useRef } from 'react'
-import aboutMonsteraImg from '../assets/about-monstera.jpg'
+import aboutStoryImg from '../assets/about-us-start-compressed.jpg'
 import { Link } from 'react-router-dom'
 import { Helmet } from 'react-helmet-async'
 import { useScrollAnimation, useCountUp } from '../hooks/useScrollAnimation'
 
+
 const TEAM = [
-  { name: 'Adaeze Nwosu',      role: 'Founder & CEO',                    color: '#003d22', photo: '/assets/images/team-1.png', bio: 'Registered landscape architect with over 35 years in the profession. Established Arabella in Lagos in 1990 with a conviction that well-designed green spaces have the power to change how people live.' },
-  { name: 'Chukwuemeka Obi',   role: 'Head of Landscape Architecture',   color: '#005535', photo: '/assets/images/team-2.png', bio: "Leads Arabella's masterplanning and design team. Specialises in large-scale public realm and urban regeneration across West Africa." },
-  { name: 'Ngozi Adeyemi',     role: 'Lead Horticulturalist',            color: '#1a5c2e', photo: '/assets/images/team-3.png', bio: 'Expert in Nigerian native flora and tropical planting design. Oversees all planting specifications and horticultural quality on every project.' },
-  { name: 'Babajide Salawu',   role: 'Director of Construction',         color: '#2d5016', photo: '/assets/images/team-4.png', bio: 'Civil engineer turned landscape construction director. Ensures every project is built to last, on programme, and to exacting quality standards.' },
-  { name: 'Folake Adesanya',   role: 'Senior Landscape Designer',        color: '#004830', photo: null, bio: 'Award-winning designer with a focus on residential and hospitality landscapes. Known for her tactile material palettes and water feature detailing.' },
-  { name: 'Tunde Okafor',      role: 'Head of Site Development',         color: '#1e6b3a', photo: null, bio: "Civil and geotechnical specialist overseeing earthworks, drainage, and infrastructure across Arabella's commercial and public projects." },
+  { name: 'Adaeze Nwosu',      role: 'Founder & CEO',                    color: '#004016', photo: '/assets/images/team-1.png', bio: 'Registered landscape architect with over 35 years in the profession. Established Arabella in Lagos in 1990 with a conviction that well-designed green spaces have the power to change how people live.' },
+  { name: 'Chukwuemeka Obi',   role: 'Head of Landscape Architecture',   color: '#00722C', photo: '/assets/images/team-2.png', bio: "Leads Arabella's masterplanning and design team. Specialises in large-scale public realm and urban regeneration across West Africa." },
+  { name: 'Ngozi Adeyemi',     role: 'Lead Horticulturalist',            color: '#004016', photo: '/assets/images/team-3.png', bio: 'Expert in Nigerian native flora and tropical planting design. Oversees all planting specifications and horticultural quality on every project.' },
+  { name: 'Babajide Salawu',   role: 'Director of Construction',         color: '#00722C', photo: '/assets/images/team-4.png', bio: 'Civil engineer turned landscape construction director. Ensures every project is built to last, on programme, and to exacting quality standards.' },
+  { name: 'Folake Adesanya',   role: 'Senior Landscape Designer',        color: '#004016', photo: null, bio: 'Award-winning designer with a focus on residential and hospitality landscapes. Known for her tactile material palettes and water feature detailing.' },
+  { name: 'Tunde Okafor',      role: 'Head of Site Development',         color: '#00722C', photo: null, bio: "Civil and geotechnical specialist overseeing earthworks, drainage, and infrastructure across Arabella's commercial and public projects." },
 ]
 
 const VALUES = [
@@ -31,22 +32,22 @@ function StatNumber({ value }) {
 function GreenPlaceholder({ style }) {
   return (
     <div style={{
-      background: 'linear-gradient(160deg, #002d1a 0%, #004E30 45%, #006038 100%)',
+      background: 'linear-gradient(160deg, #004016 0%, #00722C 100%)',
       position: 'relative', overflow: 'hidden', ...style,
     }}>
       <svg style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', opacity: 0.06 }}
         viewBox="0 0 400 500" preserveAspectRatio="xMidYMid slice">
-        <circle cx="200" cy="200" r="160" fill="none" stroke="#D7DF36" strokeWidth="1" />
-        <circle cx="200" cy="200" r="110" fill="none" stroke="#D7DF36" strokeWidth="0.5" />
-        <circle cx="200" cy="200" r="60" fill="none" stroke="#D7DF36" strokeWidth="0.5" />
-        <line x1="40" y1="200" x2="360" y2="200" stroke="#D7DF36" strokeWidth="0.5" />
-        <line x1="200" y1="40" x2="200" y2="360" stroke="#D7DF36" strokeWidth="0.5" />
+        <circle cx="200" cy="200" r="160" fill="none" stroke="#DFDB00" strokeWidth="1" />
+        <circle cx="200" cy="200" r="110" fill="none" stroke="#DFDB00" strokeWidth="0.5" />
+        <circle cx="200" cy="200" r="60" fill="none" stroke="#DFDB00" strokeWidth="0.5" />
+        <line x1="40" y1="200" x2="360" y2="200" stroke="#DFDB00" strokeWidth="0.5" />
+        <line x1="200" y1="40" x2="200" y2="360" stroke="#DFDB00" strokeWidth="0.5" />
       </svg>
       <div style={{
         position: 'absolute', bottom: '2rem', left: '2rem',
         fontFamily: 'var(--font-display)',
         fontSize: '12px', fontStyle: 'italic',
-        letterSpacing: '0.12em', color: 'rgba(215,223,54,0.5)',
+        letterSpacing: '0.12em', color: 'rgba(223,219,0,0.5)',
         textTransform: 'uppercase',
       }}>
         Est. 1990
@@ -165,11 +166,14 @@ export default function About() {
         <meta name="twitter:card" content="summary_large_image" />
       </Helmet>
 
-      <section className="page-hero">
+      {/* Hero */}
+      <section className="page-hero page-hero--about">
         <div className="container">
           <p className="section-label" style={{ justifyContent: 'center' }}>Who We Are</p>
           <h1>About Arabella</h1>
-          <p>Nigeria's leading landscape architecture and site development firm, with over 35 years of transforming spaces across the country since 1990.</p>
+          <p>
+            Nigeria's leading landscape architecture and site development firm, with over 35 years of transforming spaces across the country since 1990.
+          </p>
         </div>
       </section>
 
@@ -179,8 +183,8 @@ export default function About() {
           <div className="about-grid">
             <div className="animate-on-scroll animate-left">
               <img
-                src={aboutMonsteraImg}
-                alt="Monstera deliciosa — tropical planting by Arabella Landscape"
+                src={aboutStoryImg}
+                alt="Arabella Landscape site entry and paved drive"
                 style={{ width: '100%', aspectRatio: '4/5', borderRadius: 'var(--rounded-lg)', objectFit: 'cover', objectPosition: 'center top' }}
               />
             </div>
@@ -189,7 +193,7 @@ export default function About() {
               <h2 className="headline-lg" style={{ color: 'var(--on-surface)', marginBottom: '1.25rem' }}>
                 Rooted in a<br /><em>Love of Nature</em>
               </h2>
-              <p style={{ color: 'var(--on-surface-variant)', lineHeight: '1.75', marginBottom: '1.25rem' }}>
+              <p className="body-lg" style={{ color: 'var(--on-surface-variant)', marginBottom: '1.25rem' }}>
                 Arabella Landscape Limited was established in Lagos in 1990 with a straightforward conviction: that well-designed green spaces have the power to change how people live, work, and relate to each other. More than 35 years later, that conviction still drives every project we take on.
               </p>
               <p style={{ color: 'var(--on-surface-variant)', lineHeight: '1.75', marginBottom: '1.25rem' }}>
@@ -203,36 +207,17 @@ export default function About() {
         </div>
       </section>
 
-      {/* Stats */}
-      <section className="stats-section section">
-        <div className="container">
-          <div className="stats-grid">
-            {[
-              { value: 200, suffix: '+', label: 'Projects Delivered' },
-              { value: 35, suffix: '+', label: 'Years in Practice' },
-              { value: 50, suffix: '+', label: 'Team Members' },
-              { value: 7,  suffix: '',  label: 'Sectors Served' },
-            ].map(({ value, suffix, label }) => (
-              <div key={label} className="stat animate-on-scroll">
-                <div className="stat__number"><StatNumber value={value} />{suffix}</div>
-                <div className="stat__label">{label}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* Values */}
-      <section className="section" style={{ background: 'var(--surface-container-low)' }}>
+      <section className="section" style={{ background: 'var(--ivory)' }}>
         <div className="container">
           <div style={{ textAlign: 'center' }}>
             <p className="section-label" style={{ justifyContent: 'center' }}>What Drives Us</p>
-            <h2 className="headline-lg animate-on-scroll" style={{ color: 'var(--on-surface)' }}>Our Values</h2>
+            <h2 className="headline-lg animate-on-scroll" style={{ color: 'var(--on-surface)' }}>Our <em>Values</em></h2>
           </div>
           <div className="values-grid stagger-children">
             {VALUES.map(({ title, text }, i) => (
               <div key={title} className="value-card animate-on-scroll">
-                {/* Thin numbered accent — no emoji */}
                 <div style={{
                   fontFamily: 'var(--font-display)',
                   fontSize: '42px', fontWeight: 700, fontStyle: 'italic',
@@ -250,23 +235,21 @@ export default function About() {
       </section>
 
       {/* Team */}
-      <section className="section" style={{ background: 'var(--surface-container-low)' }}>
+      <section className="section" style={{ background: 'var(--ivory)' }}>
         <div className="container">
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', flexWrap: 'wrap', gap: '1rem', marginBottom: '0.5rem' }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', flexWrap: 'wrap', gap: '1.5rem', marginBottom: '2.5rem' }}>
             <div>
               <p className="section-label animate-on-scroll">The People Behind the Work</p>
-              <h2 className="animate-on-scroll" style={{ color: 'var(--on-surface)' }}>Meet Our Leadership</h2>
+              <h2 className="headline-lg animate-on-scroll" style={{ color: 'var(--on-surface)' }}>Meet Our <em>Leadership</em></h2>
             </div>
-            <p className="animate-on-scroll" style={{ color: 'var(--on-surface-variant)', fontSize: '14px' }}>
-              {TEAM.length} team members
-            </p>
+            <Link to="/contact" className="btn btn-secondary btn-sm animate-on-scroll">Work With Us</Link>
           </div>
           <TeamCarousel />
         </div>
       </section>
 
       {/* Awards */}
-      <section className="section" style={{ background: 'var(--surface-container-low)' }}>
+      <section className="section" style={{ background: 'var(--ivory)' }}>
         <div className="container">
           <p className="section-label">Recognition</p>
           <h2 className="headline-lg animate-on-scroll" style={{ color: 'var(--on-surface)', marginBottom: '2.5rem' }}>

@@ -42,7 +42,7 @@ export default function Markets() {
       </Helmet>
 
       {/* ── Hero ── */}
-      <section className="page-hero">
+      <section className="page-hero page-hero--markets">
         <div className="container">
           <p className="section-label" style={{ justifyContent: 'center' }}>Who We Serve</p>
           <h1>Industry Expertise.<br />Real-World Results.</h1>
@@ -54,7 +54,7 @@ export default function Markets() {
       </section>
 
       {/* ── Market Cards ── */}
-      <section className="section" style={{ background: 'var(--surface-container-low)' }}>
+      <section className="section" style={{ background: 'var(--ivory)' }}>
         <div className="container">
           <div className="markets-grid stagger-children">
             {MARKETS.map((market) => (
@@ -86,7 +86,7 @@ export default function Markets() {
       </section>
 
       {/* ── Why sector expertise matters ── */}
-      <section className="section" style={{ background: 'var(--surface)' }}>
+      <section className="section" style={{ background: 'var(--ivory)' }}>
         <div className="container">
           <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
             <p className="section-label" style={{ justifyContent: 'center' }}>Our Approach</p>

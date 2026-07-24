@@ -88,7 +88,7 @@ export default function Blog() {
 
       {/* Featured Article */}
       {featured && activeCategory === 'All' && (
-        <section className="section" style={{ background: 'var(--warm-cream)', paddingBottom: '2rem' }}>
+        <section className="section" style={{ background: 'var(--ivory)', paddingBottom: '2rem' }}>
           <div className="container">
             <p className="section-label animate-on-scroll">Featured Article</p>
             <ArticleCard article={featured} featured />
@@ -135,7 +135,7 @@ export default function Blog() {
       </section>
 
       {/* All Articles */}
-      <section className="section" style={{ background: 'var(--surface)', paddingTop: activeCategory === 'All' ? '2rem' : undefined }}>
+      <section className="section" style={{ background: 'var(--ivory)', paddingTop: activeCategory === 'All' ? '2rem' : undefined }}>
         <div className="container">
 
           {/* Category Filter */}

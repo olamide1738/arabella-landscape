@@ -109,7 +109,7 @@ export default function Sustainability() {
       </Helmet>
 
       {/* ── Page Hero ── */}
-      <section className="page-hero">
+      <section className="page-hero page-hero--sustainability">
         <div className="container">
           <p className="section-label" style={{ justifyContent: 'center' }}>Our Commitment</p>
           <h1>The Green Promise</h1>

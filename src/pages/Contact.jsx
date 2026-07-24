@@ -83,7 +83,7 @@ export default function Contact() {
         <meta name="twitter:card" content="summary" />
       </Helmet>
 
-      <section className="page-hero">
+      <section className="page-hero page-hero--contact">
         <div className="container">
           <p className="section-label" style={{ justifyContent: 'center' }}>Get in Touch</p>
           <h1>Contact Us</h1>
@@ -106,7 +106,7 @@ export default function Contact() {
         </div>
       </section>
 
-      <section className="section" style={{ background: 'var(--surface)' }}>
+      <section className="section" style={{ background: 'var(--ivory)' }}>
         <div className="container">
           <div className="contact-grid">
             {/* Info side */}
@@ -117,57 +117,72 @@ export default function Contact() {
                 Whether you have a clear brief or just the seed of an idea, our team is ready to help bring your landscape vision to life.
               </p>
 
-              <div className="contact-detail">
-                <div className="contact-detail__icon">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.72A2 2 0 012 .18h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14h-.08z" />
-                  </svg>
-                </div>
-                <div className="contact-detail__text">
-                  <p className="contact-detail__label">Phone</p>
+              <div className="contact-details">
+                <div className="contact-detail">
+                  <div className="contact-detail__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.72A2 2 0 012 .18h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14h-.08z" />
+                    </svg>
+                  </div>
+                  <span className="contact-detail__label">Phone</span>
                   <a href="tel:+2348001234567" className="contact-detail__value">+234 800 123 4567</a>
                 </div>
-              </div>
 
-              <div className="contact-detail">
-                <div className="contact-detail__icon">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" /><polyline points="22,6 12,13 2,6" />
-                  </svg>
-                </div>
-                <div className="contact-detail__text">
-                  <p className="contact-detail__label">Email</p>
+                <div className="contact-detail">
+                  <div className="contact-detail__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" /><polyline points="22,6 12,13 2,6" />
+                    </svg>
+                  </div>
+                  <span className="contact-detail__label">Email</span>
                   <a href="mailto:hello@arabellalandscape.com" className="contact-detail__value">hello@arabellalandscape.com</a>
                 </div>
-              </div>
 
-              <div className="contact-detail">
-                <div className="contact-detail__icon">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" /><circle cx="12" cy="10" r="3" />
-                  </svg>
+                <div className="contact-detail">
+                  <div className="contact-detail__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" /><circle cx="12" cy="10" r="3" />
+                    </svg>
+                  </div>
+                  <span className="contact-detail__label">Address</span>
+                  <p className="contact-detail__value">55, Moleye Street, Off Herbert Macaulay Way, Yaba, Lagos, Nigeria</p>
                 </div>
-                <div className="contact-detail__text">
-                  <p className="contact-detail__label">Address</p>
-                  <p className="contact-detail__value">55, Moleye Street, Off Herbert Macaulay Way,<br />Yaba, Lagos, Nigeria</p>
-                </div>
-              </div>
 
-              <div className="contact-detail">
-                <div className="contact-detail__icon">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <circle cx="12" cy="12" r="10" /><polyline points="12 6 12 12 16 14" />
-                  </svg>
-                </div>
-                <div className="contact-detail__text">
-                  <p className="contact-detail__label">Working Hours</p>
+                <div className="contact-detail">
+                  <div className="contact-detail__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <circle cx="12" cy="12" r="10" /><polyline points="12 6 12 12 16 14" />
+                    </svg>
+                  </div>
+                  <span className="contact-detail__label">Hours</span>
                   <p className="contact-detail__value">Mon – Fri, 8am – 6pm WAT</p>
                 </div>
               </div>
 
-              <div style={{ marginTop: '2rem', padding: '1.75rem', background: 'var(--surface-container)', borderRadius: 'var(--rounded-lg)', borderLeft: '4px solid var(--vivid-growth)' }}>
-                <p style={{ fontWeight: 700, marginBottom: '0.4rem', color: 'var(--on-surface)' }}>Free Initial Consultation</p>
-                <p style={{ fontSize: '14px', color: 'var(--on-surface-variant)', lineHeight: 1.6 }}>
+              <div style={{
+                marginTop: '2.5rem',
+                padding: '1.75rem 2rem',
+                background: '#F7F5F0',
+                borderRadius: '12px',
+                border: '1px solid #94AD99',
+                borderLeft: '4px solid #00722C'
+              }}>
+                <h4 style={{
+                  fontFamily: 'var(--font-display)',
+                  fontSize: '19px',
+                  fontWeight: 700,
+                  color: '#004016',
+                  marginBottom: '0.4rem',
+                  lineHeight: 1.3
+                }}>
+                  Free Initial Consultation
+                </h4>
+                <p style={{
+                  fontSize: '14.5px',
+                  color: '#14140F',
+                  lineHeight: 1.6,
+                  margin: 0
+                }}>
                   All enquiries receive a free 30-minute consultation with one of our senior landscape architects — no obligation, no pressure.
                 </p>
               </div>

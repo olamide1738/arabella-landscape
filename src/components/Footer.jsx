@@ -19,6 +19,7 @@ const COMPANY = [
   { to: '/plants', label: 'Plant Palette' },
   { to: '/faq', label: 'FAQ' },
   { to: '/contact', label: 'Contact' },
+  { to: '/admin', label: 'Admin Portal' },
 ]
 
 export default function Footer() {
@@ -93,23 +94,26 @@ export default function Footer() {
             <p className="footer__link" style={{ cursor: 'default' }}>
               55, Moleye Street, Off Herbert Macaulay Way, Yaba, Lagos
             </p>
-            <Link to="/contact" className="btn btn-primary btn-sm" style={{ marginTop: '1.25rem' }}>
-              Get a Quote
-            </Link>
-            <a
-              href="/Arabella-Landscape-Brochure.pdf"
-              download="Arabella-Landscape-Brochure.pdf"
-              className="footer__brochure-link"
-            >
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
-                strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" />
-                <polyline points="14 2 14 8 20 8" />
-                <line x1="12" y1="18" x2="12" y2="12" />
-                <polyline points="9 15 12 18 15 15" />
-              </svg>
-              Download Brochure (PDF)
-            </a>
+            <div className="footer__cta-group" style={{ display: 'flex', alignItems: 'center', gap: '1.25rem', flexWrap: 'wrap', marginTop: '1.25rem' }}>
+              <Link to="/contact" className="btn btn-consultation btn-sm">
+                Get a Consultation
+              </Link>
+              <a
+                href="/Arabella-Landscape-Brochure.pdf"
+                download="Arabella-Landscape-Brochure.pdf"
+                className="footer__brochure-link"
+                style={{ marginTop: 0 }}
+              >
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
+                  strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" />
+                  <polyline points="14 2 14 8 20 8" />
+                  <line x1="12" y1="18" x2="12" y2="12" />
+                  <polyline points="9 15 12 18 15 15" />
+                </svg>
+                Download Brochure (PDF)
+              </a>
+            </div>
           </div>
         </div>
 

@@ -74,7 +74,7 @@ export default function Services() {
       </Helmet>
 
       {/* ── Page Hero ── */}
-      <section className="page-hero">
+      <section className="page-hero page-hero--services">
         <div className="container">
           <p className="section-label" style={{ justifyContent: 'center' }}>What We Offer</p>
           <h1>Our Services</h1>
@@ -125,7 +125,7 @@ export default function Services() {
       </section>
 
       {/* ── Service Cards ── */}
-      <section className="section" style={{ background: 'var(--surface-container-low)' }}>
+      <section className="section" style={{ background: 'var(--ivory)' }}>
         <div className="container">
           <div className="svc-index__grid stagger-children">
             {SERVICES.map((service, i) => (
@@ -170,7 +170,7 @@ export default function Services() {
       </section>
 
       {/* ── Why Arabella strip ── */}
-      <section className="section" style={{ background: 'var(--surface)' }}>
+      <section className="section" style={{ background: 'var(--ivory)' }}>
         <div className="container">
           <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
             <p className="section-label" style={{ justifyContent: 'center' }}>Why Choose Us</p>

@@ -1,8 +1,10 @@
-import { useState, lazy, Suspense } from 'react'
+import { useState, useEffect, lazy, Suspense } from 'react'
 import { Link } from 'react-router-dom'
 import { Helmet } from 'react-helmet-async'
 import { useScrollAnimation } from '../hooks/useScrollAnimation'
-import { PROJECTS, FILTERS } from '../data/projects'
+import { FILTERS } from '../data/projects'
+import { getManagedProjects } from '../lib/insforge'
+import { LoadingSpinner } from '../components/LoadingSpinner'
 
 const ProjectsMap = lazy(() => import('../components/ProjectsMap'))
 
@@ -19,13 +21,20 @@ function PinIcon() {
 }
 
 export default function Projects() {
+  const [projectsList, setProjectsList] = useState(() => getManagedProjects())
   const [active, setActive]   = useState('All')
   const [search, setSearch]   = useState('')
   const [visible, setVisible] = useState(PAGE_SIZE)
   const [viewMode, setViewMode] = useState('grid')
   const sectionRef = useScrollAnimation()
 
-  const filtered = PROJECTS
+  useEffect(() => {
+    const handleUpdate = () => setProjectsList(getManagedProjects())
+    window.addEventListener('arabella-projects-updated', handleUpdate)
+    return () => window.removeEventListener('arabella-projects-updated', handleUpdate)
+  }, [])
+
+  const filtered = projectsList
     .filter(p => active === 'All' || p.category === active)
     .filter(p => {
       if (!search.trim()) return true
@@ -57,7 +66,7 @@ export default function Projects() {
       </Helmet>
 
       {/* ── Page Hero ── */}
-      <section className="page-hero">
+      <section className="page-hero page-hero--projects">
         <div className="container">
           <p className="section-label" style={{ justifyContent: 'center' }}>Our Work</p>
           <h1>Our Projects</h1>
@@ -80,7 +89,7 @@ export default function Projects() {
       </section>
 
       {/* ── Projects Grid ── */}
-      <section className="section" style={{ background: 'var(--surface-container-low)' }}>
+      <section className="section" style={{ background: 'var(--ivory)' }}>
         <div className="container">
 
           {/* Search bar + view toggle */}
@@ -141,8 +150,8 @@ export default function Projects() {
           <div className="filter-tabs">
             {FILTERS.map(f => {
               const count = f === 'All'
-                ? PROJECTS.length
-                : PROJECTS.filter(p => p.category === f).length
+                ? projectsList.length
+                : projectsList.filter(p => p.category === f).length
               return (
                 <button
                   key={f}
@@ -158,7 +167,11 @@ export default function Projects() {
 
           {/* Map view */}
           {viewMode === 'map' && (
-            <Suspense fallback={<div className="projects-map-loading">Loading map…</div>}>
+            <Suspense fallback={
+              <div style={{ textAlign: 'center', padding: '5rem 1rem' }}>
+                <LoadingSpinner size="lg" label="Loading Interactive Map Engine…" />
+              </div>
+            }>
               <ProjectsMap projects={filtered} />
             </Suspense>
           )}

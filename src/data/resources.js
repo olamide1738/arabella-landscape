@@ -15,7 +15,7 @@ export const FREE_GUIDES = [
     desc: 'Plant palettes, soil prep, irrigation tips, and design principles for Lagos gardens — from coastal Ikoyi to inland Ikeja.',
     category: 'Design',
     downloadPath: '/assets/guides/arabella-lagos-garden-guide.pdf',
-    accentColor: 'var(--forest-depth)',
+    accentColor: 'var(--arabella-green)',
   },
   {
     id: 'corporate-roi-guide',
@@ -24,7 +24,7 @@ export const FREE_GUIDES = [
     desc: 'The financial and talent-attraction case for investing in corporate campus landscape — with Nigerian market data and benchmarks.',
     category: 'Corporate',
     downloadPath: '/assets/guides/arabella-corporate-roi-guide.pdf',
-    accentColor: '#1a3d2b',
+    accentColor: 'var(--canopy-green)',
   },
   {
     id: 'nigeria-plant-guide',
@@ -33,7 +33,7 @@ export const FREE_GUIDES = [
     desc: 'Species-by-species guide to the best performing trees, shrubs, and ground covers for Lagos, Abuja, and Port Harcourt.',
     category: 'Horticulture',
     downloadPath: '/assets/guides/arabella-nigeria-plant-guide.pdf',
-    accentColor: '#2d5a1b',
+    accentColor: 'var(--arabella-green)',
   },
   {
     id: 'developer-guide',
@@ -42,6 +42,6 @@ export const FREE_GUIDES = [
     desc: 'How to use landscape to differentiate your scheme, accelerate sales, and command premium pricing — from masterplan to handover.',
     category: 'Developers',
     downloadPath: '/assets/guides/arabella-developer-guide.pdf',
-    accentColor: '#0f2d20',
+    accentColor: 'var(--canopy-green)',
   },
 ]

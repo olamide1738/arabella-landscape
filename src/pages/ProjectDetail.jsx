@@ -3,7 +3,8 @@ import { useParams, Link, Navigate } from 'react-router-dom'
 import { Helmet } from 'react-helmet-async'
 import { ReactCompareSlider, ReactCompareSliderImage } from 'react-compare-slider'
 import { useScrollAnimation } from '../hooks/useScrollAnimation'
-import { PROJECTS, getRelated } from '../data/projects'
+import { getRelated } from '../data/projects'
+import { getManagedProjects } from '../lib/insforge'
 
 /* ── Icons ── */
 function PinIcon() {
@@ -105,7 +106,8 @@ export default function ProjectDetail() {
   const sectionRef = useScrollAnimation()
   const [lightboxIndex, setLightboxIndex] = useState(null)
 
-  const project = PROJECTS.find(p => p.slug === slug)
+  const allProjects = getManagedProjects()
+  const project = allProjects.find(p => p.slug === slug)
   if (!project) return <Navigate to="/projects" replace />
 
   const related = getRelated(slug, 3)
@@ -386,8 +388,8 @@ export default function ProjectDetail() {
           <h2>Love What You See?<br /><em>Let's Talk</em></h2>
           <p>Tell us about your project and we'll put together a tailored proposal — completely free of charge.</p>
           <div className="btn-actions">
-            <Link to="/contact" className="btn btn-primary btn-lg">
-              Get a Free Quote <ArrowIcon />
+            <Link to="/contact" className="btn btn-consultation btn-lg">
+              Get a Consultation <ArrowIcon />
             </Link>
             <Link to="/projects" className="btn btn-white btn-lg">View All Projects</Link>
           </div>

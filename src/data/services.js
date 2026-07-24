@@ -12,7 +12,7 @@ export const SERVICES = [
     tagline: 'Every great outdoor space begins with a great drawing. We listen, survey, and think before we put pen to paper.',
     image: '/assets/images/service-architecture.png',
     heroImage: '/images/abuja-gate-r1.jpg',
-    color: 'linear-gradient(135deg, #002d1a 0%, #004E30 60%, #006038 100%)',
+    color: 'linear-gradient(135deg, #004016 0%, #00722C 100%)',
 
     overview: [
       'Our design service covers everything from early-stage concept sketches to full construction drawing packages. We work with private clients, developers, architects, and public agencies — at any scale, from a private residential garden to a multi-hectare civic masterplan.',
@@ -65,7 +65,7 @@ export const SERVICES = [
     tagline: 'We build what we design — and we build it to last. Precision groundworks, planting, and finishing, executed without shortcuts.',
     image: '/assets/images/service-designbuild.png',
     heroImage: '/images/abuja-gate-1.png',
-    color: 'linear-gradient(135deg, #003520 0%, #005030 100%)',
+    color: 'linear-gradient(135deg, #004016 0%, #00722C 100%)',
 
     overview: [
       "Arabella's construction team handles every stage of landscape installation — from the first earthwork cut to the final lighting commission. Our crews are experienced in civil groundworks, hard landscaping, planting, irrigation, drainage, timber and steel structures, and outdoor lighting. We work on projects of all scales and can mobilise across Nigeria.",
@@ -118,7 +118,7 @@ export const SERVICES = [
     tagline: 'A landscape is only as good as the care it receives after handover. We keep yours at its best, year-round.',
     image: '/assets/images/service-exterior.png',
     heroImage: '/images/abuja-gate-3.png',
-    color: 'linear-gradient(135deg, #1a4a2e 0%, #006038 100%)',
+    color: 'linear-gradient(135deg, #004016 0%, #00722C 100%)',
 
     overview: [
       "Arabella's maintenance service — delivered through Arabella Grounds Management — provides ongoing care programmes for residential estates, corporate grounds, hotels, public parks, and any landscape that deserves to be kept properly. We are not a cut-and-go service. We know the plants, understand the design intent, and manage your landscape the way it was meant to be managed.",
@@ -171,7 +171,7 @@ export const SERVICES = [
     tagline: 'We grow what we plant. Our nursery produces the trees, shrubs, and specimens that go into every Arabella project.',
     image: '/assets/images/service-recreational.png',
     heroImage: '/images/abuja-gate-r3.jpg',
-    color: 'linear-gradient(135deg, #2d5016 0%, #487a26 100%)',
+    color: 'linear-gradient(135deg, #004016 0%, #00722C 100%)',
 
     overview: [
       'Arabella operates its own plant nursery and growing farm — an asset that gives us direct control over the quality, availability, and provenance of the plants that go into our projects. Rather than relying solely on the open market, we propagate and grow the trees, shrubs, groundcover, and seasonal plants we need, to the specification our designs require.',

@@ -20,10 +20,10 @@ function TileMark() {
   return (
     <svg style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', opacity: 0.05 }}
       viewBox="0 0 400 280" preserveAspectRatio="xMidYMid slice">
-      <circle cx="200" cy="140" r="110" fill="none" stroke="#D7DF36" strokeWidth="1" />
-      <circle cx="200" cy="140" r="65" fill="none" stroke="#D7DF36" strokeWidth="0.5" />
-      <line x1="0" y1="140" x2="400" y2="140" stroke="#D7DF36" strokeWidth="0.5" />
-      <line x1="200" y1="0" x2="200" y2="280" stroke="#D7DF36" strokeWidth="0.5" />
+      <circle cx="200" cy="140" r="110" fill="none" stroke="#DFDB00" strokeWidth="1" />
+      <circle cx="200" cy="140" r="65" fill="none" stroke="#DFDB00" strokeWidth="0.5" />
+      <line x1="0" y1="140" x2="400" y2="140" stroke="#DFDB00" strokeWidth="0.5" />
+      <line x1="200" y1="0" x2="200" y2="280" stroke="#DFDB00" strokeWidth="0.5" />
     </svg>
   )
 }

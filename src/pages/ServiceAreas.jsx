@@ -153,7 +153,7 @@ export default function ServiceAreas() {
           <h2>Tell Us About<br /><em>Your Project</em></h2>
           <p>Wherever your site is in Nigeria, we have a team that knows the land.</p>
           <div className="btn-actions">
-            <Link to="/contact" className="btn btn-primary btn-lg">Get a Free Quote</Link>
+            <Link to="/contact" className="btn btn-consultation btn-lg">Get a Consultation</Link>
             <Link to="/projects" className="btn btn-white btn-lg">View Our Portfolio</Link>
           </div>
         </div>

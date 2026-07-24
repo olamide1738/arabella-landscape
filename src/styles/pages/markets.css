@@ -21,6 +21,14 @@
   transition: transform var(--transition-base), box-shadow var(--transition-base);
 }
 
+.market-card:nth-child(odd) {
+  background: #EBE8E0;
+}
+
+.market-card:nth-child(even) {
+  background: #D2DACF;
+}
+
 .market-card:hover {
   transform: translateY(-5px);
   box-shadow: var(--shadow-hover);
@@ -130,6 +138,14 @@
   padding: 2rem;
   position: relative;
   overflow: hidden;
+}
+
+.markets-why-card:nth-child(odd) {
+  background: #EBE8E0;
+}
+
+.markets-why-card:nth-child(even) {
+  background: #D2DACF;
 }
 
 .markets-why-card__accent {

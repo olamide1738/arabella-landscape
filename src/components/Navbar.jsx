@@ -58,8 +58,8 @@ export default function Navbar() {
           </ul>
 
           {/* Desktop-only: CTA + search */}
-          <Link to="/contact" className="btn btn-primary btn-sm navbar__cta" onClick={closeMenu}>
-            Get a Quote
+          <Link to="/contact" className="btn btn-consultation btn-sm navbar__cta" onClick={closeMenu}>
+            Get a Consultation
           </Link>
           <SiteSearch />
 
@@ -113,9 +113,9 @@ export default function Navbar() {
 
         {/* Bottom actions */}
         <div className="mobile-nav__footer">
-          <Link to="/contact" className="btn btn-primary" onClick={closeMenu}
+          <Link to="/contact" className="btn btn-consultation" onClick={closeMenu}
             style={{ width: '100%', justifyContent: 'center' }}>
-            Get a Free Quote
+            Get a Consultation
           </Link>
           <p className="mobile-nav__tagline">Shaping Spaces. Transforming Lives.</p>
         </div>

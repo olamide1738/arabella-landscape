@@ -3,8 +3,10 @@ import { useEffect, useRef, useState } from 'react'
 import { Helmet } from 'react-helmet-async'
 import heroImg from '../assets/hero-plant.jpg'
 import aboutImg from '../assets/about-story.jpg'
+import HeroSlider from '../components/HeroSlider'
 import { useScrollAnimation, useCountUp } from '../hooks/useScrollAnimation'
 import { MARKETS } from '../data/markets'
+import { getManagedProjects } from '../lib/insforge'
 
 const SERVICES = [
   {
@@ -95,11 +97,12 @@ const TESTIMONIALS = [
 ]
 
 const PORTFOLIO_ITEMS = [
-  { slug: 'abuja-city-gate', category: 'Public Space', name: 'Abuja City Gate', image: '/images/abuja-gate-4.png' },
-  { slug: 'meridian-corporate-campus', category: 'Commercial', name: 'Meridian Corporate Campus', image: '/images/abuja-gate-r1.jpg' },
-  { slug: 'lekki-coastal-park', category: 'Recreational', name: 'Lekki Coastal Park', image: '/images/abuja-gate-3.png' },
-  { slug: 'gra-boulevard-revamp', category: 'Public Space', name: 'GRA Boulevard Revamp', image: '/images/abuja-gate-2.png' },
-  { slug: 'banana-island-retreat', category: 'Residential', name: 'Banana Island Retreat', image: '/images/abuja-gate-r3.jpg' },
+  { slug: 'asaba-country-home', category: 'Residential', name: 'Asaba Country Home', image: '/images/asaba-country-home-1.jpg', location: 'Asaba, Delta State' },
+  { slug: 'gtb-bayo-kuku', category: 'Commercial', name: 'GTBank HNI Branch', image: '/images/gtb-bayo-kuku-1.jpg', location: 'Bayo Kuku, Ikoyi, Lagos' },
+  { slug: 'muri-okunola-park', category: 'Public Space', name: 'Muri Okunola Park', image: '/images/muri-okunola-2.jpg', location: 'Victoria Island, Lagos' },
+  { slug: 'the-george', category: 'Commercial', name: 'The George Hotel', image: '/images/the-george-1.jpg', location: 'Ikoyi, Lagos' },
+  { slug: 'stanbic-ibtc', category: 'Commercial', name: 'Stanbic IBTC Head Office', image: '/images/stanbic-ibtc-1.jpg', location: 'Victoria Island, Lagos' },
+  { slug: 'abuja-city-gate', category: 'Public Space', name: 'Abuja City Gate', image: '/images/abuja-gate-4.png', location: 'Abuja, FCT' },
 ]
 
 /* Geometric placeholder — no emojis */
@@ -113,21 +116,21 @@ function GreenPlaceholder({ style }) {
     }}>
       <div style={{
         position: 'absolute', inset: 0, opacity: 0.4,
-        background: 'radial-gradient(ellipse at 70% 30%, rgba(215,223,54,0.08) 0%, transparent 60%)'
+        background: 'radial-gradient(ellipse at 70% 30%, rgba(223,219,0,0.08) 0%, transparent 60%)'
       }} />
       <svg style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', opacity: 0.06 }}
         viewBox="0 0 400 500" preserveAspectRatio="xMidYMid slice">
-        <circle cx="200" cy="200" r="160" fill="none" stroke="#D7DF36" strokeWidth="1" />
-        <circle cx="200" cy="200" r="110" fill="none" stroke="#D7DF36" strokeWidth="0.5" />
-        <circle cx="200" cy="200" r="60" fill="none" stroke="#D7DF36" strokeWidth="0.5" />
-        <line x1="40" y1="200" x2="360" y2="200" stroke="#D7DF36" strokeWidth="0.5" />
-        <line x1="200" y1="40" x2="200" y2="360" stroke="#D7DF36" strokeWidth="0.5" />
+        <circle cx="200" cy="200" r="160" fill="none" stroke="#DFDB00" strokeWidth="1" />
+        <circle cx="200" cy="200" r="110" fill="none" stroke="#DFDB00" strokeWidth="0.5" />
+        <circle cx="200" cy="200" r="60" fill="none" stroke="#DFDB00" strokeWidth="0.5" />
+        <line x1="40" y1="200" x2="360" y2="200" stroke="#DFDB00" strokeWidth="0.5" />
+        <line x1="200" y1="40" x2="200" y2="360" stroke="#DFDB00" strokeWidth="0.5" />
       </svg>
       <div style={{
         position: 'absolute', bottom: '2rem', left: '2rem',
         fontFamily: 'var(--font-display)',
         fontSize: '12px', fontStyle: 'italic',
-        letterSpacing: '0.12em', color: 'rgba(215,223,54,0.5)',
+        letterSpacing: '0.12em', color: 'rgba(223,219,0,0.5)',
         textTransform: 'uppercase',
       }}>
         Est. 1990
@@ -152,11 +155,13 @@ function StatNumber({ value, suffix = '' }) {
 
 export default function Home() {
   const sectionRef = useScrollAnimation()
-  const heroRef = useRef(null)
   const [slide, setSlide] = useState(0)
+  const [portfolioItems, setPortfolioItems] = useState(() => getManagedProjects().slice(0, 6))
 
   useEffect(() => {
-    if (heroRef.current) heroRef.current.classList.add('hero-animate')
+    const handleUpdate = () => setPortfolioItems(getManagedProjects().slice(0, 6))
+    window.addEventListener('arabella-projects-updated', handleUpdate)
+    return () => window.removeEventListener('arabella-projects-updated', handleUpdate)
   }, [])
 
   // Responsive visible count
@@ -203,53 +208,8 @@ export default function Home() {
         <meta name="twitter:card" content="summary_large_image" />
       </Helmet>
 
-      {/* ── Hero ── */}
-      {/* To use a video hero: place your mp4 at /videos/arabella-hero.mp4
-          and set HERO_VIDEO to '/videos/arabella-hero.mp4' below. */}
-      {(() => { const HERO_VIDEO = ''; return null })()}
-      <section className="hero-section">
-        {/* Video hero — swap '' for your mp4 path to activate */}
-        {'' ? (
-          <video
-            className="hero-section__bg hero-section__bg--video"
-            autoPlay muted loop playsInline
-            poster={heroImg}
-            aria-hidden="true"
-          >
-            <source src="" type="video/mp4" />
-          </video>
-        ) : (
-          <div className="hero-section__bg" style={{ backgroundImage: `url(${heroImg})` }} aria-hidden="true" />
-        )}
-        <div className="hero-section__overlay" aria-hidden="true" />
-        <div className="hero__deco" aria-hidden="true" />
-
-        <div className="container" ref={heroRef}>
-          <div className="hero-section__content hero-animate">
-            <p className="hero__label">Premium Landscape Architecture</p>
-            <h1 className="hero__title">
-              Shaping Spaces.<br />
-              <span>Transforming Lives.</span>
-            </h1>
-            <p className="hero__subtitle">
-              For over 35 years, Arabella has shaped some of Nigeria's most distinctive outdoor spaces — combining creative design with exacting on-site execution to produce landscapes that genuinely last.
-            </p>
-            <div className="hero__actions">
-              <Link to="/projects" className="btn btn-primary btn-lg">
-                View Our Work
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" />
-                </svg>
-              </Link>
-              <Link to="/contact" className="btn btn-secondary btn-lg">
-                Get a Free Quote
-              </Link>
-            </div>
-          </div>
-        </div>
-
-        <div className="hero__scroll-indicator" aria-hidden="true">Scroll</div>
-      </section>
+      {/* ── Hero Slider ── */}
+      <HeroSlider />
 
       {/* ── Services ── */}
       <section className="services-section section">
@@ -405,7 +365,7 @@ export default function Home() {
           </div>
 
           <div className="portfolio-grid">
-            {PORTFOLIO_ITEMS.map((item, i) => (
+            {portfolioItems.map((item, i) => (
               <Link
                 key={item.name}
                 to={`/projects/${item.slug}`}
@@ -431,23 +391,81 @@ export default function Home() {
       {/* ── Process ── */}
       <section className="process-section section">
         <div className="container">
-          <div style={{ textAlign: 'center' }}>
-            <p className="section-label" style={{ justifyContent: 'center' }}>How We Work</p>
-            <h2 className="headline-lg animate-on-scroll" style={{ color: 'var(--on-surface)' }}>
+          <div style={{ textAlign: 'center', maxWidth: '680px', margin: '0 auto 3.5rem' }}>
+            <p className="section-label animate-on-scroll" style={{ justifyContent: 'center' }}>How We Work</p>
+            <h2 className="headline-lg animate-on-scroll" style={{ marginBottom: '0.75rem' }}>
               Our Design Process
             </h2>
+            <p className="process-subtitle animate-on-scroll">
+              From initial site audit to lifelong landscape maintenance, our structured 4-step workflow guarantees excellence at every phase.
+            </p>
           </div>
-          <div className="process-steps stagger-children">
+
+          <div className="process-grid stagger-children">
             {[
-              { n: '01', title: 'Listen', text: 'We start with a proper brief — site visit, client conversation, an honest assessment of what the space can do. No assumptions.' },
-              { n: '02', title: 'Design', text: 'Concept plans, planting schedules, material specifications, and construction documentation that can actually be built from.' },
-              { n: '03', title: 'Build', text: 'Our own teams execute on site. We do not subcontract the work and disappear — we are there through to completion.' },
-              { n: '04', title: 'Maintain', text: 'Landscape maintenance services and nursery support to keep the space performing long after handover.' },
-            ].map(({ n, title, text }) => (
-              <div key={n} className="process-step animate-on-scroll">
-                <div className="process-step__number">{n}</div>
-                <h3 className="process-step__title">{title}</h3>
-                <p className="process-step__text">{text}</p>
+              {
+                n: '01',
+                title: 'Listen & Audit',
+                tag: 'Site Visit & Brief',
+                text: 'We begin with a comprehensive site audit, client interviews, soil analysis, and an honest assessment of site topography and microclimate.',
+                icon: (
+                  <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                    <polyline points="14 2 14 8 20 8"/>
+                    <line x1="16" y1="13" x2="8" y2="13"/>
+                    <line x1="16" y1="17" x2="8" y2="17"/>
+                  </svg>
+                )
+              },
+              {
+                n: '02',
+                title: 'Design & Specify',
+                tag: 'CAD Plans & Specs',
+                text: 'Concept master plans, 3D visualizations, precise planting schedules, hardscape specifications, and construction documentation ready for execution.',
+                icon: (
+                  <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8z"/>
+                    <path d="M12 6v6l4 2"/>
+                  </svg>
+                )
+              },
+              {
+                n: '03',
+                title: 'Build & Construct',
+                tag: 'Turnkey Execution',
+                text: 'Our dedicated in-house landscape engineers and horticultural teams execute on site. We do not subcontract and disappear.',
+                icon: (
+                  <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M2 22h20"/>
+                    <path d="M6 18v-7a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v7"/>
+                    <path d="M12 9V2"/>
+                    <path d="M9 5h6"/>
+                  </svg>
+                )
+              },
+              {
+                n: '04',
+                title: 'Maintain & Nurture',
+                tag: 'Scheduled Care',
+                text: 'Proactive seasonal pruning, automated irrigation monitoring, organic fertilization, and nursery support to keep your landscape flourishing.',
+                icon: (
+                  <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                    <path d="m9 12 2 2 4-4"/>
+                  </svg>
+                )
+              }
+            ].map(({ n, title, tag, text, icon }) => (
+              <div key={n} className="process-card animate-on-scroll">
+                <div className="process-card__header">
+                  <span className="process-card__num">{n}</span>
+                  <div className="process-card__icon">{icon}</div>
+                </div>
+                <h3 className="process-card__title">{title}</h3>
+                <p className="process-card__text">{text}</p>
+                <div className="process-card__footer">
+                  <span className="process-card__tag">✦ {tag}</span>
+                </div>
               </div>
             ))}
           </div>

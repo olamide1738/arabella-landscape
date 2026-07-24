@@ -4,14 +4,22 @@
 
 /* ── Article Card ── */
 .article-card {
+  background: var(--surface-container-lowest);
+  border-radius: var(--rounded-lg);
+  overflow: hidden;
   display: flex;
   flex-direction: column;
-  background: var(--surface-container-lowest);
-  border-radius: var(--rounded-xl);
-  overflow: hidden;
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
   border: 1px solid var(--outline-variant);
   text-decoration: none;
-  transition: transform var(--transition-base), box-shadow var(--transition-base);
+}
+
+.article-card:nth-child(odd) {
+  background: #EBE8E0;
+}
+
+.article-card:nth-child(even) {
+  background: #D2DACF;
 }
 
 .article-card:hover {

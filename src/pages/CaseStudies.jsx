@@ -29,7 +29,7 @@ export default function CaseStudies() {
       </Helmet>
 
       {/* ── Page Hero ── */}
-      <section className="page-hero">
+      <section className="page-hero page-hero--casestudies">
         <div className="container">
           <p className="section-label" style={{ justifyContent: 'center' }}>In Depth</p>
           <h1>Case Studies</h1>
@@ -97,7 +97,7 @@ export default function CaseStudies() {
           <h2>Your Project<br /><em>Could Be Next</em></h2>
           <p>Every case study started with a conversation. Tell us about your site and we will show you the possibilities.</p>
           <div className="btn-actions">
-            <Link to="/contact" className="btn btn-primary btn-lg">Get a Free Quote</Link>
+            <Link to="/contact" className="btn btn-consultation btn-lg">Get a Consultation</Link>
             <Link to="/projects" className="btn btn-white btn-lg">View All Projects</Link>
           </div>
         </div>
