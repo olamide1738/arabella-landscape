@@ -2321,23 +2321,39 @@
 .skeleton-shimmer {
   background: linear-gradient(
     90deg,
-    rgba(210, 218, 207, 0.4) 0%,
-    rgba(235, 232, 224, 0.85) 50%,
-    rgba(210, 218, 207, 0.4) 100%
+    #dcd6ca 0%,
+    #eae5da 30%,
+    #f7f4ed 50%,
+    #eae5da 70%,
+    #dcd6ca 100%
   ) !important;
   background-size: 200% 100% !important;
-  animation: skeletonShimmer 1.6s ease-in-out infinite !important;
+  animation: skeletonShimmer 1.5s ease-in-out infinite !important;
 }
 
 .skeleton-shimmer--dark {
   background: linear-gradient(
     90deg,
-    rgba(0, 40, 15, 0.6) 0%,
-    rgba(0, 114, 44, 0.35) 50%,
-    rgba(0, 40, 15, 0.6) 100%
+    #002b0f 0%,
+    #004719 30%,
+    #006b26 50%,
+    #004719 70%,
+    #002b0f 100%
   ) !important;
   background-size: 200% 100% !important;
-  animation: skeletonShimmer 1.6s ease-in-out infinite !important;
+  animation: skeletonShimmer 1.5s ease-in-out infinite !important;
+}
+
+.skeleton-bone {
+  background-color: #d4cebf;
+  border-radius: 4px;
+  display: block;
+}
+
+.skeleton-bone--dark {
+  background-color: #003613;
+  border-radius: 4px;
+  display: block;
 }
 
 .skeleton-img-wrap {

@@ -5,7 +5,7 @@ import { useScrollAnimation } from '../hooks/useScrollAnimation'
 import { FILTERS } from '../data/projects'
 import { getManagedProjects } from '../lib/insforge'
 import { LoadingSpinner } from '../components/LoadingSpinner'
-import { ProjectsMapSkeleton, ImageWithSkeleton } from '../components/Skeleton'
+import { ProjectsMapSkeleton, ProjectsGridSkeleton, ImageWithSkeleton } from '../components/Skeleton'
 
 const ProjectsMap = lazy(() => import('../components/ProjectsMap'))
 
@@ -27,6 +27,7 @@ export default function Projects() {
   const [search, setSearch]   = useState('')
   const [visible, setVisible] = useState(PAGE_SIZE)
   const [viewMode, setViewMode] = useState('grid')
+  const [loading, setLoading] = useState(false)
   const sectionRef = useScrollAnimation()
 
   useEffect(() => {
@@ -46,8 +47,11 @@ export default function Projects() {
   const hasMore  = visible < filtered.length
 
   const handleFilter = (f) => {
+    if (f === active) return
+    setLoading(true)
     setActive(f)
     setVisible(PAGE_SIZE)
+    setTimeout(() => setLoading(false), 300)
   }
 
   const handleSearch = (e) => {
@@ -183,7 +187,9 @@ export default function Projects() {
           )}
 
           {/* Grid */}
-          {viewMode === 'grid' && shown.length > 0 ? (
+          {loading ? (
+            <ProjectsGridSkeleton count={6} />
+          ) : viewMode === 'grid' && shown.length > 0 ? (
             <div className="projects-grid stagger-children">
               {shown.map((project) => (
                 <Link

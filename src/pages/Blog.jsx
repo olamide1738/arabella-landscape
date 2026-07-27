@@ -5,7 +5,7 @@ import { useScrollAnimation } from '../hooks/useScrollAnimation'
 import { ARTICLES, ARTICLE_CATEGORIES } from '../data/articles'
 import ResourceModal from '../components/ResourceModal'
 import { FREE_GUIDES } from '../data/resources'
-import { ImageWithSkeleton } from '../components/Skeleton'
+import { ImageWithSkeleton, BlogGridSkeleton } from '../components/Skeleton'
 
 function CalendarIcon() {
   return (
@@ -59,6 +59,14 @@ export default function Blog() {
   const sectionRef = useScrollAnimation()
   const [activeCategory, setActiveCategory] = useState('All')
   const [activeGuide, setActiveGuide] = useState(null)
+  const [loading, setLoading] = useState(false)
+
+  const handleCategorySelect = (cat) => {
+    if (cat === activeCategory) return
+    setLoading(true)
+    setActiveCategory(cat)
+    setTimeout(() => setLoading(false), 300)
+  }
 
   const filtered = activeCategory === 'All'
     ? ARTICLES
@@ -145,7 +153,7 @@ export default function Blog() {
               <button
                 key={cat}
                 className={`filter-tab${activeCategory === cat ? ' active' : ''}`}
-                onClick={() => setActiveCategory(cat)}
+                onClick={() => handleCategorySelect(cat)}
               >
                 {cat}
                 <span className="filter-tab__count">
@@ -156,11 +164,15 @@ export default function Blog() {
           </div>
 
           {/* Grid */}
-          <div className="articles-grid stagger-children">
-            {rest.map(article => (
-              <ArticleCard key={article.slug} article={article} />
-            ))}
-          </div>
+          {loading ? (
+            <BlogGridSkeleton count={6} />
+          ) : (
+            <div className="articles-grid stagger-children">
+              {rest.map(article => (
+                <ArticleCard key={article.slug} article={article} />
+              ))}
+            </div>
+          )}
 
           {rest.length === 0 && (
             <p style={{ textAlign: 'center', color: 'var(--on-surface-variant)', padding: '4rem 0' }}>
