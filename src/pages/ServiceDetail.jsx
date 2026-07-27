@@ -232,7 +232,7 @@ export default function ServiceDetail() {
       </section>
 
       {/* ── Who It's For ── */}
-      <section className="section" style={{ background: 'var(--surface-container-low)' }}>
+      <section className="section" style={{ background: 'var(--ivory)' }}>
         <div className="container">
           <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
             <p className="section-label" style={{ justifyContent: 'center' }}>Who We Work With</p>

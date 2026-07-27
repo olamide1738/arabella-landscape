@@ -488,6 +488,14 @@
   transition: box-shadow var(--transition-base), transform var(--transition-base);
 }
 
+.sd-whofor__card:nth-child(odd) {
+  background: #EBE8E0;
+}
+
+.sd-whofor__card:nth-child(even) {
+  background: #D2DACF;
+}
+
 .sd-whofor__card:hover {
   transform: translateY(-3px);
   box-shadow: var(--shadow-md);
