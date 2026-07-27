@@ -37,16 +37,19 @@
 }
 
 .btn-consultation {
-  background-color: var(--arabella-green);
-  color: var(--ivory);
-  border-color: var(--arabella-green);
+  background-color: var(--lime-energy, #DFDB00);
+  color: #004016;
+  border-color: var(--lime-energy, #DFDB00);
+  font-weight: 700;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
 }
 
 .btn-consultation:hover {
-  background-color: var(--canopy-green);
-  border-color: var(--canopy-green);
-  transform: translateY(-1px);
-  box-shadow: 0 6px 20px rgba(0, 64, 22, 0.28);
+  background-color: #FFFFFF;
+  border-color: #FFFFFF;
+  color: #004016;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
 }
 
 .btn-secondary {

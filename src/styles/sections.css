@@ -716,6 +716,19 @@
   flex-wrap: wrap;
 }
 
+.cta-section .btn-primary {
+  background-color: var(--lime-energy, #DFDB00);
+  color: #004016;
+  border-color: var(--lime-energy, #DFDB00);
+  font-weight: 700;
+}
+
+.cta-section .btn-primary:hover {
+  background-color: #FFFFFF;
+  border-color: #FFFFFF;
+  color: #004016;
+}
+
 /* ── Page Hero (inner pages) ── */
 .page-hero {
   background-color: var(--forest-depth, #004E30);
