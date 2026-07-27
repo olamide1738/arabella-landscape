@@ -2,36 +2,32 @@ import { useState, useEffect, useRef } from 'react'
 
 export default function BackToTop() {
   const [visible, setVisible] = useState(false)
-  const [scrollProgress, setScrollProgress] = useState(0)
-  const tickingRef = useRef(false)
+  const circleRef = useRef(null)
+
+  const radius = 21
+  const circumference = 2 * Math.PI * radius
 
   useEffect(() => {
-    const updateProgress = () => {
+    const onScroll = () => {
       const scrollTop = window.scrollY
       const docHeight = document.documentElement.scrollHeight - window.innerHeight
       const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0
+      const clamped = Math.min(100, Math.max(0, progress))
 
-      setVisible(scrollTop > 200)
-      setScrollProgress(Math.min(100, Math.max(0, progress)))
-      tickingRef.current = false
-    }
-
-    const onScroll = () => {
-      if (!tickingRef.current) {
-        window.requestAnimationFrame(updateProgress)
-        tickingRef.current = true
+      // Direct DOM mutation for zero-latency 0ms response time
+      if (circleRef.current) {
+        const offset = circumference - (clamped / 100) * circumference
+        circleRef.current.style.strokeDashoffset = `${offset}px`
       }
+
+      const isVisible = scrollTop > 200
+      setVisible(prev => (prev !== isVisible ? isVisible : prev))
     }
 
     window.addEventListener('scroll', onScroll, { passive: true })
-    updateProgress()
+    onScroll()
     return () => window.removeEventListener('scroll', onScroll)
-  }, [])
-
-  // Circle progress calculations (r = 21, circumference ≈ 131.95)
-  const radius = 21
-  const circumference = 2 * Math.PI * radius
-  const strokeDashoffset = circumference - (scrollProgress / 100) * circumference
+  }, [circumference])
 
   return (
     <button
@@ -82,8 +78,9 @@ export default function BackToTop() {
           stroke="rgba(0, 230, 118, 0.18)"
           strokeWidth="2.5"
         />
-        {/* Glowing Progress Indicator */}
+        {/* Glowing Progress Indicator - Direct DOM mutation with 0ms transition delay */}
         <circle
+          ref={circleRef}
           cx="25"
           cy="25"
           r={radius}
@@ -92,9 +89,9 @@ export default function BackToTop() {
           strokeWidth="3"
           strokeLinecap="round"
           strokeDasharray={circumference}
-          strokeDashoffset={strokeDashoffset}
+          strokeDashoffset={circumference}
           style={{
-            transition: 'stroke-dashoffset 0.04s linear',
+            transition: 'none',
             filter: 'drop-shadow(0 0 4px #00E676)',
           }}
         />
