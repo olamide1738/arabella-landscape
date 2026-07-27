@@ -74,7 +74,22 @@ export default function Footer() {
                 className="footer__newsletter-input"
               />
               <button type="submit" className="footer__newsletter-btn">
-                {subscribed ? 'Subscribed! ✓' : 'Join Journal →'}
+                {subscribed ? (
+                  <span style={{ display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                      <polyline points="20 6 9 17 4 12" />
+                    </svg>
+                    Subscribed!
+                  </span>
+                ) : (
+                  <span style={{ display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
+                    Join Journal
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                      <line x1="5" y1="12" x2="19" y2="12" />
+                      <polyline points="12 5 19 12 12 19" />
+                    </svg>
+                  </span>
+                )}
               </button>
             </div>
           </form>
@@ -92,8 +107,20 @@ export default function Footer() {
             </p>
 
             <div className="footer__locations">
-              <span className="footer__location-pill">📍 Lagos</span>
-              <span className="footer__location-pill">📍 Abuja</span>
+              <span className="footer__location-pill">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
+                  <circle cx="12" cy="10" r="3" />
+                </svg>
+                Lagos
+              </span>
+              <span className="footer__location-pill">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
+                  <circle cx="12" cy="10" r="3" />
+                </svg>
+                Abuja
+              </span>
             </div>
 
             <div className="footer__social">
