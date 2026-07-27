@@ -57,11 +57,13 @@ export default function Navbar() {
             ))}
           </ul>
 
-          {/* Desktop-only: search + CTA */}
-          <SiteSearch />
-          <Link to="/contact" className="btn btn-consultation btn-sm navbar__cta" onClick={closeMenu}>
-            Get a Consultation
-          </Link>
+          {/* Desktop-only: search + CTA right next to each other */}
+          <div className="navbar__actions" style={{ display: 'flex', alignItems: 'center', gap: '0.85rem' }}>
+            <SiteSearch />
+            <Link to="/contact" className="btn btn-consultation btn-sm navbar__cta" onClick={closeMenu}>
+              Get a Consultation
+            </Link>
+          </div>
 
           {/* Hamburger — mobile only */}
           <button
