@@ -1,21 +1,30 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 
 export default function BackToTop() {
   const [visible, setVisible] = useState(false)
   const [scrollProgress, setScrollProgress] = useState(0)
+  const tickingRef = useRef(false)
 
   useEffect(() => {
-    const onScroll = () => {
+    const updateProgress = () => {
       const scrollTop = window.scrollY
       const docHeight = document.documentElement.scrollHeight - window.innerHeight
       const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0
 
-      setVisible(scrollTop > 250)
+      setVisible(scrollTop > 200)
       setScrollProgress(Math.min(100, Math.max(0, progress)))
+      tickingRef.current = false
+    }
+
+    const onScroll = () => {
+      if (!tickingRef.current) {
+        window.requestAnimationFrame(updateProgress)
+        tickingRef.current = true
+      }
     }
 
     window.addEventListener('scroll', onScroll, { passive: true })
-    onScroll()
+    updateProgress()
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
@@ -45,7 +54,7 @@ export default function BackToTop() {
         zIndex: 900,
         opacity: visible ? 1 : 0,
         transform: visible ? 'translateY(0) scale(1)' : 'translateY(12px) scale(0.9)',
-        transition: 'opacity 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease',
+        transition: 'opacity 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease',
         pointerEvents: visible ? 'all' : 'none',
         boxShadow: visible
           ? '0 0 16px rgba(0, 230, 118, 0.45), 0 4px 18px rgba(0, 0, 0, 0.35)'
@@ -85,7 +94,7 @@ export default function BackToTop() {
           strokeDasharray={circumference}
           strokeDashoffset={strokeDashoffset}
           style={{
-            transition: 'stroke-dashoffset 0.1s linear',
+            transition: 'stroke-dashoffset 0.04s linear',
             filter: 'drop-shadow(0 0 4px #00E676)',
           }}
         />
