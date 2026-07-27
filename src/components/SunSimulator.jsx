@@ -1,21 +1,22 @@
 import { useState, useEffect } from 'react'
 import heroPlant from '../assets/hero-plant.jpg'
 
-const TIME_PRESETS = [
-  { label: 'Morning Sun', time: 9, mode: 'Part Sun', icon: '🌅', desc: 'Gentle early light (3–5 hrs)' },
-  { label: 'Midday Peak Sun', time: 12, mode: 'Full Sun', icon: '☀️', desc: 'Direct solar intensity (6+ hrs)' },
-  { label: 'Filtered Afternoon', time: 15, mode: 'Part Shade', icon: '⛅', desc: 'Dappled light & partial shade' },
-  { label: 'Deep Canopy / Indoor', time: 18, mode: 'Shade', icon: '🌿', desc: 'Low ambient indirect light' },
+const SOLAR_MILESTONES = [
+  { time: 6, label: '06:00 AM', tag: 'Dawn', mode: 'Shade' },
+  { time: 9, label: '09:00 AM', tag: 'Morning Sun', mode: 'Part Sun' },
+  { time: 12, label: '12:00 PM', tag: 'Direct Midday', mode: 'Full Sun' },
+  { time: 15, label: '03:00 PM', tag: 'Afternoon', mode: 'Part Shade' },
+  { time: 18, label: '06:00 PM', tag: 'Dusk', mode: 'Shade' },
 ]
 
 export default function SunSimulator({ onSunModeChange, activeSunMode }) {
-  const [time, setTime] = useState(12) // 6 to 18 (hours)
+  const [time, setTime] = useState(12) // 6 to 18 (hours, float for smooth slider)
 
   // Map hour to sun exposure category
   const getExposureMode = (hour) => {
-    if (hour >= 11 && hour <= 13) return 'Full Sun'
+    if (hour >= 11 && hour <= 13.5) return 'Full Sun'
     if (hour >= 8 && hour < 11) return 'Part Sun'
-    if (hour > 13 && hour <= 16) return 'Part Shade'
+    if (hour > 13.5 && hour <= 16.5) return 'Part Shade'
     return 'Shade'
   }
 
@@ -27,7 +28,7 @@ export default function SunSimulator({ onSunModeChange, activeSunMode }) {
     }
   }, [time, currentMode])
 
-  // Sun position along solar arc (6am = 5%, 12pm = 50%, 6pm = 95%)
+  // Sun position along solar arc (6am = 6%, 12pm = 50%, 6pm = 94%)
   const progress = ((time - 6) / 12) * 100
   const sunX = Math.max(6, Math.min(94, progress))
   const sunY = 88 - Math.sin((progress / 100) * Math.PI) * 72 // sine arc
@@ -77,9 +78,12 @@ export default function SunSimulator({ onSunModeChange, activeSunMode }) {
   const env = getEnvironmentFilter()
 
   const formatHour = (h) => {
-    const period = h >= 12 ? 'PM' : 'AM'
-    const displayHour = h > 12 ? h - 12 : h === 0 ? 12 : h
-    return `${displayHour.toString().padStart(2, '0')}:00 ${period}`
+    const hours = Math.floor(h)
+    const minutes = Math.round((h - hours) * 60)
+    const period = hours >= 12 ? 'PM' : 'AM'
+    const displayHour = hours > 12 ? hours - 12 : hours === 0 ? 12 : hours
+    const minStr = minutes > 0 ? `:${minutes.toString().padStart(2, '0')}` : ':00'
+    return `${displayHour.toString().padStart(2, '0')}${minStr} ${period}`
   }
 
   return (
@@ -97,11 +101,11 @@ export default function SunSimulator({ onSunModeChange, activeSunMode }) {
               <line x1="1" y1="12" x2="3" y2="12" />
               <line x1="21" y1="12" x2="23" y2="12" />
             </svg>
-            PHOTOREALISTIC SOLAR SIMULATOR
+            SOLAR EXPOSURE SIMULATOR
           </div>
           <h3 className="sun-simulator__title">Sun &amp; Shade Exposure Simulator</h3>
           <p className="sun-simulator__subtitle">
-            Simulate realistic solar trajectory and architectural shadow casting to find plant species ideal for your garden’s light exposure.
+            Drag the solar slider below to simulate real-time sun trajectory and filter plants optimized for your landscape's lighting conditions.
           </p>
         </div>
 
@@ -183,39 +187,54 @@ export default function SunSimulator({ onSunModeChange, activeSunMode }) {
         </div>
       </div>
 
-      {/* Interactive Time Controls */}
+      {/* Hero Solar Time Slider Control */}
       <div className="sun-simulator__controls">
         <div className="sun-simulator__slider-header">
-          <span>🌅 06:00 AM (Dawn)</span>
-          <span className="sun-simulator__slider-current">{formatHour(time)} · {currentMode}</span>
-          <span>🌇 06:00 PM (Dusk)</span>
+          <span className="sun-simulator__slider-label">Solar Time Control</span>
+          <span className="sun-simulator__slider-current">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+              <circle cx="12" cy="12" r="5" />
+              <line x1="12" y1="1" x2="12" y2="3" />
+              <line x1="12" y1="21" x2="12" y2="23" />
+            </svg>
+            {formatHour(time)} — <strong>{currentMode} Mode</strong>
+          </span>
         </div>
-        <input
-          type="range"
-          min="6"
-          max="18"
-          step="1"
-          value={time}
-          onChange={(e) => setTime(Number(e.target.value))}
-          className="sun-simulator__slider"
-          aria-label="Solar time simulator"
-        />
 
-        {/* Presets Grid */}
-        <div className="sun-simulator__presets">
-          {TIME_PRESETS.map((p) => (
+        {/* Custom Range Slider Wrapper */}
+        <div className="sun-simulator__slider-wrapper">
+          <input
+            type="range"
+            min="6"
+            max="18"
+            step="0.5"
+            value={time}
+            onChange={(e) => setTime(Number(e.target.value))}
+            className="sun-simulator__hero-slider"
+            aria-label="Solar time slider"
+          />
+
+          {/* Floating Slider Tooltip */}
+          <div
+            className="sun-simulator__slider-tooltip"
+            style={{ left: `${progress}%` }}
+          >
+            {formatHour(time)}
+          </div>
+        </div>
+
+        {/* Solar Milestone Interactive Ticks */}
+        <div className="sun-simulator__milestones">
+          {SOLAR_MILESTONES.map((m) => (
             <button
-              key={p.label}
-              className={`sun-simulator__preset-btn${time === p.time ? ' active' : ''}`}
-              onClick={() => setTime(p.time)}
+              key={m.label}
+              className={`sun-simulator__milestone-tick${Math.abs(time - m.time) < 0.8 ? ' active' : ''}`}
+              onClick={() => setTime(m.time)}
             >
-              <span className="sun-simulator__preset-icon">{p.icon}</span>
-              <div>
-                <strong>{p.label}</strong>
-                <p>{p.desc}</p>
-              </div>
+              <span className="sun-simulator__tick-dot" />
+              <strong className="sun-simulator__tick-time">{m.label}</strong>
+              <span className="sun-simulator__tick-tag">{m.tag}</span>
             </button>
-          ))}
         </div>
       </div>
     </div>
