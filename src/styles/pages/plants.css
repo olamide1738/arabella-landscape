@@ -207,3 +207,263 @@
     font-size: 11px;
   }
 }
+
+/* ── Sun & Shade Exposure Simulator ── */
+.sun-simulator {
+  background: var(--surface-container-lowest, #FFFFFF);
+  border: 1px solid var(--outline-variant, #E2E8F0);
+  border-radius: var(--rounded-xl, 1.25rem);
+  padding: 2rem;
+  margin-bottom: 3rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+}
+
+.sun-simulator__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  margin-bottom: 1.75rem;
+}
+
+.sun-simulator__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  color: var(--vivid-growth, #00722C);
+  background: rgba(0, 114, 44, 0.08);
+  padding: 0.35rem 0.85rem;
+  border-radius: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+.sun-simulator__title {
+  font-family: var(--font-display);
+  font-size: clamp(22px, 2.2vw, 28px);
+  color: var(--on-surface, #1A1C18);
+  margin-bottom: 0.5rem;
+}
+
+.sun-simulator__subtitle {
+  color: var(--on-surface-variant, #43483E);
+  font-size: 14.5px;
+  max-width: 680px;
+  margin: 0;
+  line-height: 1.55;
+}
+
+.sun-simulator__reset-btn {
+  background: var(--surface-container, #EBE8E0);
+  border: 1px solid var(--outline-variant, #C3CCC0);
+  color: var(--forest-depth, #004016);
+  font-size: 13px;
+  font-weight: 600;
+  padding: 0.5rem 1.1rem;
+  border-radius: 2rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.sun-simulator__reset-btn:hover {
+  background: var(--forest-depth, #004016);
+  color: #FFFFFF;
+}
+
+.sun-simulator__canvas {
+  position: relative;
+  height: 200px;
+  border-radius: 1rem;
+  overflow: hidden;
+  margin-bottom: 1.75rem;
+  transition: background 0.8s ease;
+  box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.25);
+}
+
+.sun-simulator__sun {
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  background: #FFD700;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: left 0.15s ease-out, top 0.15s ease-out, box-shadow 0.3s ease;
+  z-index: 3;
+}
+
+.sun-simulator__arc {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.sun-simulator__landscape {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 2;
+}
+
+.sun-simulator__shadow {
+  position: absolute;
+  bottom: 2px;
+  width: 100px;
+  height: 14px;
+  background: rgba(0, 0, 0, 0.65);
+  border-radius: 50%;
+  transform-origin: center bottom;
+  filter: blur(3px);
+  transition: transform 0.15s ease-out, opacity 0.15s ease-out;
+}
+
+.sun-simulator__tree {
+  position: relative;
+  z-index: 2;
+  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.3));
+}
+
+.sun-simulator__time-display {
+  position: absolute;
+  top: 1rem;
+  left: 1.25rem;
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 0.4rem 0.85rem;
+  border-radius: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  z-index: 4;
+}
+
+.sun-simulator__time-clock {
+  color: #FFFFFF;
+  font-weight: 700;
+  font-size: 14px;
+  font-family: monospace;
+}
+
+.sun-simulator__mode-tag {
+  color: var(--lime-energy, #DFDB00);
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.sun-simulator__controls {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.sun-simulator__slider-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--on-surface-variant, #43483E);
+}
+
+.sun-simulator__slider-current {
+  color: var(--vivid-growth, #00722C);
+  font-weight: 800;
+  font-size: 15px;
+}
+
+.sun-simulator__slider {
+  width: 100%;
+  height: 8px;
+  border-radius: 4px;
+  background: var(--surface-container, #EBE8E0);
+  outline: none;
+  accent-color: var(--vivid-growth, #00722C);
+  cursor: pointer;
+}
+
+.sun-simulator__presets {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+.sun-simulator__preset-btn {
+  background: var(--surface-container-low, #F7F5F0);
+  border: 1.5px solid var(--outline-variant, #E2E8F0);
+  border-radius: 0.85rem;
+  padding: 1rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.sun-simulator__preset-btn:hover {
+  border-color: var(--vivid-growth, #00722C);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+}
+
+.sun-simulator__preset-btn.active {
+  background: #002E11;
+  border-color: var(--lime-energy, #DFDB00);
+  color: #FFFFFF;
+  box-shadow: 0 6px 18px rgba(0, 46, 17, 0.35);
+}
+
+.sun-simulator__preset-btn.active strong {
+  color: var(--lime-energy, #DFDB00);
+}
+
+.sun-simulator__preset-btn.active p {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.sun-simulator__preset-icon {
+  font-size: 22px;
+  flex-shrink: 0;
+}
+
+.sun-simulator__preset-btn strong {
+  display: block;
+  font-size: 14px;
+  margin-bottom: 0.2rem;
+  color: var(--on-surface, #1A1C18);
+}
+
+.sun-simulator__preset-btn p {
+  font-size: 12px;
+  color: var(--on-surface-variant, #43483E);
+  margin: 0;
+  line-height: 1.35;
+}
+
+@media (max-width: 900px) {
+  .sun-simulator__presets {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 550px) {
+  .sun-simulator {
+    padding: 1.25rem;
+  }
+  .sun-simulator__presets {
+    grid-template-columns: 1fr;
+  }
+}

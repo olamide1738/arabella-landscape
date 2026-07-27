@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { Helmet } from 'react-helmet-async'
 import { useScrollAnimation } from '../hooks/useScrollAnimation'
 import { PLANTS, PLANT_CATEGORIES } from '../data/plants'
+import SunSimulator from '../components/SunSimulator'
 
 const WATER_COLOUR = {
   'Very Low': '#d7df36',
@@ -55,7 +56,7 @@ function HeightIcon() {
   )
 }
 
-function PlantCard({ plant }) {
+function PlantCard({ plant, activeSunMode }) {
   const growth = GROWTH_BADGE[plant.growth] || GROWTH_BADGE['Moderate']
   const waterColour = WATER_COLOUR[plant.water] || '#66bb6a'
 
@@ -81,7 +82,7 @@ function PlantCard({ plant }) {
         </div>
         <div className="plant-card__spec">
           <SunIcon />
-          <span>{plant.light}</span>
+          <span style={{ color: activeSunMode ? 'var(--vivid-growth)' : 'inherit', fontWeight: activeSunMode ? 700 : 500 }}>{plant.light}</span>
           <span className="plant-card__spec-label">Light</span>
         </div>
         <div className="plant-card__spec">
@@ -110,6 +111,17 @@ export default function Plants() {
   const sectionRef = useScrollAnimation()
   const [activeCategory, setActiveCategory] = useState('All')
   const [search, setSearch] = useState('')
+  const [sunMode, setSunMode] = useState(null)
+
+  const matchesSunMode = (plantLight) => {
+    if (!sunMode) return true
+    const lightLower = plantLight.toLowerCase()
+    if (sunMode === 'Full Sun') return lightLower.includes('full sun')
+    if (sunMode === 'Part Sun') return lightLower.includes('part') || lightLower.includes('bright') || lightLower.includes('full sun')
+    if (sunMode === 'Part Shade') return lightLower.includes('part') || lightLower.includes('indirect') || lightLower.includes('shade')
+    if (sunMode === 'Shade') return lightLower.includes('shade') || lightLower.includes('low') || lightLower.includes('indirect')
+    return true
+  }
 
   const filtered = PLANTS.filter(p => {
     const catMatch = activeCategory === 'All' || p.category === activeCategory
@@ -119,7 +131,9 @@ export default function Plants() {
       || p.scientific.toLowerCase().includes(searchLower)
       || p.description.toLowerCase().includes(searchLower)
       || p.tags.some(t => t.includes(searchLower))
-    return catMatch && searchMatch
+    const sunMatch = matchesSunMode(p.light)
+
+    return catMatch && searchMatch && sunMatch
   })
 
   return (
@@ -137,13 +151,16 @@ export default function Plants() {
         <div className="container">
           <p className="section-label" style={{ justifyContent: 'center' }}>Our Palette</p>
           <h1>Plant Palette</h1>
-          <p>The species and materials our horticulturalists and designers reach for most — organised by category and use.</p>
+          <p>The species and materials our horticulturalists and designers reach for most — organised by category, use, and solar light exposure.</p>
         </div>
       </section>
 
       {/* Filter + Grid */}
-      <section className="section" style={{ background: 'var(--surface-container-low)' }}>
+      <section className="section" style={{ background: 'var(--ivory)' }}>
         <div className="container">
+
+          {/* Sun Simulator Widget */}
+          <SunSimulator onSunModeChange={(mode) => setSunMode(mode)} activeSunMode={sunMode} />
 
           {/* Search + filter bar */}
           <div className="plants-toolbar animate-on-scroll">
@@ -182,18 +199,19 @@ export default function Plants() {
           <p className="projects-count" style={{ marginBottom: '2rem' }}>
             Showing <strong>{filtered.length}</strong> of <strong>{PLANTS.length}</strong> plant{PLANTS.length !== 1 ? 's' : ''}
             {activeCategory !== 'All' && <> in <strong>{activeCategory}</strong></>}
+            {sunMode && <> matching <strong>{sunMode} Exposure</strong></>}
           </p>
 
           {/* Plant grid */}
           {filtered.length > 0 ? (
             <div className="plants-grid stagger-children">
               {filtered.map(plant => (
-                <PlantCard key={plant.id} plant={plant} />
+                <PlantCard key={plant.id} plant={plant} activeSunMode={sunMode} />
               ))}
             </div>
           ) : (
             <p style={{ textAlign: 'center', color: 'var(--on-surface-variant)', padding: '4rem 0' }}>
-              No plants match your search.
+              No plants match your selected filters and solar exposure mode.
             </p>
           )}
         </div>
