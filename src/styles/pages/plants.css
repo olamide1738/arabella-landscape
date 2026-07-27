@@ -273,25 +273,32 @@
   color: #FFFFFF;
 }
 
-.sun-simulator__canvas {
+/* ── Photorealistic Viewport Canvas ── */
+.sun-simulator__viewport {
   position: relative;
-  height: 200px;
-  border-radius: 1rem;
+  height: 260px;
+  border-radius: 1.25rem;
   overflow: hidden;
   margin-bottom: 1.75rem;
-  transition: background 0.8s ease;
-  box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.25);
+  box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.45), 0 12px 24px rgba(0, 0, 0, 0.12);
+  border: 1px solid rgba(0, 0, 0, 0.15);
 }
 
-.sun-simulator__sun {
+.sun-simulator__photo {
   position: absolute;
-  width: 32px;
-  height: 32px;
-  background: #FFD700;
-  border-radius: 50%;
-  transform: translate(-50%, -50%);
-  transition: left 0.15s ease-out, top 0.15s ease-out, box-shadow 0.3s ease;
-  z-index: 3;
+  inset: 0;
+  background-size: cover;
+  background-position: center 65%;
+  transition: filter 0.6s ease;
+  z-index: 1;
+}
+
+.sun-simulator__env-overlay {
+  position: absolute;
+  inset: 0;
+  transition: background 0.6s ease;
+  z-index: 2;
+  mix-blend-mode: color-burn;
 }
 
 .sun-simulator__arc {
@@ -300,51 +307,99 @@
   width: 100%;
   height: 100%;
   pointer-events: none;
-  z-index: 1;
+  z-index: 3;
 }
 
-.sun-simulator__landscape {
+.sun-simulator__sun-flare {
+  position: absolute;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: left 0.15s ease-out, top 0.15s ease-out, background 0.4s ease, box-shadow 0.4s ease;
+  z-index: 4;
+  pointer-events: none;
+}
+
+.sun-simulator__shadow-layer {
   position: absolute;
   bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
+  left: 0;
+  right: 0;
+  height: 80px;
+  z-index: 3;
+  pointer-events: none;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  z-index: 2;
+  justify-content: center;
+  align-items: flex-end;
 }
 
-.sun-simulator__shadow {
-  position: absolute;
-  bottom: 2px;
-  width: 100px;
-  height: 14px;
-  background: rgba(0, 0, 0, 0.65);
+.sun-simulator__realistic-shadow {
+  width: 220px;
+  height: 38px;
+  background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.3) 60%, transparent 100%);
   border-radius: 50%;
   transform-origin: center bottom;
-  filter: blur(3px);
+  filter: blur(6px);
   transition: transform 0.15s ease-out, opacity 0.15s ease-out;
 }
 
-.sun-simulator__tree {
-  position: relative;
-  z-index: 2;
-  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.3));
+.sun-simulator__hud {
+  position: absolute;
+  top: 1.25rem;
+  left: 1.25rem;
+  right: 1.25rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 5;
+  pointer-events: none;
 }
 
-.sun-simulator__time-display {
-  position: absolute;
-  top: 1rem;
-  left: 1.25rem;
-  background: rgba(0, 0, 0, 0.45);
-  backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  padding: 0.4rem 0.85rem;
+.sun-simulator__hud-time {
+  background: rgba(0, 46, 17, 0.65);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  padding: 0.45rem 1rem;
   border-radius: 2rem;
   display: flex;
   align-items: center;
-  gap: 0.75rem;
-  z-index: 4;
+  gap: 0.85rem;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+}
+
+.sun-simulator__time-clock {
+  color: #FFFFFF;
+  font-weight: 800;
+  font-size: 15px;
+  font-family: monospace;
+  letter-spacing: 0.05em;
+}
+
+.sun-simulator__mode-tag {
+  color: var(--lime-energy, #DFDB00);
+  font-size: 11.5px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.sun-simulator__hud-metrics {
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 0.45rem 1rem;
+  border-radius: 2rem;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 12px;
+  display: flex;
+  gap: 1rem;
+}
+
+.sun-simulator__hud-metrics strong {
+  color: var(--lime-energy, #DFDB00);
 }
 
 .sun-simulator__time-clock {
