@@ -57,11 +57,11 @@ export default function Navbar() {
             ))}
           </ul>
 
-          {/* Desktop-only: CTA + search */}
+          {/* Desktop-only: search + CTA */}
+          <SiteSearch />
           <Link to="/contact" className="btn btn-consultation btn-sm navbar__cta" onClick={closeMenu}>
             Get a Consultation
           </Link>
-          <SiteSearch />
 
           {/* Hamburger — mobile only */}
           <button
