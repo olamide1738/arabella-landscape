@@ -5,6 +5,7 @@ import { useScrollAnimation } from '../hooks/useScrollAnimation'
 import { ARTICLES, ARTICLE_CATEGORIES } from '../data/articles'
 import ResourceModal from '../components/ResourceModal'
 import { FREE_GUIDES } from '../data/resources'
+import { ImageWithSkeleton } from '../components/Skeleton'
 
 function CalendarIcon() {
   return (
@@ -39,7 +40,7 @@ function ArticleCard({ article, featured = false }) {
       className={`article-card${featured ? ' article-card--featured' : ''} animate-on-scroll`}
     >
       <div className="article-card__image">
-        <img src={article.image} alt={article.title} loading="lazy" />
+        <ImageWithSkeleton src={article.image} alt={article.title} />
         <span className="article-card__category">{article.category}</span>
       </div>
       <div className="article-card__body">

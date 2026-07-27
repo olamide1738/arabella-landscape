@@ -2305,3 +2305,61 @@
   font-size: 12px;
   font-family: monospace;
 }
+
+/* ============================================================
+   Skeleton Loaders & Shimmer Animations
+   ============================================================ */
+@keyframes skeletonShimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.skeleton-shimmer {
+  background: linear-gradient(
+    90deg,
+    rgba(210, 218, 207, 0.4) 0%,
+    rgba(235, 232, 224, 0.85) 50%,
+    rgba(210, 218, 207, 0.4) 100%
+  ) !important;
+  background-size: 200% 100% !important;
+  animation: skeletonShimmer 1.6s ease-in-out infinite !important;
+}
+
+.skeleton-shimmer--dark {
+  background: linear-gradient(
+    90deg,
+    rgba(0, 40, 15, 0.6) 0%,
+    rgba(0, 114, 44, 0.35) 50%,
+    rgba(0, 40, 15, 0.6) 100%
+  ) !important;
+  background-size: 200% 100% !important;
+  animation: skeletonShimmer 1.6s ease-in-out infinite !important;
+}
+
+.skeleton-img-wrap {
+  position: relative;
+  overflow: hidden;
+}
+
+.skeleton-img-wrap img {
+  transition: opacity 0.35s ease-in-out;
+}
+
+.skeleton-img-wrap img.is-loading {
+  opacity: 0;
+}
+
+.skeleton-img-wrap img.is-loaded {
+  opacity: 1;
+}
+
+.skeleton-img-placeholder {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  border-radius: inherit;
+}

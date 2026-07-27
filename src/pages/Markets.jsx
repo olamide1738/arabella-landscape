@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import { Helmet } from 'react-helmet-async'
 import { useScrollAnimation } from '../hooks/useScrollAnimation'
 import { MARKETS } from '../data/markets'
+import { ImageWithSkeleton } from '../components/Skeleton'
 
 function ArrowIcon() {
   return (
@@ -65,8 +66,8 @@ export default function Markets() {
                 aria-label={`Explore ${market.name} market`}
               >
                 <div className="market-card__image">
-                  <img src={market.image} alt={market.name} />
-                  <div className="market-card__overlay" aria-hidden="true" />
+                  <ImageWithSkeleton src={market.image} alt={market.name} />
+                  <div className="market-card__overlay" aria-hidden="true" style={{ zIndex: 2, pointerEvents: 'none' }} />
                 </div>
                 <div className="market-card__body">
                   <p className="market-card__label">{market.label}</p>

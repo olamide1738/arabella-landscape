@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import { Helmet } from 'react-helmet-async'
 import { useScrollAnimation } from '../hooks/useScrollAnimation'
 import { SERVICES } from '../data/services'
+import { ImageWithSkeleton } from '../components/Skeleton'
 
 const PILLARS = [
   {
@@ -132,9 +133,9 @@ export default function Services() {
               <div key={service.slug} className="svc-index__card animate-on-scroll">
                 {/* Image */}
                 <div className="svc-index__card-image">
-                  <img src={service.image} alt={service.title} />
-                  <div className="svc-index__card-image-overlay" aria-hidden="true" />
-                  <span className="svc-index__card-num">{String(i + 1).padStart(2, '0')}</span>
+                  <ImageWithSkeleton src={service.image} alt={service.title} />
+                  <div className="svc-index__card-image-overlay" aria-hidden="true" style={{ zIndex: 2, pointerEvents: 'none' }} />
+                  <span className="svc-index__card-num" style={{ zIndex: 2 }}>{String(i + 1).padStart(2, '0')}</span>
                 </div>
 
                 {/* Body */}

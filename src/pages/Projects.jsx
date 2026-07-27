@@ -5,6 +5,7 @@ import { useScrollAnimation } from '../hooks/useScrollAnimation'
 import { FILTERS } from '../data/projects'
 import { getManagedProjects } from '../lib/insforge'
 import { LoadingSpinner } from '../components/LoadingSpinner'
+import { ProjectsMapSkeleton, ImageWithSkeleton } from '../components/Skeleton'
 
 const ProjectsMap = lazy(() => import('../components/ProjectsMap'))
 
@@ -167,11 +168,7 @@ export default function Projects() {
 
           {/* Map view */}
           {viewMode === 'map' && (
-            <Suspense fallback={
-              <div style={{ textAlign: 'center', padding: '5rem 1rem' }}>
-                <LoadingSpinner size="lg" label="Loading Interactive Map Engine…" />
-              </div>
-            }>
+            <Suspense fallback={<ProjectsMapSkeleton />}>
               <ProjectsMap projects={filtered} />
             </Suspense>
           )}
@@ -198,7 +195,7 @@ export default function Projects() {
                 >
                   <div className="project-card__image">
                     <div className="project-card__image-inner">
-                      <img
+                      <ImageWithSkeleton
                         src={project.image}
                         alt={project.name}
                         style={{ width: '100%', height: '100%', objectFit: 'cover' }}
@@ -206,6 +203,8 @@ export default function Projects() {
                       <div style={{
                         position: 'absolute', inset: 0,
                         background: 'linear-gradient(to top, rgba(0,10,5,0.5) 0%, transparent 55%)',
+                        pointerEvents: 'none',
+                        zIndex: 2,
                       }} />
                     </div>
                     <span className="project-card__year">{project.year}</span>
