@@ -110,14 +110,71 @@ export default function NotFound() {
         </form>
 
         {/* Action Buttons */}
-        <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', alignItems: 'center', flexWrap: 'wrap', width: '100%' }}>
-          <Link to="/" className="btn btn-primary btn-lg" style={{ minWidth: '180px' }}>
+        <div style={{ display: 'flex', gap: '1.25rem', justifyContent: 'center', alignItems: 'center', flexWrap: 'wrap', width: '100%' }}>
+          <Link
+            to="/"
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              padding: '0.9rem 2.2rem',
+              background: 'var(--lime-energy, #DFDB00)',
+              color: '#004016',
+              fontWeight: 700,
+              fontSize: '12px',
+              letterSpacing: '0.12em',
+              textTransform: 'uppercase',
+              borderRadius: '12px',
+              textDecoration: 'none',
+              boxShadow: '0 4px 16px rgba(0, 0, 0, 0.25)',
+              transition: 'transform 0.2s ease, background-color 0.2s ease',
+            }}
+          >
             Return to Homepage
           </Link>
-          <Link to="/projects" className="btn btn-secondary btn-lg" style={{ minWidth: '180px', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem' }}>
+          
+          <Link
+            to="/projects"
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              gap: '0.5rem',
+              padding: '0.9rem 2.2rem',
+              background: '#FFFFFF',
+              color: '#004016',
+              fontWeight: 700,
+              fontSize: '12px',
+              letterSpacing: '0.12em',
+              textTransform: 'uppercase',
+              borderRadius: '12px',
+              textDecoration: 'none',
+              boxShadow: '0 4px 16px rgba(0, 0, 0, 0.15)',
+              transition: 'transform 0.2s ease',
+            }}
+          >
             View Our Work <ArrowRightIcon />
           </Link>
-          <Link to="/contact" className="btn btn-secondary btn-lg" style={{ minWidth: '180px' }}>
+
+          <Link
+            to="/contact"
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              padding: '0.9rem 2.2rem',
+              background: 'rgba(255, 255, 255, 0.12)',
+              color: '#FFFFFF',
+              border: '1.5px solid rgba(255, 255, 255, 0.35)',
+              fontWeight: 700,
+              fontSize: '12px',
+              letterSpacing: '0.12em',
+              textTransform: 'uppercase',
+              borderRadius: '12px',
+              textDecoration: 'none',
+              transition: 'background 0.2s ease',
+            }}
+          >
             Get in Touch
           </Link>
         </div>
