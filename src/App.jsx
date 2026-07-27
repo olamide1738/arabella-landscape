@@ -24,6 +24,7 @@ import BeforeAfter from './pages/BeforeAfter'
 import Sustainability from './pages/Sustainability'
 import ServiceAreas from './pages/ServiceAreas'
 import AdminDashboard from './pages/AdminDashboard'
+import NotFound from './pages/NotFound'
 
 function ScrollToTop() {
   const { pathname } = useLocation()
@@ -57,6 +58,7 @@ export default function App() {
           <Route path="/before-after" element={<BeforeAfter />} />
           <Route path="/sustainability" element={<Sustainability />} />
           <Route path="/service-areas" element={<ServiceAreas />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
         <Footer />
         <BackToTop />
