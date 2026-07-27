@@ -340,7 +340,7 @@ export default function ProjectDetail() {
 
       {/* ── Related ── */}
       {related.length > 0 && (
-        <section className="section" style={{ background: 'var(--surface-container-low)' }}>
+        <section className="section" style={{ background: 'var(--ivory)' }}>
           <div className="container">
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', flexWrap: 'wrap', gap: '1.5rem', marginBottom: '2.5rem' }}>
               <div>

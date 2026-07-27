@@ -37,8 +37,8 @@ export default function CaseStudies() {
         </div>
       </section>
 
-      {/* ── Featured Case Study ── */}
-      <section className="section" style={{ background: 'var(--surface-container-low)', paddingBottom: '2rem' }}>
+      {/* ── Filter & List ── */}
+      <section className="section" style={{ background: 'var(--ivory)', paddingBottom: '2rem' }}>
         <div className="container">
           <p className="section-label animate-on-scroll">Featured Project</p>
           <Link to={`/case-studies/${featured.slug}`} className="cs-featured animate-on-scroll">

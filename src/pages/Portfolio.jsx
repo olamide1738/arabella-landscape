@@ -45,7 +45,8 @@ export default function Portfolio() {
         </div>
       </section>
 
-      <section className="section" style={{ background: 'var(--surface-container-low)' }}>
+      {/* ── Filtered Grid ── */}
+      <section className="section" style={{ background: 'var(--ivory)' }}>
         <div className="container">
           <div className="filter-tabs">
             {FILTERS.map(f => (
