@@ -235,6 +235,7 @@ export default function SunSimulator({ onSunModeChange, activeSunMode }) {
               <strong className="sun-simulator__tick-time">{m.label}</strong>
               <span className="sun-simulator__tick-tag">{m.tag}</span>
             </button>
+          ))}
         </div>
       </div>
     </div>
