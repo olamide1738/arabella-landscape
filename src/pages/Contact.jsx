@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { useScrollAnimation } from '../hooks/useScrollAnimation'
 import BrochureModal from '../components/BrochureModal'
+import OfficeMap from '../components/OfficeMap'
 
 // ─────────────────────────────────────────────────────────────────
 // Sign up free at https://formspree.io and replace the ID below.
@@ -328,15 +329,8 @@ export default function Contact() {
           </div>
 
           {/* ── Office Map ── */}
-          <div className="map-wrapper">
-            <iframe
-              title="Arabella Landscape — Yaba, Lagos Office"
-              src="https://www.google.com/maps?q=55+Moleye+Street,+Yaba,+Lagos,+Nigeria&output=embed"
-              allowFullScreen
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              aria-label="Map showing Arabella Landscape office at 55 Moleye Street, Yaba, Lagos"
-            />
+          <div className="map-wrapper animate-on-scroll">
+            <OfficeMap />
           </div>
         </div>
       </section>
