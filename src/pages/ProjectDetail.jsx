@@ -6,6 +6,7 @@ import { useScrollAnimation } from '../hooks/useScrollAnimation'
 import { getRelated } from '../data/projects'
 import { getManagedProjects } from '../lib/insforge'
 import BotanicalPalette from '../components/BotanicalPalette'
+import ArchitectFieldNote from '../components/ArchitectFieldNote'
 
 /* ── Icons ── */
 function PinIcon() {
@@ -200,6 +201,9 @@ export default function ProjectDetail() {
           </div>
         </div>
       </section>
+
+      {/* ── Lead Landscape Architect's Field Note & Design Narrative ── */}
+      <ArchitectFieldNote project={project} />
 
       {/* ── Approach + Services ── */}
       <section className="section pd-approach">

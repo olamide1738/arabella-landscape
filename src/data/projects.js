@@ -41,6 +41,16 @@ export const PROJECTS = [
     highlights: ['Riverside infinity pool court overlooking River Niger', 'Interlocking cobblestone garden pathways', 'Lush red coleus, cycads, and tropical palm borders', 'Curved stone retaining wall & custom pool terrace'],
     description: 'A luxurious waterfront country estate in Asaba along the River Niger — combining an infinity pool terrace, cobble promenades, and tropical gardens.',
     detail: 'Arabella was commissioned to design and build the master landscape for a private riverfront estate in Asaba, Delta State. The design takes full advantage of the River Niger waterfront setting, featuring a tiled infinity pool court, stone retaining terraces, fan palms, red coleus borders, and a winding cobblestone promenade that connects the private villa to the riverbank.',
+    fieldNote: {
+      architect: 'Tunde Arabella',
+      title: 'Principal Landscape Architect',
+      date: 'Field Note • River Niger Riparian Survey',
+      quote: 'The Niger River possesses an immense, untamed horizontal presence. Rather than creating a barrier against the water, our intention was to craft a graduated descent—anchoring the villa with tiered stone retaining walls and softening the pool deck with royal palms and cascading flora so the boundary between cultivated estate and open water dissolves.',
+      climate: 'Riparian Alluvial Sand • 85% Humidity',
+      orientation: 'West-Facing Sunset Vista across River Niger',
+      principle: 'Graduated descent & riparian erosion mitigation',
+      observation: 'Interlocking cobblestone promenades were set on deep aggregate courses to breathe with seasonal river water-table variations.'
+    },
     plants: [
       {
         name: 'Royal Palm',
@@ -120,6 +130,16 @@ export const PROJECTS = [
     highlights: ['Multi-story steel trellis vertical plant wall', 'Integrated terracotta pot bio-facade matrix', 'Custom granite stone walling & portico court', 'Automated drip & micro-mist irrigation system'],
     description: 'A groundbreaking bio-architectural commercial landscape for GTBank\'s Private Banking HNI branch on Bayo Kuku, Ikoyi — featuring a multi-story living wall facade.',
     detail: 'Arabella engineered, fabricated, and installed Nigeria\'s premier multi-story living wall bio-facade for GTBank\'s flagship Private Banking branch on Bayo Kuku, Ikoyi. The project combines a bespoke steel trellis matrix supporting hundreds of potted tropical species, automated micro-drip irrigation, granite stone walling, and manicured entry grounds designed to lower ambient temperatures and deliver an iconic corporate identity.',
+    fieldNote: {
+      architect: 'Tunde Arabella',
+      title: 'Principal Landscape Architect',
+      date: 'Field Note • Ikoyi Urban Microclimate Study',
+      quote: 'In dense urban Ikoyi, green space cannot simply be horizontal. With Bayo Kuku, we treated the building facade as a vertical garden matrix—using terracotta planters and automated micro-misting to lower the ambient court temperature by nearly 3°C, turning a corporate private bank into a living sanctuary.',
+      climate: 'Coastal Marine Air • High Urban Density',
+      orientation: 'North-East Diffused Sunlight Exposure',
+      principle: 'Vertical bio-cooling & acoustic dampening',
+      observation: 'The custom steel trellis matrix distributes weight evenly across structural columns while allowing plant roots to breathe in porous terracotta.'
+    },
     plants: [
       {
         name: 'Golden Pothos',
@@ -188,6 +208,16 @@ export const PROJECTS = [
     highlights: ['Central event lawn with city skyline backdrop', 'Structured square palm planter islands', 'Brick paved promenades & timber park benches', 'Shaded pergola pavilion on rolling green mounds'],
     description: 'A landmark public park redesign in the heart of Victoria Island — combining vast central lawns, palm tree courts, brick promenades, and shaded event pavilions.',
     detail: 'Muri Okunola Park is one of Lagos\'s most central and heavily visited civic green spaces. Arabella delivered a comprehensive landscape redesign including elevated date palm planter courts, rolling event lawns overlooking the city skyline, durable brick promenades, timber seating alcoves, and shaded pergola structures built to accommodate major cultural events and daily public recreation.',
+    fieldNote: {
+      architect: 'Tunde Arabella',
+      title: 'Principal Landscape Architect',
+      date: 'Field Note • Victoria Island Civic Park Masterplan',
+      quote: 'A civic park belongs to every citizen. In redesigning Muri Okunola, our challenge was creating spaces resilient enough for tens of thousands during major cultural festivals, while retaining quiet shaded alcoves under date palms for daily morning contemplation.',
+      climate: 'High-Traffic Coastal Turf • Tropical Monsoon',
+      orientation: '360° Open Sky • Victoria Island Skyline Backdrop',
+      principle: 'Dual-purpose high-capacity civic flexibility',
+      observation: 'Sub-surface herringbone drainage networks prevent waterlogging on event lawns during peak Lagos rainy seasons.'
+    },
     plants: [
       {
         name: 'Flamboyant Tree',
@@ -256,6 +286,16 @@ export const PROJECTS = [
     highlights: ['Prestige gatehouse entrance & security portal', 'Royal palm tree avenue & block paved driveway', 'Custom bollard & pathway nighttime uplighting', 'Porte-cochère centerpiece tropical planter'],
     description: 'A luxury hospitality landscape for The George Hotel in Ikoyi — combining a regal palm avenue, custom nighttime illumination, and quiet tropical garden alcoves.',
     detail: 'Arabella designed and constructed the grounds for The George Hotel, a luxury boutique hotel in Ikoyi, Lagos. The masterplan centers on an elegant palm avenue arrival drive with herringbone block paving, security gatehouse planting, centerpiece tropical island planters at the main entrance, and an architectural LED illumination scheme that comes alive after dark.',
+    fieldNote: {
+      architect: 'Tunde Arabella',
+      title: 'Principal Landscape Architect',
+      date: 'Field Note • Ikoyi Luxury Hospitality Enclave',
+      quote: 'Hospitality landscapes require an immediate sense of arrival. For The George, we curated a dramatic avenue of Royal Palms that establishes an instant regal rhythm, balanced with quiet, shaded courtyard alcoves where guests can escape the vibrancy of Lagos.',
+      climate: 'Protected Courtyard Microclimate • Low Wind Velocity',
+      orientation: 'Symmetric East-West Arrival Boulevard',
+      principle: 'Symmetric ceremonial arrival & intimate seclusion',
+      observation: 'Soil profile enriched with mycorrhizal fungi to accelerate root establishment and lush leaf density in containerized planters.'
+    },
     plants: [
       {
         name: 'Royal Palm',
@@ -324,6 +364,16 @@ export const PROJECTS = [
     highlights: ['Lush arrival drive & portico landscape', 'Automated lawn irrigation system', 'Elevated terrace gardens & sunshades', 'Custom block paved driveways & stone walls'],
     description: "A prestige corporate landscape for Stanbic IBTC Bank's Lagos head office — featuring a lush arrival driveway, automated lawn care, elevated terrace planting, and durable hardscaping.",
     detail: "Arabella was commissioned to design, construct, and maintain the grounds of Stanbic IBTC Bank's head office on Victoria Island. The project includes a formal curved arrival drive lined with manicured lawns, tropical palms, and automated irrigation. Upper building levels feature integrated terrace gardens and green shading canopies, seamlessly blending corporate architecture with vibrant West African flora.",
+    fieldNote: {
+      architect: 'Tunde Arabella',
+      title: 'Principal Landscape Architect',
+      date: 'Field Note • Corporate Campus Landscape Audit',
+      quote: 'Corporate headquarters often suffer from cold, impersonal plazas. By interweaving structured manicured hedges with expansive Zoysia lawns and sculptural Cycads, we created an open corporate campus that invites both focus and community.',
+      climate: 'Windbreak Canopy Zone • Coastal Sun Exposure',
+      orientation: 'Open Corporate Promenade & Atrium Court',
+      principle: 'Structured geometry softened by living textures',
+      observation: 'Dense perimeter Ficus hedges reduce acoustic noise from Walter Carrington Crescent by over 14 decibels.'
+    },
     plants: [
       {
         name: 'Chinese Fan Palm',
@@ -387,6 +437,16 @@ export const PROJECTS = [
     highlights: ['Interactive choreographed fountain', 'Palm avenue & native planting', 'LED feature illumination'],
     description: 'A landmark public space transformation at the ceremonial entrance to Nigeria\'s capital — integrating formal gardens, a choreographed fountain, sculptural planting, and illuminated pathways around the iconic Abuja City Gate monument.',
     detail: 'Commissioned by the FCTA, this project repositioned the Abuja City Gate roundabout as a world-class civic landscape worthy of a national monument. Arabella\'s masterplan introduced a structured system of concentric promenades, fountain courts, and richly planted slopes — drawing on Nigeria\'s native flora while meeting the highest standards of urban design. The scheme includes a central interactive water fountain, massed seasonal colour planting, palm avenues, feature lighting, accessible pathways, and a perimeter living retaining wall system. The project was completed on programme and has since become one of Abuja\'s most photographed landmarks.',
+    fieldNote: {
+      architect: 'Tunde Arabella',
+      title: 'Principal Landscape Architect',
+      date: 'Field Note • National Monument Precinct',
+      quote: 'As the ceremonial front door to the nation\'s capital, this monument required an architectural statement that is monumental yet grounded in indigenous Nigerian flora. The concentric rings of royal palms and choreographed water plumes create a visual crescendo welcoming visitors into Abuja.',
+      climate: 'Guinea Savannah Transition • Intense Solar Zenith',
+      orientation: 'Centric 360° Radial Visibility from Arterial Highways',
+      principle: 'Concentric civic hierarchy & kinetic celebration',
+      observation: 'Radial planting terraces were pitched at a 7-degree incline to ensure optimal visual drama from passing high-speed vehicular perspectives.'
+    },
     plants: [
       {
         name: 'Royal Palm',
