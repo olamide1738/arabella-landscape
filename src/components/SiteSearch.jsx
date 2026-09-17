@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect, useCallback } from 'react'
+import { createPortal } from 'react-dom'
 import { useNavigate } from 'react-router-dom'
 import { PROJECTS } from '../data/projects'
 import { SERVICES } from '../data/services'
@@ -73,6 +74,17 @@ export default function SiteSearch() {
 
   const goto = (href) => { navigate(href); closeSearch() }
 
+  useEffect(() => {
+    if (open) {
+      document.body.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = ''
+    }
+    return () => {
+      document.body.style.overflow = ''
+    }
+  }, [open])
+
   return (
     <>
       {/* Trigger button in Navbar */}
@@ -88,8 +100,8 @@ export default function SiteSearch() {
         </svg>
       </button>
 
-      {/* Full-screen overlay */}
-      {open && (
+      {/* Full-screen overlay mounted at document.body via Portal */}
+      {open && createPortal(
         <div className="search-overlay" onClick={closeSearch}>
           <div className="search-box" onClick={e => e.stopPropagation()}>
             <div className="search-box__input-row">
@@ -117,16 +129,18 @@ export default function SiteSearch() {
             </div>
 
             {results.length > 0 ? (
-              <ul className="search-results" role="listbox">
+              <ul className="search-results">
                 {results.map((r, i) => (
                   <li
                     key={r.href}
-                    className={`search-result${i === active ? ' search-result--active' : ''}`}
+                    className={`search-result${i === active ? ' active' : ''}`}
                     onClick={() => goto(r.href)}
-                    role="option"
-                    aria-selected={i === active}
+                    onMouseEnter={() => setActive(i)}
                   >
-                    <span className="search-result__type" style={{ color: TYPE_COLOURS[r.type] }}>
+                    <span
+                      className="search-result__type"
+                      style={{ color: TYPE_COLOURS[r.type] }}
+                    >
                       {r.type}
                     </span>
                     <span className="search-result__title">{r.title}</span>
@@ -142,7 +156,8 @@ export default function SiteSearch() {
               </p>
             )}
           </div>
-        </div>
+        </div>,
+        document.body
       )}
     </>
   )
