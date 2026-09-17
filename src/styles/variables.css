@@ -60,8 +60,8 @@
   --pure-white: #F7F5F0;
 
   /* ── Typography ── */
-  --font-display: 'Raleway', system-ui, sans-serif;
-  --font-body: 'DM Sans', system-ui, sans-serif;
+  --font-display: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  --font-body: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
 
   /* Display XL */
   --display-xl-size: 88px;
