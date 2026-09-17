@@ -24,6 +24,14 @@ export function getManagedProjects() {
     if (cached) {
       const parsed = JSON.parse(cached)
       if (Array.isArray(parsed) && parsed.length > 0) {
+        // Ensure any new default projects are seamlessly included
+        const existingSlugs = new Set(parsed.map(p => p.slug))
+        const missingDefaults = INITIAL_PROJECTS.filter(p => !existingSlugs.has(p.slug))
+        if (missingDefaults.length > 0) {
+          const merged = [...parsed, ...missingDefaults]
+          localStorage.setItem(STORAGE_KEY, JSON.stringify(merged))
+          return merged
+        }
         return parsed
       }
     }

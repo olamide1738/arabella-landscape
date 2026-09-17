@@ -499,6 +499,107 @@ export const PROJECTS = [
       beforeLabel: 'Design Render',
       afterLabel:  'Completed 2024',
     },
+  },
+  {
+    slug: 'mariam-babangida-leisure-park',
+    category: 'Public Space',
+    name: 'Mariam Babangida Leisure Park',
+    location: 'Asaba, Delta State',
+    coords: [6.2059, 6.6953],
+    year: '2024',
+    image: '/images/mariam-babangida-1.jpg',
+    images: [
+      '/images/mariam-babangida-1.jpg',
+      '/images/mariam-babangida-2.jpg',
+      '/images/mariam-babangida-3.jpg',
+      '/images/mariam-babangida-4.jpg',
+      '/images/mariam-babangida-5.jpg'
+    ],
+    area: '10.5 hectares',
+    client: 'Delta State Government',
+    services: [
+      'Landscape Architecture',
+      'Civic Park Masterplan',
+      'Aquatic Lagoon & Waterfront Engineering',
+      'Observation Tower Plaza Design',
+      'Promenade & Hardscape Paving',
+      'Turf & Palm Tree Installation'
+    ],
+    highlights: [
+      '30-meter landmark observation tower & cafe terrace',
+      'Curved aquatic leisure lagoon & arched footbridge',
+      '25-meter panoramic Ferris wheel & amusement berms',
+      'Expansive botanical gardens & family picnic lawns'
+    ],
+    description: 'A transformative 10.5-hectare regional leisure and amusement destination in Asaba, Delta State — integrating aquatic lagoons, a landmark observation tower, botanical lawns, and civic family recreation.',
+    detail: 'Arabella delivered comprehensive landscape architecture, site grading, and hardscape promenades for the Mariam Babangida Leisure Park in Asaba. Designed as a regional crown jewel for Delta State, the park synthesizes vast civic open spaces with active amusement zones. The masterplan features an expansive winding aquatic recreation lagoon flanked by engineered turf embankments and an arched timber-look bridge, framed by an iconic 30-meter hexagonal observation tower with outdoor dining terraces, sweeping palm boulevards, children\'s adventure zones, and a monumental Ferris wheel set atop sculpted green berms.',
+    fieldNote: {
+      architect: 'Tunde Arabella',
+      title: 'Principal Landscape Architect',
+      date: 'Field Note • Delta State Regional Leisure Masterplan',
+      quote: 'Civic leisure at this scale requires balancing high-energy amusement with organic tranquility. With Mariam Babangida Park, our vision was to anchor the dynamic attractions around a serene central water lagoon—using rolling green berms and native palm canopies to buffer sound, frame vistas toward the observation tower, and create a multi-generational sanctuary for Delta State.',
+      climate: 'Tropical Rain Forest & Delta Lowland • High Solar Exposure',
+      orientation: 'Open Radial Vistas centered on Observation Tower & Water Axis',
+      principle: 'Centric water orientation & sound-buffering botanical topography',
+      observation: 'Constructed earthen viewing berms around the amusement perimeter to create natural amphitheaters and acoustic barriers for adjacent picnic groves.'
+    },
+    plants: [
+      {
+        name: 'Royal Palm',
+        scientific: 'Roystonea regia',
+        category: 'Monumental Palms',
+        role: 'Regal perimeter boulevard and observation tower plaza avenue',
+        light: 'Full Sun',
+        water: 'Medium',
+        native: false,
+        emoji: '🌴',
+        tag: 'Plaza Avenue'
+      },
+      {
+        name: 'Yellow Trumpetbush',
+        scientific: 'Tecoma stans',
+        category: 'Flowering Shrubs',
+        role: 'Vibrant golden floral borders flanking pedestrian lagoon promenades',
+        light: 'Full Sun',
+        water: 'Low–Medium',
+        native: false,
+        emoji: '🌼',
+        tag: 'Lagoon Border'
+      },
+      {
+        name: 'Zoysia Grass',
+        scientific: 'Zoysia japonica',
+        category: 'Turf',
+        role: 'Durable, high-traffic living carpet across family picnic grounds',
+        light: 'Full Sun',
+        water: 'Low',
+        native: false,
+        emoji: '🌱',
+        tag: 'Picnic Lawn'
+      },
+      {
+        name: 'Sago Cycad',
+        scientific: 'Cycas revoluta',
+        category: 'Architectural Shrubs',
+        role: 'Sculptural entrance islands leading into the observation tower portico',
+        light: 'Full Sun to Part Shade',
+        water: 'Low',
+        native: false,
+        emoji: '🪴',
+        tag: 'Tower Plaza'
+      },
+      {
+        name: 'Bougainvillea',
+        scientific: 'Bougainvillea spectabilis',
+        category: 'Climbers & Hedges',
+        role: 'Crimson flowering barriers along perimeter security zones',
+        light: 'Full Sun',
+        water: 'Low',
+        native: false,
+        emoji: '🌸',
+        tag: 'Perimeter Bloom'
+      }
+    ]
   }
 ]
 
@@ -510,4 +611,5 @@ export function getRelated(slug, count = 3) {
   return [...same, ...rest].slice(0, count)
 }
 
-export const FILTERS = ['All', 'Commercial', 'Public Space']
+export const FILTERS = ['All', 'Commercial', 'Public Space', 'Residential']
+
