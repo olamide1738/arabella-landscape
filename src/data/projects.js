@@ -600,8 +600,98 @@ export const PROJECTS = [
         tag: 'Perimeter Bloom'
       }
     ]
+  },
+  {
+    slug: 'adire-mall',
+    category: 'Commercial',
+    name: 'Adire Mall',
+    location: 'Abeokuta, Ogun State',
+    coords: [7.1557, 3.3486],
+    year: '2024',
+    image: '/images/adire-mall-1.jpg',
+    images: [
+      '/images/adire-mall-1.jpg',
+      '/images/adire-mall-2.jpg',
+      '/images/adire-mall-3.jpg',
+      '/images/adire-mall-4.jpg'
+    ],
+    area: '3.4 hectares',
+    client: 'Ogun State Ministry of Industry, Trade & Investment',
+    services: [
+      'Landscape Architecture',
+      'Commercial Plaza & Boulevard Masterplan',
+      'Architectural Skybridge Lighting',
+      'Heavy-Duty Interlocking Pavement Engineering',
+      'Avenue Shade Trees & Median Planters',
+      'Stormwater Drainage Infrastructure'
+    ],
+    highlights: [
+      'Illuminated pedestrian skybridge connecting retail wings',
+      'Heavy-duty interlocking block paved central commercial avenue',
+      'Energy-efficient emerald & amber architectural LED illumination',
+      'Staked native shade tree avenue along pedestrian promenades'
+    ],
+    description: 'A modern bio-cultural commercial landmark in Abeokuta, Ogun State — uniting two-story artisan retail pavilions, an illuminated architectural skybridge, and high-durability paved boulevards for Nigeria\'s premier textile market.',
+    detail: 'Arabella was appointed to design and construct the exterior landscape, commercial circulation boulevards, and exterior illumination masterplan for the new Adire Mall in Abeokuta, Ogun State. As the cultural epicenter for authentic Yoruba Adire heritage textiles, the scheme required an urban infrastructure capable of handling high daily pedestrian footfall and commercial logistics while presenting a world-class architectural identity. Arabella engineered the extensive central boulevard with heavy-duty interlocking block pavers and high-contrast perimeter curbs, introduced staked avenue trees and median plantings to soften the modular architecture, and designed an energy-efficient nocturnal illumination scheme anchored by the iconic elevated skybridge that glows in vibrant emerald and gold at dusk.',
+    fieldNote: {
+      architect: 'Tunde Arabella',
+      title: 'Principal Landscape Architect',
+      date: 'Field Note • Abeokuta Artisan Commercial Hub',
+      quote: 'With Adire Mall, the landscape had to celebrate Abeokuta\'s storied textile heritage while delivering an ultra-durable commercial streetscape. We treated the central boulevard as a contemporary ceremonial market avenue—using bold curb geometry and native shade trees to humanize the steel modular pavilions, punctuated by the glowing skybridge that acts as a beacon across the rolling hills of Ogun State.',
+      climate: 'Sub-Humid Tropical Savanna • Laterite Terrain',
+      orientation: 'North-South Commercial Boulevard Axis • 360° Hillside Vista',
+      principle: 'High-durability commercial circulation paired with cultural pride',
+      observation: 'Deep aggregate road bases were engineered beneath the interlocking pavers to withstand heavy delivery logistics while maintaining continuous surface permeability.'
+    },
+    plants: [
+      {
+        name: 'Neem Tree',
+        scientific: 'Azadirachta indica',
+        category: 'Avenue Trees',
+        role: 'Resilient fast-growing shade canopy along central market boulevard',
+        light: 'Full Sun',
+        water: 'Low',
+        native: true,
+        emoji: '🌳',
+        tag: 'Market Boulevard'
+      },
+      {
+        name: 'Weeping Fig',
+        scientific: 'Ficus benjamina',
+        category: 'Architectural Trees',
+        role: 'Formal entrance focal points flanking skybridge ramps and porticos',
+        light: 'Full Sun to Part Shade',
+        water: 'Medium',
+        native: false,
+        emoji: '🪴',
+        tag: 'Skybridge Portal'
+      },
+      {
+        name: 'Pygmy Date Palm',
+        scientific: 'Phoenix roebelenii',
+        category: 'Palms',
+        role: 'Low-maintenance architectural accent plantings along pedestrian walkways',
+        light: 'Full Sun',
+        water: 'Low–Medium',
+        native: false,
+        emoji: '🌴',
+        tag: 'Pedestrian Curbs'
+      },
+      {
+        name: 'Golden Dewdrop',
+        scientific: 'Duranta erecta',
+        category: 'Hedges & Topiary',
+        role: 'Manicured golden-yellow traffic median dividers and safety buffers',
+        light: 'Full Sun',
+        water: 'Low',
+        native: false,
+        emoji: '🌿',
+        tag: 'Median Buffer'
+      }
+    ]
   }
 ]
+
 
 export function getRelated(slug, count = 3) {
   const current = PROJECTS.find(p => p.slug === slug)
