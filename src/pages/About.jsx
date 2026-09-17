@@ -248,25 +248,96 @@ export default function About() {
         </div>
       </section>
 
-      {/* Awards */}
+      {/* Awards & Accreditations */}
       <section className="section" style={{ background: 'var(--ivory)' }}>
         <div className="container">
-          <p className="section-label">Recognition</p>
-          <h2 className="headline-lg animate-on-scroll" style={{ color: 'var(--on-surface)', marginBottom: '2.5rem' }}>
-            Awards &amp; Accreditations
-          </h2>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(280px, 100%), 1fr))', gap: '1.5rem' }}>
+          <div style={{ textAlign: 'left', marginBottom: '3rem' }}>
+            <p className="section-label animate-on-scroll">Industry Recognition</p>
+            <h2 className="headline-lg animate-on-scroll" style={{ color: 'var(--on-surface)' }}>
+              Awards &amp; Accreditations
+            </h2>
+          </div>
+
+          {/* Awards Grid */}
+          <div className="awards-grid">
             {[
-              { year: '2024', award: 'Best Landscape Firm — Nigerian Construction Awards' },
-              { year: '2023', award: 'Green City Design Award — Urban Futures Summit' },
-              { year: '2022', award: 'Excellence in Public Space — NIALA Awards' },
-              { year: '2021', award: 'Sustainable Landscape of the Year — EcoDesign Africa' },
-            ].map(({ year, award }) => (
-              <div key={award} className="value-card animate-on-scroll" style={{ display: 'flex', gap: '1.25rem', alignItems: 'flex-start', padding: '1.75rem' }}>
-                <div style={{ fontFamily: 'var(--font-display)', fontSize: '28px', fontWeight: 700, fontStyle: 'italic', color: 'var(--vivid-growth)', lineHeight: 1, minWidth: '64px' }}>{year}</div>
-                <p style={{ fontSize: '15px', color: 'var(--on-surface)', fontWeight: 500, lineHeight: 1.5 }}>{award}</p>
+              {
+                year: '2024',
+                title: 'Best Landscape Architecture Firm',
+                org: 'Nigerian Construction Awards',
+                desc: 'Honored for landmark public realm developments & luxury residential estate master planning across Nigeria.'
+              },
+              {
+                year: '2023',
+                title: 'Green City Design Award',
+                org: 'Urban Futures Summit',
+                desc: 'Recognized for pioneering sustainable urban heat island cooling & native plant micro-ecosystems.'
+              },
+              {
+                year: '2022',
+                title: 'Excellence in Public Space',
+                org: 'NIALA Architectural Awards',
+                desc: 'Awarded for civic plaza redesigns, pedestrian waterfront corridors, and public safety integration.'
+              },
+              {
+                year: '2021',
+                title: 'Sustainable Landscape of the Year',
+                org: 'EcoDesign Africa',
+                desc: 'Pioneering zero-waste drip irrigation engineering & drought-tolerant native flora specification.'
+              }
+            ].map(({ year, title, org, desc }) => (
+              <div key={title} className="award-card animate-on-scroll">
+                <div>
+                  <div className="award-card__header">
+                    <span className="award-card__year">{year}</span>
+                    <div className="award-card__icon">
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                        <circle cx="12" cy="8" r="6" />
+                        <path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11" />
+                      </svg>
+                    </div>
+                  </div>
+                  <div className="award-card__body">
+                    <span className="award-card__org">{org}</span>
+                    <h3>{title}</h3>
+                    <p className="award-card__desc">{desc}</p>
+                  </div>
+                </div>
+                <div className="award-card__footer">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                    <polyline points="22 4 12 14.01 9 11.01" />
+                  </svg>
+                  <span>Verified Distinction</span>
+                </div>
               </div>
             ))}
+          </div>
+
+          {/* Accreditations & Affiliations Row */}
+          <div className="accreditations-container animate-on-scroll">
+            <div className="accreditations-header">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+              </svg>
+              <span>Professional Affiliations &amp; Certifications</span>
+            </div>
+            <div className="accreditations-grid">
+              {[
+                { code: 'IFLA', name: 'International Federation of Landscape Architects', role: 'Corporate Member' },
+                { code: 'NIALA', name: 'Nigerian Institute of Landscape Architects', role: 'Chartered Practice' },
+                { code: 'LASPARK', name: 'Lagos State Parks & Gardens Agency', role: 'Certified Partner' },
+                { code: 'LEED AP', name: 'Leadership in Energy & Environmental Design', role: 'Accredited Specialist' }
+              ].map(({ code, name, role }) => (
+                <div key={code} className="accreditation-pill">
+                  <span className="accreditation-code">{code}</span>
+                  <div className="accreditation-info">
+                    <span className="accreditation-name">{name}</span>
+                    <span className="accreditation-role">{role}</span>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
