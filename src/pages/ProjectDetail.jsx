@@ -6,7 +6,6 @@ import { useScrollAnimation } from '../hooks/useScrollAnimation'
 import { getRelated } from '../data/projects'
 import { getManagedProjects } from '../lib/insforge'
 import BotanicalPalette from '../components/BotanicalPalette'
-import ArchitecturalLighting from '../components/ArchitecturalLighting'
 
 /* ── Icons ── */
 function PinIcon() {
@@ -264,9 +263,6 @@ export default function ProjectDetail() {
       {project.plants && project.plants.length > 0 && (
         <BotanicalPalette plants={project.plants} />
       )}
-
-      {/* ── Architectural Lighting & Atmosphere Switch ── */}
-      <ArchitecturalLighting project={project} />
 
       {/* ── Before / After Slider ── */}
       {project.beforeAfter && (
