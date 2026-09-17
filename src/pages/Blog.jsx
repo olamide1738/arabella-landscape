@@ -155,7 +155,7 @@ export default function Blog() {
                 className={`filter-tab${activeCategory === cat ? ' active' : ''}`}
                 onClick={() => handleCategorySelect(cat)}
               >
-                {cat}
+                <span>{cat}</span>
                 <span className="filter-tab__count">
                   {cat === 'All' ? ARTICLES.length : ARTICLES.filter(a => a.category === cat).length}
                 </span>

@@ -163,7 +163,7 @@ export default function Projects() {
                   className={`filter-tab${active === f ? ' active' : ''}`}
                   onClick={() => handleFilter(f)}
                 >
-                  {f}
+                  <span>{f}</span>
                   <span className="filter-tab__count">{count}</span>
                 </button>
               )

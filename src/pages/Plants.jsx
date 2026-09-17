@@ -186,7 +186,7 @@ export default function Plants() {
                   className={`filter-tab${activeCategory === cat ? ' active' : ''}`}
                   onClick={() => setActiveCategory(cat)}
                 >
-                  {cat}
+                  <span>{cat}</span>
                   <span className="filter-tab__count">
                     {cat === 'All' ? PLANTS.length : PLANTS.filter(p => p.category === cat).length}
                   </span>

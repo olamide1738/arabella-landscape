@@ -116,7 +116,7 @@ export default function BeforeAfter() {
                   className={`filter-tab${activeFilter === cat ? ' active' : ''}`}
                   onClick={() => setActiveFilter(cat)}
                 >
-                  {cat}
+                  <span>{cat}</span>
                   <span className="filter-tab__count">{count}</span>
                 </button>
               )
