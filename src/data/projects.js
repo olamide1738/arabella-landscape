@@ -692,8 +692,110 @@ export const PROJECTS = [
         tag: 'Median Buffer'
       }
     ]
+  },
+  {
+    slug: 'private-residence-asaba',
+    category: 'Residential',
+    name: 'Private Residence, Asaba',
+    location: 'Asaba, Delta State',
+    coords: [6.2120, 6.7115],
+    year: '2024',
+    image: '/images/asaba-residence-1.jpg',
+    images: [
+      '/images/asaba-residence-1.jpg',
+      '/images/asaba-residence-2.jpg',
+      '/images/asaba-residence-3.jpg',
+      '/images/asaba-residence-4.jpg',
+      '/images/asaba-residence-5.jpg'
+    ],
+    area: '1.6 hectares',
+    client: 'Private Client',
+    services: [
+      'Residential Landscape Architecture',
+      'Cobblestone Courtyard Paving',
+      'Sculptural Stone Focal Points',
+      'Royal Palm Avenue Installation',
+      'Manicured Topiary Hedging & Lawns',
+      'Low-Voltage Garden Illumination'
+    ],
+    highlights: [
+      'Cobblestone arrival court with centerpiece figurative stone sculpture',
+      'Towering Royal & Foxtail palm avenue lining perimeter approach',
+      'Continuous curved topiary box hedges framing entry drives',
+      'Secluded garden lawn with low-voltage landscape lighting'
+    ],
+    description: 'An exclusive luxury private estate in Asaba, Delta State — uniting a cobblestone arrival courtyard, sculptural focal points, regal palm avenues, and tailored private garden lawns.',
+    detail: 'Arabella was commissioned to design, construct, and nurture the landscape architecture for an expansive private luxury residence in Asaba, Delta State. The design emphasizes classical proportions and botanical serenity. Visitors arrive through a towering avenue of Royal and Foxtail palms along the perimeter approach, transitioning through privacy walls into a grand cobblestone arrival court. At the court\'s heart, a mature Royal Palm rises beside a bespoke carved stone figurative sculpture, framed by sculpted green topiary hedges and flowering frangipani. The private rear grounds feature rolling manicured Zoysia lawns, integrated garden bollard lighting, and dense tropical foliage creating a secluded family sanctuary.',
+    fieldNote: {
+      architect: 'Tunde Arabella',
+      title: 'Principal Landscape Architect',
+      date: 'Field Note • Asaba Private Estate Grounds',
+      quote: 'Residential landscape design must evoke an immediate sense of sanctuary. For this Asaba estate, our intent was to create an acoustic and visual oasis—transitioning from the red earth of the external approach to an immaculate cobblestone courtyard anchored by organic sculpture, living palm trunks, and manicured green contours.',
+      climate: 'Delta Sub-Tropical Lowland • High Annual Rainfall',
+      orientation: 'Protected South-Facing Courtyard • Filtered Canopy Sun',
+      principle: 'Layered transitions from public approach to intimate garden sanctuary',
+      observation: 'Fine-grained granite cobblestones were laid in radiating arc patterns to naturally disperse heavy tropical downpours into concealed perimeter French drains.'
+    },
+    plants: [
+      {
+        name: 'Royal Palm',
+        scientific: 'Roystonea regia',
+        category: 'Monumental Palms',
+        role: 'Towering courtyard centerpiece & perimeter avenue framing',
+        light: 'Full Sun',
+        water: 'Medium',
+        native: false,
+        emoji: '🌴',
+        tag: 'Courtyard Centerpiece'
+      },
+      {
+        name: 'Frangipani',
+        scientific: 'Plumeria rubra',
+        category: 'Flowering Trees',
+        role: 'Fragrant white & pink blooms draping courtyard retaining walls',
+        light: 'Full Sun',
+        water: 'Low',
+        native: false,
+        emoji: '🌸',
+        tag: 'Aroma Accent'
+      },
+      {
+        name: 'Ficus Topiary Hedge',
+        scientific: 'Ficus retusa',
+        category: 'Formal Hedges',
+        role: 'Sculpted curved box hedges bordering driveway & stone terrace',
+        light: 'Full Sun to Part Shade',
+        water: 'Medium',
+        native: false,
+        emoji: '🌿',
+        tag: 'Formal Border'
+      },
+      {
+        name: 'Foxtail Palm',
+        scientific: 'Wodyetia bifurcata',
+        category: 'Palms',
+        role: 'Plush feathery fronds lining the estate approach drive',
+        light: 'Full Sun',
+        water: 'Low–Medium',
+        native: false,
+        emoji: '🌴',
+        tag: 'Approach Avenue'
+      },
+      {
+        name: 'Zoysia Lawn',
+        scientific: 'Zoysia japonica',
+        category: 'Turf',
+        role: 'Dense barefoot-soft emerald lawn across private gardens',
+        light: 'Full Sun',
+        water: 'Low',
+        native: false,
+        emoji: '🌱',
+        tag: 'Living Carpet'
+      }
+    ]
   }
 ]
+
 
 
 export function getRelated(slug, count = 3) {
