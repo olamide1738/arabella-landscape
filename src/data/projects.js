@@ -41,6 +41,59 @@ export const PROJECTS = [
     highlights: ['Riverside infinity pool court overlooking River Niger', 'Interlocking cobblestone garden pathways', 'Lush red coleus, cycads, and tropical palm borders', 'Curved stone retaining wall & custom pool terrace'],
     description: 'A luxurious waterfront country estate in Asaba along the River Niger — combining an infinity pool terrace, cobble promenades, and tropical gardens.',
     detail: 'Arabella was commissioned to design and build the master landscape for a private riverfront estate in Asaba, Delta State. The design takes full advantage of the River Niger waterfront setting, featuring a tiled infinity pool court, stone retaining terraces, fan palms, red coleus borders, and a winding cobblestone promenade that connects the private villa to the riverbank.',
+    lighting: {
+      dayImage: '/images/asaba-country-home-1.jpg',
+      hotspots: [
+        {
+          id: 'infinity-pool-aquatic',
+          x: 46,
+          y: 65,
+          title: 'Infinity Pool Underwater Glow',
+          category: 'Water Feature & Terrace',
+          fixture: 'Submersible Micro-Optic (IP68, 12V AC)',
+          cct: '2700K Warm White / Subtle Azure',
+          beam: '90° Wide Optical Diffuser',
+          purpose: 'Illuminates the pool court edge reflecting the river horizon without surface glare.',
+          wattage: '12W Low-Voltage LED'
+        },
+        {
+          id: 'retaining-wall-grazers',
+          x: 75,
+          y: 50,
+          title: 'Curved Stone Retaining Wall Grazer',
+          category: 'Masonry & Terraces',
+          fixture: 'Recessed Linear Low-Profile LED',
+          cct: '2700K Ultra-Warm White',
+          beam: '15° x 60° Asymmetric Graze',
+          purpose: 'Highlights textured natural stone courses and cascading bougainvillea borders.',
+          wattage: '10W/meter Linear LED'
+        },
+        {
+          id: 'promenade-bollards',
+          x: 25,
+          y: 78,
+          title: 'Cobblestone Promenade Bollards',
+          category: 'Riverfront Circulation',
+          fixture: 'Solid Marine Brass Pathway Bollard (IP65)',
+          cct: '3000K Warm White',
+          beam: '360° Downward Ground Wash',
+          purpose: 'Guides evening riverfront strolls along interlocking cobbles; keeps illumination strictly below 400mm.',
+          wattage: '5W Solid Brass LED'
+        },
+        {
+          id: 'palm-crown-uplight',
+          x: 28,
+          y: 35,
+          title: 'Royal Palm Canopy Uplights',
+          category: 'Botanical Lighting',
+          fixture: 'In-Ground Heavy Duty Well Light',
+          cct: '2700K Warm White (CRI 94)',
+          beam: '18° Spot with Honeycomb Glare Shield',
+          purpose: 'Accentuates the towering palm crowns framing the estate river vista.',
+          wattage: '15W Cree LED'
+        }
+      ]
+    },
     plants: [
       {
         name: 'Royal Palm',
@@ -387,6 +440,60 @@ export const PROJECTS = [
     highlights: ['Interactive choreographed fountain', 'Palm avenue & native planting', 'LED feature illumination'],
     description: 'A landmark public space transformation at the ceremonial entrance to Nigeria\'s capital — integrating formal gardens, a choreographed fountain, sculptural planting, and illuminated pathways around the iconic Abuja City Gate monument.',
     detail: 'Commissioned by the FCTA, this project repositioned the Abuja City Gate roundabout as a world-class civic landscape worthy of a national monument. Arabella\'s masterplan introduced a structured system of concentric promenades, fountain courts, and richly planted slopes — drawing on Nigeria\'s native flora while meeting the highest standards of urban design. The scheme includes a central interactive water fountain, massed seasonal colour planting, palm avenues, feature lighting, accessible pathways, and a perimeter living retaining wall system. The project was completed on programme and has since become one of Abuja\'s most photographed landmarks.',
+    lighting: {
+      dayImage: G.day3,
+      nightImage: G.night4,
+      hotspots: [
+        {
+          id: 'gate-monument-wash',
+          x: 49,
+          y: 36,
+          title: 'Monuments Arch Illumination',
+          category: 'Civic Monument',
+          fixture: 'Precision Narrow Architectural Flood (IP67)',
+          cct: '4000K Neutral White',
+          beam: '12° Narrow Punch',
+          purpose: 'Highlights the ceremonial Abuja Gate arch structure against the night sky without light trespass into traffic arteries.',
+          wattage: '45W High-Output LED'
+        },
+        {
+          id: 'fountain-aquatics',
+          x: 48,
+          y: 68,
+          title: 'Choreographed Fountain Illumination',
+          category: 'Interactive Water Feature',
+          fixture: 'Submersible DMX-Controlled RGBW LED (IP68)',
+          cct: 'Dynamic Aquatic White & Emerald',
+          beam: 'Wide 45° Underwater Optic',
+          purpose: 'Synchronized water plume uplighting creating kinetic shimmering effects visible from the highway approaches.',
+          wattage: '24W Low-Voltage Submersible'
+        },
+        {
+          id: 'palm-avenue-uplights',
+          x: 24,
+          y: 52,
+          title: 'Ceremonial Palm Ring Uplights',
+          category: 'Monumental Flora',
+          fixture: 'Recessed In-Ground Drive-Over Luminaire',
+          cct: '2700K Warm White',
+          beam: '24° Fluted Grazing Optic',
+          purpose: 'Accentuates the rhythmic towering trunks of Royal Palms framing the concentric ring promenade.',
+          wattage: '18W Drive-Over LED'
+        },
+        {
+          id: 'promenade-pathway-markers',
+          x: 76,
+          y: 78,
+          title: 'Concentric Promenade Step Markers',
+          category: 'Public Pedestrian Safety',
+          fixture: 'Recessed Low-Level Step & Paver Puck',
+          cct: '3000K Soft White',
+          beam: 'Asymmetric 180° Ground Sweep',
+          purpose: 'Provides gentle guidance along perimeter walkways and stone benches for evening pedestrians.',
+          wattage: '3W Sealed Paver LED'
+        }
+      ]
+    },
     plants: [
       {
         name: 'Royal Palm',
