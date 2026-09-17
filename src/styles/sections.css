@@ -1064,7 +1064,7 @@
 }
 
 .award-card__year {
-  font-family: var(--font-display, 'Playfair Display', serif);
+  font-family: var(--font-display, 'Cormorant Garamond', serif);
   font-size: 1.15rem;
   font-weight: 800;
   color: var(--forest-depth, #004016);
@@ -1088,7 +1088,7 @@
 }
 
 .award-card__body h3 {
-  font-family: var(--font-display, 'Playfair Display', serif);
+  font-family: var(--font-display, 'Cormorant Garamond', serif);
   font-size: 1.15rem;
   font-weight: 700;
   color: var(--canopy-green, #002E11);
