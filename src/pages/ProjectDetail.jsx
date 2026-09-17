@@ -5,6 +5,7 @@ import { ReactCompareSlider, ReactCompareSliderImage } from 'react-compare-slide
 import { useScrollAnimation } from '../hooks/useScrollAnimation'
 import { getRelated } from '../data/projects'
 import { getManagedProjects } from '../lib/insforge'
+import BotanicalPalette from '../components/BotanicalPalette'
 
 /* ── Icons ── */
 function PinIcon() {
@@ -257,6 +258,11 @@ export default function ProjectDetail() {
           </div>
         </div>
       </section>
+
+      {/* ── Botanical & Flora Palette ── */}
+      {project.plants && project.plants.length > 0 && (
+        <BotanicalPalette plants={project.plants} />
+      )}
 
       {/* ── Before / After Slider ── */}
       {project.beforeAfter && (

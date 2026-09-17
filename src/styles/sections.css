@@ -2430,3 +2430,298 @@
     font-size: 14px;
   }
 }
+
+/* ── Botanical & Specimen Palette (Project Detail) ── */
+.pd-botanical-section {
+  background: var(--ivory, #F7F5F0);
+  border-top: 1px solid rgba(0, 46, 17, 0.08);
+  border-bottom: 1px solid rgba(0, 46, 17, 0.08);
+}
+
+.pd-botanical__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.pd-botanical__intro {
+  font-size: 1rem;
+  color: var(--on-surface-variant, #555555);
+  max-width: 620px;
+  line-height: 1.6;
+  margin-top: 0.5rem;
+}
+
+.pd-botanical__finder-btn {
+  white-space: nowrap;
+}
+
+/* Metrics capsules */
+.pd-botanical__metrics {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+}
+
+.pd-botanical__metric {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  background: #FFFFFF;
+  border: 1px solid rgba(0, 46, 17, 0.09);
+  border-radius: 1rem;
+  padding: 1rem 1.25rem;
+  box-shadow: 0 4px 16px rgba(0, 46, 17, 0.03);
+}
+
+.pd-botanical__metric-icon {
+  font-size: 1.6rem;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.pd-botanical__metric strong {
+  display: block;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--canopy-green, #002E11);
+  line-height: 1.25;
+}
+
+.pd-botanical__metric span {
+  font-size: 0.74rem;
+  color: #666666;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+/* Category Filters */
+.pd-botanical__filters {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+
+.pd-botanical__filter-btn {
+  background: #FFFFFF;
+  border: 1px solid rgba(0, 46, 17, 0.15);
+  color: var(--canopy-green, #002E11);
+  font-size: 0.82rem;
+  font-weight: 600;
+  padding: 0.5rem 1.15rem;
+  border-radius: 2rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.pd-botanical__filter-btn:hover {
+  border-color: var(--vivid-growth, #00722C);
+  background: rgba(0, 114, 44, 0.06);
+}
+
+.pd-botanical__filter-btn.active {
+  background: var(--forest-depth, #004016);
+  color: #FFFFFF;
+  border-color: var(--forest-depth, #004016);
+}
+
+/* Grid */
+.pd-botanical__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.pd-plant-card {
+  background: #FFFFFF;
+  border-radius: 1.25rem;
+  padding: 1.75rem;
+  border: 1px solid rgba(0, 46, 17, 0.1);
+  box-shadow: 0 8px 24px rgba(0, 46, 17, 0.04);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.pd-plant-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3.5px;
+  background: linear-gradient(90deg, var(--forest-depth, #004016), var(--vivid-growth, #00722C));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.pd-plant-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(0, 114, 44, 0.3);
+  box-shadow: 0 16px 40px rgba(0, 46, 17, 0.1);
+}
+
+.pd-plant-card:hover::before {
+  opacity: 1;
+}
+
+.pd-plant-card__top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1.25rem;
+  gap: 0.75rem;
+}
+
+.pd-plant-card__avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(0, 114, 44, 0.08);
+  border: 1px solid rgba(0, 114, 44, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  flex-shrink: 0;
+}
+
+.pd-plant-card__badges {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.35rem;
+}
+
+.pd-plant-badge {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.25rem 0.6rem;
+  border-radius: 1rem;
+}
+
+.pd-plant-badge--native {
+  background: #E8F5E9;
+  color: #2E7D32;
+  border: 1px solid rgba(46, 125, 50, 0.2);
+}
+
+.pd-plant-badge--tag {
+  background: rgba(0, 64, 22, 0.06);
+  color: var(--forest-depth, #004016);
+  border: 1px solid rgba(0, 64, 22, 0.1);
+}
+
+.pd-plant-card__body {
+  margin-bottom: 1.5rem;
+}
+
+.pd-plant-card__scientific {
+  font-family: var(--font-display, 'Cormorant Garamond', serif);
+  font-style: italic;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--vivid-growth, #00722C);
+  margin-bottom: 0.25rem;
+  line-height: 1.2;
+}
+
+.pd-plant-card__common {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--canopy-green, #002E11);
+  margin-bottom: 0.65rem;
+  line-height: 1.25;
+}
+
+.pd-plant-card__role {
+  font-size: 0.86rem;
+  color: #555555;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.pd-plant-card__footer {
+  border-top: 1px dashed rgba(0, 0, 0, 0.08);
+  padding-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.pd-plant-card__specs {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.pd-plant-spec {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #555555;
+  background: var(--ivory, #F7F5F0);
+  padding: 0.2rem 0.5rem;
+  border-radius: 0.35rem;
+}
+
+.pd-plant-card__link {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--forest-depth, #004016);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  transition: color 0.2s ease;
+}
+
+.pd-plant-card__link:hover {
+  color: var(--vivid-growth, #00722C);
+}
+
+/* Footer card */
+.pd-botanical__footer-card {
+  background: #FFFFFF;
+  border-radius: 1.25rem;
+  padding: 2rem 2.5rem;
+  border: 1px solid rgba(0, 46, 17, 0.12);
+  box-shadow: 0 10px 30px rgba(0, 46, 17, 0.04);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.pd-botanical__footer-text h4 {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--canopy-green, #002E11);
+  margin-bottom: 0.4rem;
+}
+
+.pd-botanical__footer-text p {
+  font-size: 0.92rem;
+  color: #555555;
+  line-height: 1.55;
+  max-width: 640px;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .pd-botanical__footer-card {
+    padding: 1.5rem;
+  }
+}
