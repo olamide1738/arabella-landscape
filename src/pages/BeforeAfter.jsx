@@ -1,10 +1,10 @@
+import { useState } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
 import { useScrollAnimation } from '../hooks/useScrollAnimation'
 import BeforeAfterSlider from '../components/BeforeAfterSlider'
 
-// Each pair: { title, location, category, before, after, beforeLabel, afterLabel, description }
-// Uses existing project imagery. before = design render / early state, after = completed photo.
+// Authentic multi-project transformation pairs across Arabella's actual portfolio
 const PAIRS = [
   {
     title: 'Abuja City Gate',
@@ -13,47 +13,76 @@ const PAIRS = [
     before: '/images/abuja-gate-r4.jpg',
     after:  '/images/abuja-gate-3.png',
     beforeLabel: 'Design Render',
-    afterLabel:  'Completed 2024',
-    description: "From architectural rendering to award-winning civic reality — the City Gate roundabout transformed into one of Abuja's most visited public spaces.",
+    afterLabel:  'Completed Reality',
+    description: "From architectural 3D rendering to award-winning civic reality — the ceremonial City Gate roundabout transformed into Nigeria's most photographed national public monument.",
     slug: 'abuja-city-gate',
   },
   {
-    title: 'Meridian Corporate Campus',
-    location: 'Abuja',
-    category: 'Corporate',
-    before: '/images/abuja-gate-r2.jpg',
-    after:  '/images/abuja-gate-r1.jpg',
-    beforeLabel: 'Design Concept',
-    afterLabel:  'Built & Planted',
-    description: "Corporate campus landscape — showing the translation from design intent to a planted, lived-in environment that employees use daily.",
-    slug: 'meridian-corporate-campus',
-  },
-  {
-    title: 'Lekki Coastal Park',
-    location: 'Lekki, Lagos',
-    category: 'Recreational',
-    before: '/images/abuja-gate-2.png',
-    after:  '/images/abuja-gate-4.png',
-    beforeLabel: 'Site Before',
-    afterLabel:  'Park Completed',
-    description: "A coastal strip transformed into a biodiverse public park — with native planting, boardwalks, and community amenities where there was once bare land.",
-    slug: 'lekki-coastal-park',
-  },
-  {
-    title: 'Banana Island Retreat',
-    location: 'Banana Island, Lagos',
+    title: 'Private Residence, Asaba',
+    location: 'Asaba, Delta State',
     category: 'Residential',
-    before: '/images/abuja-gate-r5.jpg',
-    after:  '/images/abuja-gate-r3.jpg',
-    beforeLabel: 'Site Survey',
-    afterLabel:  'Garden Complete',
-    description: "Private estate garden on reclaimed land — engineered planting beds, mature specimens, and a naturalistic pool garden where there was once compacted fill.",
-    slug: 'banana-island-retreat',
+    before: '/images/asaba-residence-1.jpg',
+    after:  '/images/asaba-residence-2.jpg',
+    beforeLabel: 'Approach Road',
+    afterLabel:  'Cobblestone Court',
+    description: "Transitioning from the raw laterite soil approach to an exclusive private arrival sanctuary, anchored by handcrafted granite cobblestones, topiary box hedges, and centerpiece stone sculpture.",
+    slug: 'private-residence-asaba',
+  },
+  {
+    title: 'Adire Mall',
+    location: 'Abeokuta, Ogun State',
+    category: 'Commercial',
+    before: '/images/adire-mall-5.jpg',
+    after:  '/images/adire-mall-1.jpg',
+    beforeLabel: 'Daytime Framework',
+    afterLabel:  'Illuminated Boulevard',
+    description: "Transforming an artisan commercial market into a world-class cultural boulevard with heavy-duty interlocking pavers and a glowing emerald architectural skybridge.",
+    slug: 'adire-mall',
+  },
+  {
+    title: 'Mariam Babangida Leisure Park',
+    location: 'Asaba, Delta State',
+    category: 'Public Space',
+    before: '/images/mariam-babangida-4.jpg',
+    after:  '/images/mariam-babangida-1.jpg',
+    beforeLabel: 'Site Works & Berms',
+    afterLabel:  'Lagoon & Tower Plaza',
+    description: "10.5 hectares of regional delta floodplains sculpted into rolling amphitheater berms, an engineered aquatic lagoon, and a monumental 30-meter observation tower.",
+    slug: 'mariam-babangida-leisure-park',
+  },
+  {
+    title: 'GTBank HNI Branch',
+    location: 'Bayo Kuku, Ikoyi, Lagos',
+    category: 'Commercial',
+    before: '/images/gtb-bayo-kuku-3.jpg',
+    after:  '/images/gtb-bayo-kuku-1.jpg',
+    beforeLabel: 'Steel Trellis Matrix',
+    afterLabel:  'Living Wall Bio-Facade',
+    description: "Engineering Nigeria's premier multi-story vertical bio-facade — converting bare structural steel trellis into a flourishing micro-misted living wall that cools the corporate courtyard.",
+    slug: 'gtb-bayo-kuku',
+  },
+  {
+    title: 'Asaba Country Home',
+    location: 'Asaba, Delta State',
+    category: 'Residential',
+    before: '/images/asaba-country-home-4.jpg',
+    after:  '/images/asaba-country-home-1.jpg',
+    beforeLabel: 'Riparian Pathway',
+    afterLabel:  'Waterfront Pool Terrace',
+    description: "Transforming raw River Niger waterfront acreage into a terraced country estate, uniting an infinity pool deck, stone retaining walls, and cobblestone garden promenades.",
+    slug: 'asaba-country-home',
   },
 ]
 
+const FILTERS = ['All', 'Public Space', 'Commercial', 'Residential']
+
 export default function BeforeAfter() {
+  const [activeFilter, setActiveFilter] = useState('All')
   const sectionRef = useScrollAnimation()
+
+  const filteredPairs = activeFilter === 'All'
+    ? PAIRS
+    : PAIRS.filter((pair) => pair.category === activeFilter)
 
   return (
     <main ref={sectionRef}>
@@ -69,14 +98,33 @@ export default function BeforeAfter() {
         <div className="container">
           <p className="section-label" style={{ justifyContent: 'center' }}>Transformations</p>
           <h1>Before & After</h1>
-          <p>Drag the slider to reveal the transformation. Every landscape starts somewhere — here's where ours began and where they ended up.</p>
+          <p>Drag the slider to reveal the transformation. Every landscape starts somewhere — here's where ours began and where they ended up across Nigeria.</p>
         </div>
       </section>
 
       <section className="section" style={{ background: 'var(--surface-container-low)' }}>
         <div className="container">
+          {/* Category Filter Tabs */}
+          <div className="filter-tabs" style={{ marginBottom: '3rem', justifyContent: 'center' }}>
+            {FILTERS.map((cat) => {
+              const count = cat === 'All'
+                ? PAIRS.length
+                : PAIRS.filter((p) => p.category === cat).length
+              return (
+                <button
+                  key={cat}
+                  className={`filter-tab${activeFilter === cat ? ' active' : ''}`}
+                  onClick={() => setActiveFilter(cat)}
+                >
+                  {cat}
+                  <span className="filter-tab__count">{count}</span>
+                </button>
+              )
+            })}
+          </div>
+
           <div className="ba-page-grid stagger-children">
-            {PAIRS.map((pair) => (
+            {filteredPairs.map((pair) => (
               <div key={pair.slug} className="ba-item animate-on-scroll">
                 <div className="ba-item__header">
                   <div>
