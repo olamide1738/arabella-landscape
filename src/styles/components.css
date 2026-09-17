@@ -2435,23 +2435,24 @@
 .search-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(10, 30, 18, 0.75);
-  backdrop-filter: blur(6px);
-  z-index: 800;
+  background: rgba(0, 24, 10, 0.68);
+  -webkit-backdrop-filter: blur(18px);
+  backdrop-filter: blur(18px);
+  z-index: 2000;
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: center;
-  padding: 8vh 1rem 2rem;
+  padding: 2rem 1.25rem;
 }
 
 .search-box {
-  background: var(--pure-white);
-  border-radius: var(--rounded-xl);
+  background: #FFFFFF;
+  border-radius: 1.25rem;
   width: 100%;
-  max-width: 600px;
+  max-width: 620px;
   overflow: hidden;
-  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.3);
-  animation: modal-in 0.18s ease;
+  box-shadow: 0 30px 80px rgba(0, 20, 10, 0.45), 0 0 0 1px rgba(255, 255, 255, 0.2);
+  animation: modal-in 0.22s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .search-box__input-row {
