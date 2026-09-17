@@ -613,7 +613,10 @@ export const PROJECTS = [
       '/images/adire-mall-1.jpg',
       '/images/adire-mall-2.jpg',
       '/images/adire-mall-3.jpg',
-      '/images/adire-mall-4.jpg'
+      '/images/adire-mall-4.jpg',
+      '/images/adire-mall-5.jpg',
+      '/images/adire-mall-6.jpg',
+      '/images/adire-mall-7.jpg'
     ],
     area: '3.4 hectares',
     client: 'Ogun State Ministry of Industry, Trade & Investment',
